@@ -1,0 +1,16 @@
+{
+  "pdf_pages": 15,
+  "figures": 6,
+  "target_minutes": 30,
+  "presenter_rehearsal": false,
+  "protected_research_files": 369,
+  "all_unchanged": true,
+  "estimation_or_solves": 0,
+  "main_table_matches_generated_rows": true,
+  "compiler_layout_and_reference_checks": "passed",
+  "markdown_files_checked": 43,
+  "missing_local_links": [],
+  "git_diff_check": "passed",
+  "visual_review": "All pages inspected; corrected slides and final footer inspected again.",
+  "pdf_sha256": "af69ba32e511a585f62e0dd9913930421a54c4513275a06b20a1976ac931c6ed"
+}

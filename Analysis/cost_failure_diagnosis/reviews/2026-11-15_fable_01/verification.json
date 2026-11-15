@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "rows": 259986,
+  "markets": 7996,
+  "common_markets": 7960,
+  "modal_definition": "Full v5 sample store-by-UPC modal package price, lowest price breaks ties; discount <95% of mode minus 1e-10.",
+  "discount_row_fraction": 0.23249713446108636,
+  "unflagged_discount_package_fraction": 0.12487528972444513,
+  "median_rolls_per_trip": 0.44917214181605375,
+  "markets_above_one_roll": 325,
+  "markets_above_half_roll": 2900,
+  "weekly_scott_single_median_per_trip": 0.03396844152016082,
+  "excluded_inside_share_min": 0.6309923298178318,
+  "included_inside_share_max": 0.6370082342177477,
+  "max_existing_coefficient_reconstruction_error": 8.171241461241152e-14,
+  "new_specifications_estimated": 0,
+  "equilibrium_solves": 0,
+  "note": "Fixed-residual subset ratios are descriptive, not subgroup estimates. Physical rolls/trip are not purchase probabilities. Event windows do not identify stockpiling."
+}

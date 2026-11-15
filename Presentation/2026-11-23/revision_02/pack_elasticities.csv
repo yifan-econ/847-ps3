@@ -1,0 +1,9 @@
+model,group,weighted_price,weighted_elasticity
+linear__aac__rho00,Single roll,0.51093991614277,-1.0015510353207522
+linear__aac__rho00,Multipack,1.2919424480120352,-2.567145603428533
+linear__other_zone__rho00,Single roll,0.51093991614277,-1.328104401591842
+linear__other_zone__rho00,Multipack,1.2919424480120352,-3.4041574070648224
+log__aac__rho00,Single roll,0.51093991614277,-5.181509068524171
+log__aac__rho00,Multipack,1.2919424480120352,-5.234834117825056
+log__other_zone__rho00,Single roll,0.51093991614277,-4.985388093138528
+log__other_zone__rho00,Multipack,1.2919424480120352,-5.036694780502171

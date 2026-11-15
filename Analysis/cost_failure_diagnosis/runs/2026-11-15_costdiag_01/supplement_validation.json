@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "protected_files": 303,
+  "changed": [],
+  "code_sha256": "46291e4651691342f7f297238f6c23f2d19857f971f45ecbb9d3b0730eabd36d",
+  "rows": 7996,
+  "common_markets": 7960,
+  "examples": 1600,
+  "reason": "Primary diagnosis showed log-price cost failures can disappear on the common numerical sample. Trace excluded markets and all-input cases without estimating or selecting a new sample."
+}

@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "matched_product_rows": 259986,
+  "matched_markets": 7996,
+  "max_price_error": 1.1102230246251565e-16,
+  "max_aac_error": 8.881784197001252e-16,
+  "max_quantity_error": 0.0,
+  "deal_mismatches": 0,
+  "max_traffic_error": 0.0,
+  "seven_days_every_market": true,
+  "tail_markets": 18,
+  "tail_week_counts": {
+    "110": 9,
+    "99": 7,
+    "149": 1,
+    "117": 1
+  },
+  "protected_files": 303,
+  "changed": [],
+  "code_sha256": "c7aaca5815f99bc1b9a9ffa71f6d142ff55eaa9b640d491157af803d2acdf295",
+  "interpretation": "Saved quantities, PRICE/QTY, AAC proxy, deal and seven-day traffic match raw inputs. This verifies provenance, not accuracy of raw data or the one-package-per-shopping-opportunity interpretation."
+}

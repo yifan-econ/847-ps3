@@ -1,0 +1,18 @@
+{
+  "rows": 259986,
+  "markets": 7996,
+  "stores": 83,
+  "upcs": 50,
+  "median_price": 1.15,
+  "median_aac": 0.901975,
+  "median_other_zone_price": 1.1399107142857143,
+  "median_product_share": 0.0021873291149128,
+  "median_products": 32.0,
+  "median_inside_share": 0.13259076889904642,
+  "single_roll_package_fraction": 0.37664145190249493,
+  "deal_row_fraction": 0.2473979368119822,
+  "typical_market": "72_86",
+  "promotion_store": 137,
+  "typical_rule": "Nearest to medians of inside share and product count, standardized by sample standard deviations; stable market-ID tie break.",
+  "promotion_rule": "Scott white UPC; store with most observed weeks, ascending store tie break; no outcome-based selection."
+}

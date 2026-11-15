@@ -1,0 +1,114 @@
+# Verification of Fable's cost-diagnosis feedback
+
+Date: 2026-11-15. Source commit: d5fcf7c9b0c9cc44cdf382f634904e2082618669. Review branch: codex/review-004-cost-feedback. The [supplied feedback](fable_feedback.txt) is preserved as collaborator input, not treated as verified evidence by itself. This review supersedes the interpretation and next-step recommendation of the earlier [diagnosis report](../../runs/2026-11-15_costdiag_01/REPORT.md); its calculations and original files remain unchanged.
+
+**Conclusion:** Fable's main numerical findings reproduce. The earlier accounting labels and emphasis need correction. Add joint cost classifications, make the common-AAC retailer diagnostic prominent, and distinguish the large full-input log-price improvement from the smaller numerical-sample selection effect. The evidence supports stopping this bounded diagnostic round and reporting conditional results with explicit limitations. It does not establish that no demand adjustment could help, identify stockpiling, or demonstrate a general impossibility of static manufacturer pricing.
+
+## 1. Correct the cost labels and show both accounting orders
+
+All rows below have negative manufacturer cost under linear price/AAC/rho zero/dollar margins on the common numerical sample. Let m_s be the singleton markup, m_f the portfolio markup, p retail price and a observed AAC. The original three-way partition was arithmetically correct but its labels could be read as exclusive economic explanations.
+
+| Joint inequalities | Share of negative-cost package volume |
+|---|---:|
+| m_s > p | 29.11% |
+| a < m_s <= p and m_f > p | 22.28% |
+| a < m_s <= p and m_f <= p | 10.02% |
+| m_s <= min(a,p) and m_f > p | 8.77% |
+| m_s <= min(a,p) and a < m_f <= p | 29.82% |
+
+These mutually exclusive descriptions do not assign a causal order. They show why **“retailer wedge only” should be replaced by “manufacturer cost negative despite nonnegative portfolio effective cost.”** In 29.82 of that category's 39.84 percentage points, the singleton markup is below AAC: portfolio pricing also matters to the negative manufacturer-cost sign. Likewise, in 22.28 of the previous “portfolio crosses” category's 31.05 points, the singleton markup already exceeds AAC.
+
+In this cell, singleton markup already exceeds AAC for **61.41%** of negative-cost package volume. The remaining **38.59%** requires the portfolio increment to cross AAC, holding observed prices/shares, demand parameters and AAC fixed. “Requires” is an accounting condition under those fixed objects, not a causal attribution or a newly solved alternative-ownership equilibrium.
+
+| Linear/AAC comparison | rho=0 | rho=.75 |
+|---|---:|---:|
+| Portfolio crossing when evaluated before retailer wedge | 31.05% | 59.14% |
+| Retailer crossing when evaluated after portfolio | 39.84% | 9.46% |
+| Portfolio crossing when evaluated after retailer wedge | 38.59% | 42.66% |
+| Retailer crossing when evaluated before portfolio | 32.30% | 25.95% |
+
+Thus part of the apparent movement between categories was the chosen order. The direct increase in Scott white's saved portfolio markup, from $0.582 to $1.013 across the linear/AAC rho grid, remains valid; it should carry the nesting interpretation rather than a supposedly causal change in category shares. [Joint classifications](joint_cost_classification.csv) cover all 16 dollar-rule cells and both sample scopes; [both orders](both_accounting_orders.csv) retain any cases excluded from the order comparison because AAC exceeds price. None are excluded for the headline linear/AAC common-sample comparisons.
+
+## 2. Report retailer identities and the common-AAC diagnostic
+
+The percentage-rule manufacturer cost is q times effective cost, with q>0. Equal signs are therefore an identity, not a separate empirical robustness result. In linear/AAC rho zero, the old diagonal comparison nearly removes the dollar-rule retailer-wedge category by construction; the small remaining difference reflects within-owner q dispersion.
+
+Common numerical sample, active-product package incidence:
+
+| Cost definition | Negative packages |
+|---|---:|
+| AAC minus dollar-rule markup: observed wholesale proxy | 37.217% |
+| AAC minus percentage-rule markup: same-AAC proxy diagnostic | 18.852% |
+| q*p minus percentage-rule markup: calibrated percentage manufacturer cost | 22.368% |
+| p minus dollar-rule markup: dollar effective cost | 22.390% |
+
+The common-AAC diagnostic deserves equal visibility: it separates markup-rule changes while holding the wholesale proxy fixed. The earlier “accounting hybrid” label was technically accurate, but obscured that this was already a useful prespecified observed-proxy diagnostic. It still must not replace calibrated percentage costs in the equilibrium model: when AAC differs from q*p, using AAC-minus-markup as the calibrated cost would generally lose baseline reproduction. Report **both** quantities, with their different roles.
+
+The effective-cost sign flips in 97 of 226,378 common-sample active rows for linear/AAC, reproducing Fable. q*p minus AAC averages -$0.04665 on discounted rows and +$0.00900 on other rows, using baseline package weights. These wholesale definitions are materially different, not interchangeable observations of the same variable.
+
+One qualification to the stated mean-markup identity: the package-weighted mean identity using a package-weighted mean q is exact for **linear price**. In general the mean q uses weights s_j/(-b_j); with log price these are proportional to revenue, s_j*p_j. The general identity reproduces within 2.7e-15. Using package-weighted q in the log cases produces maximum owner-market discrepancies of about $0.031–$0.032, so that special linear identity should not be generalized. Constant q within an owner still makes its effective-cost inversion agree across retailer rules for either price form. It does not imply equivalence after firms with different q merge.
+
+Evidence: [retailer identity checks](retailer_identity_checks.csv), [discount-group cost diagnostics](promotion_costs.csv), and the earlier [complete accounting bridge](../../runs/2026-11-15_costdiag_01/retailer_bridge.csv).
+
+## 3. Log-price improvement is real within the fitted assumptions; selection is a secondary effect
+
+Full-input dollar-rule manufacturer-negative package volume falls from **39.06% in linear/AAC to 1.70% in log/AAC** at rho zero. The common numerical screen then turns 1.70% into 0.00%. Selection therefore explains the zero on the common sample, not the large linear-to-log improvement. The earlier report contained the correct full-input table but put too much interpretive emphasis on the tail.
+
+The 36 excluded markets all have inside share at least 0.63099; the largest included share is 0.63701. This is a strong high-share association with the numerical screen, not an explicitly imposed share cutoff: the small overlap also precludes describing it as a literal threshold rule. The source screen still applies convergence, reproduction, start agreement and curvature criteria.
+
+Common-sample package-weighted own elasticity for all modeled single-roll products is **-1.029 under linear/AAC and -5.244 under log/AAC** at rho zero. That large fitted difference, including price functional form and its estimated coefficient, directly changes implied markups. Its economic interpretation needs attention even though the cost arithmetic is correct. [Single-roll elasticities](single_roll_elasticities.csv).
+
+## 4. Verify discount-related IV moment contributions without calling them new estimates
+
+To make “promotion” reproducible, define a discounted row as price below 95% of its store/UPC modal package price over the **full v5 sample**, using the lower price for a modal-frequency tie. This gives 60,446 rows (23.2497%). It is a price-discount proxy, not direct observation of promotion, stockpiling, or the regular price; non-discounted rows are not guaranteed promotion-free.
+
+Residualize y, price and instrument against the same full-sample store/UPC and week effects and deal control. The scalar just-identified price coefficient is sum(z_tilde*y_tilde)/sum(z_tilde*p_tilde). Splitting those fixed cross-products reproduces all four saved rho-zero coefficients to within 8.2e-14:
+
+| Cell | Discount share of instrument–price sum | Discount share of instrument–outcome sum | Saved/full reconstructed beta | Complement ratio with residuals fixed |
+|---|---:|---:|---:|---:|
+| Linear / AAC | 49.31% | 60.74% | -2.028041 | -1.570917 |
+| Linear / other-zone | 45.04% | 49.55% | -2.689278 | -2.468335 |
+| Log / AAC | 56.14% | 66.13% | -5.387948 | -4.161075 |
+| Log / other-zone | 39.51% | 51.84% | -5.184013 | -4.127537 |
+
+Weeks 99/110 constitute 1.8336% of rows and 15.44% of the log/AAC instrument–price sum (21.47% of its instrument–outcome sum). Fable's figures reproduce. The [moment table](iv_moment_contributions.csv) also shows the strictly-below-mode alternative, which selects 31.61% of rows, illustrating why the 5% definition must be stated.
+
+The complement column **does not re-absorb fixed effects or refit controls on a new sample**. It is not a regular-price demand estimate, a causal effect of promotions, or a test of IV exclusion. A lower absolute beta would increase markups at fixed shares/rho/form, so merely substituting that lower sensitivity would worsen cost feasibility. This monotonic algebra does not prove that every alternative demand model or economically justified measurement change must worsen it.
+
+These percentages allocate signed residual cross-product sums. They are not measured shares of exogenous identifying variation.
+
+Linear/AAC common-sample manufacturer-negative package incidence is 37.88% among discounted rows and 36.61% among other rows. Its failures are not confined to the discount proxy. For linear/other-zone, discounted rows contribute 90.38% of the negative package volume. Keep these IV-specific distinctions. [Cost splits](promotion_costs.csv).
+
+## 5. Physical purchase volume is broader than the 18-market tail
+
+The following v5-sample calculations reproduce: median rolls/trip is **0.4492**; 325 markets exceed one roll/trip and 2,900 exceed 0.5. **12.4875% of all baseline packages** sell more than 5% below modal price with deal=0. The deal indicator therefore does not capture all price reductions. This disagreement does not by itself prove that the source sale code is erroneous; it and the modal-discount proxy measure different things.
+
+| Week | v5 stores | Scott singles / 100 trips | All rolls / 100 trips | Broader v1 stores | Broader v1 Scott singles / 100 trips |
+|---|---:|---:|---:|---:|---:|
+| 99 | 73 | 45.78 | 71.61 | 76 | 46.13 |
+| 105 | 64 | 2.42 | 158.50 | 79 | 2.48 |
+| 110 | 75 | 45.07 | 75.79 | 78 | 44.35 |
+
+The v5 median weekly Scott-single rate is 3.397 per 100 trips. Scott-single weighted prices in weeks 99/110 are about $0.39 versus modal-price benchmarks about $0.566–$0.570. Fable's 76–78 stores and 46/44 rates reproduce on the broader 1991–1992 v1 panel (277,363 rows, 86 stores), whereas the estimation sample uses the smaller complete-market v4 keys. This is a scope difference, not evidence of different results in the same sample. [Weekly scope comparison](weekly_scope_comparison.csv), [weekly series](weekly_purchase_volume.csv), [market volume](market_purchase_volume.csv).
+
+Roll counts are physical-volume diagnostics, **not choice probabilities**. A four-roll package purchased by one customer already contributes four rolls: rolls/trip above one is not by itself a violation of a one-package choice model. Roll counts also do not standardize sheets or roll size. They help show why a package-count metric highlights single-roll events differently from multipacks, but do not reveal buyers or units per buyer and must not be substituted into the demand shares.
+
+Descriptive eight-week post-event median Scott-single rates are 2.74 per 100 trips after week 99 and 2.89 after week 110. Pooled rates are 2.75 and 4.11 respectively; week 117 contains another spike. Thus a claim that only about one-tenth of a spike was “recouped” depends on a counterfactual baseline, aggregation and treatment of subsequent promotions. We do not adopt it as identified inventory payback. Other-brand roll volume is lower in the two spike weeks, but the series cannot separate switching from stockpiling or verify true customer counts. [Window definitions](post_event_definitions.csv), [descriptive event windows](descriptive_event_windows.csv).
+
+## 6. Adopt a narrower, defensible reporting claim
+
+**REVIEW-005 correction, 2026-11-15:** the earlier accepted-sample exception was misleading. All four log/rho-zero scenarios accept exactly the nonnegative-effective-cost markets. Percentage manufacturer/effective signs agree by identity; their accepted-sample zero is not independent cost validation. The numerical screen does not explicitly test costs, so this equality is an observed selection pattern, not a universal algorithmic guarantee. [Independent follow-up](../2026-11-15_fable_02/REPORT.md). The exact pre-correction report is archived in that review as `prior_review_report.md.txt`; all numerical tables here remain unchanged.
+
+Accordingly, replace the proposed broad claim that static manufacturer pricing “cannot rationalize ScotTissue prices in any scenario” with:
+
+> On full input, negative implied manufacturer costs attach to 61.6–99.96% of Scott single-roll package volume for linear/AAC, 21.3–80.1% for linear/other-zone, and 3.05–15.62% for log price. At log price/rho zero, percentage-margin failures occur in 11 markets per scenario, all numerically rejected; dollar-margin failures occur in 18, with 11 rejected and seven accepted. Accepted-sample costs are not an independent validation. These are conditional model-consistency findings, not proof of general static-pricing failure or causal promotion-driven demand. [All 20 scope-specific figures](scott_cost_claim_check.csv).
+
+The next deliverable should consolidate this claim with conditional merger scenario comparisons, cost coverage and identification limits. No further estimation or open-ended week-99/110 investigation is needed merely to repeat the descriptive facts now documented. A new model would require a separate economic question; these checks neither establish its necessity for a conditional classroom exercise nor prove that it could not improve the fit. The research's unresolved assumptions remain explicit rather than being declared solved.
+
+## Reproduction and preservation
+
+```sh
+uv run --locked python Analysis/cost_failure_diagnosis/src/review_feedback.py --review-id NEW_UNIQUE_REVIEW_ID
+```
+
+The source reproduction script and [scope supplement](scope_supplement.py) are snapshotted here. The latter resolves the broader-v1 weekly counts and post-event definitions. [Verification](verification.json) and [preservation](preservation.json) record the observed checks. All **333 pre-existing research files**, including both the v5 and first-diagnosis outputs, are unchanged. No new demand specification or equilibrium was estimated; reconstructing the four existing IV coefficients is labeled separately from estimation. Current documentation is revised in place; historical artifacts retain the earlier interpretation for auditability.

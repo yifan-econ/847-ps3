@@ -1,0 +1,12 @@
+{
+  "protected_files": 358,
+  "unchanged_files": 357,
+  "intentional_document_amendments": [
+    "Analysis/cost_failure_diagnosis/reviews/2026-11-15_fable_01/REPORT.md"
+  ],
+  "original_report_archive_hash_matches": true,
+  "historical_numerical_results_unchanged": true,
+  "markdown_files_checked": 41,
+  "missing_local_links": [],
+  "git_diff_check": "passed"
+}

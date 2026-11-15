@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "scenarios": 20,
+  "rows": 259986,
+  "markets": 7996,
+  "common_markets": 7960,
+  "active_upcs": 44,
+  "max_discrepancies": {
+    "markup_saved": 3.694822225952521e-13,
+    "cost_saved": 3.694822225952521e-13,
+    "singleton_identity": 6.661338147750939e-16,
+    "dense_markup": 9.43689570931383e-15,
+    "retailer_bridge": 1.3322676295501878e-15
+  },
+  "group_partition_checks": [
+    "manufacturer",
+    "upc",
+    "pack"
+  ],
+  "numerical_solvers_called": 0,
+  "estimations_run": 0
+}

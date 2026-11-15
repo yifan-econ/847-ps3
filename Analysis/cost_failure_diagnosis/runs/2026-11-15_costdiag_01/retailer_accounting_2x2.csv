@@ -1,0 +1,33 @@
+cell,scope,wholesale,markup,negative_package_fraction,passing_markets,interpretation
+linear__aac__rho00,all_input_markets,observed_AAC,dollar_FOC,0.3906167061997213,945,saved scenario
+linear__aac__rho00,all_input_markets,observed_AAC,percentage_FOC,0.21279875347438004,5616,accounting hybrid only; not a structural scenario
+linear__aac__rho00,all_input_markets,median_margin_qp,dollar_FOC,0.3774697281705095,1350,accounting hybrid only; not a structural scenario
+linear__aac__rho00,all_input_markets,median_margin_qp,percentage_FOC,0.24683893473334914,5323,saved scenario
+linear__aac__rho00,common_numerically_valid,observed_AAC,dollar_FOC,0.3721730292843914,945,saved scenario
+linear__aac__rho00,common_numerically_valid,observed_AAC,percentage_FOC,0.18852437410856154,5616,accounting hybrid only; not a structural scenario
+linear__aac__rho00,common_numerically_valid,median_margin_qp,dollar_FOC,0.35854597108746694,1350,accounting hybrid only; not a structural scenario
+linear__aac__rho00,common_numerically_valid,median_margin_qp,percentage_FOC,0.2236817007803354,5323,saved scenario
+linear__other_zone__rho00,all_input_markets,observed_AAC,dollar_FOC,0.1057417802805952,7549,saved scenario
+linear__other_zone__rho00,all_input_markets,observed_AAC,percentage_FOC,0.08548209314437465,7790,accounting hybrid only; not a structural scenario
+linear__other_zone__rho00,all_input_markets,median_margin_qp,dollar_FOC,0.11878465012335222,7572,accounting hybrid only; not a structural scenario
+linear__other_zone__rho00,all_input_markets,median_margin_qp,percentage_FOC,0.07995517721729395,7807,saved scenario
+linear__other_zone__rho00,common_numerically_valid,observed_AAC,dollar_FOC,0.0779591573175601,7549,saved scenario
+linear__other_zone__rho00,common_numerically_valid,observed_AAC,percentage_FOC,0.057076189215698715,7790,accounting hybrid only; not a structural scenario
+linear__other_zone__rho00,common_numerically_valid,median_margin_qp,dollar_FOC,0.09145567691585267,7572,accounting hybrid only; not a structural scenario
+linear__other_zone__rho00,common_numerically_valid,median_margin_qp,percentage_FOC,0.05138623112519019,7807,saved scenario
+log__aac__rho00,all_input_markets,observed_AAC,dollar_FOC,0.017038589749516064,7978,saved scenario
+log__aac__rho00,all_input_markets,observed_AAC,percentage_FOC,0.015332574794395334,7981,accounting hybrid only; not a structural scenario
+log__aac__rho00,all_input_markets,median_margin_qp,dollar_FOC,0.011590666415270677,7985,accounting hybrid only; not a structural scenario
+log__aac__rho00,all_input_markets,median_margin_qp,percentage_FOC,0.01121771335302942,7985,saved scenario
+log__aac__rho00,common_numerically_valid,observed_AAC,dollar_FOC,0.0,7960,saved scenario
+log__aac__rho00,common_numerically_valid,observed_AAC,percentage_FOC,0.0,7960,accounting hybrid only; not a structural scenario
+log__aac__rho00,common_numerically_valid,median_margin_qp,dollar_FOC,0.0,7960,accounting hybrid only; not a structural scenario
+log__aac__rho00,common_numerically_valid,median_margin_qp,percentage_FOC,0.0,7960,saved scenario
+log__other_zone__rho00,all_input_markets,observed_AAC,dollar_FOC,0.017039354919930992,7978,saved scenario
+log__other_zone__rho00,all_input_markets,observed_AAC,percentage_FOC,0.015332574794395334,7981,accounting hybrid only; not a structural scenario
+log__other_zone__rho00,all_input_markets,median_margin_qp,dollar_FOC,0.011590666415270677,7985,accounting hybrid only; not a structural scenario
+log__other_zone__rho00,all_input_markets,median_margin_qp,percentage_FOC,0.011588595954147927,7985,saved scenario
+log__other_zone__rho00,common_numerically_valid,observed_AAC,dollar_FOC,0.0,7960,saved scenario
+log__other_zone__rho00,common_numerically_valid,observed_AAC,percentage_FOC,0.0,7960,accounting hybrid only; not a structural scenario
+log__other_zone__rho00,common_numerically_valid,median_margin_qp,dollar_FOC,0.0,7960,accounting hybrid only; not a structural scenario
+log__other_zone__rho00,common_numerically_valid,median_margin_qp,percentage_FOC,0.0,7960,saved scenario

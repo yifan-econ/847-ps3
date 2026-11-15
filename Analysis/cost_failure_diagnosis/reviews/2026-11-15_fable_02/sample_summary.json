@@ -1,0 +1,20 @@
+[
+  {
+    "kept": false,
+    "markets": 512,
+    "week105_stores": 15,
+    "median_packages_per_trip": 0.12168382421258594,
+    "median_rolls_per_trip": 0.42643667046362,
+    "pooled_packages_per_trip": 0.14829065572390623,
+    "pooled_rolls_per_trip": 0.502193594370963
+  },
+  {
+    "kept": true,
+    "markets": 7996,
+    "week105_stores": 64,
+    "median_packages_per_trip": 0.1325907688990487,
+    "median_rolls_per_trip": 0.44917214181605375,
+    "pooled_packages_per_trip": 0.1571513176587555,
+    "pooled_rolls_per_trip": 0.503122470467708
+  }
+]

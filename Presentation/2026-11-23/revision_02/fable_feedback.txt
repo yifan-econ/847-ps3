@@ -1,0 +1,66 @@
+Nearly done reading; pulling the saved demand-estimate table, which I think the deck is missing.
+
+# Review of the November 23 presentation draft
+
+The draft is a sound base: the structure covers all six required parts, and the results table and sensitivity figures match the saved v5 output. It is not ready to present, mainly because it never shows the demand estimates and never explains why costs turn negative.
+
+My PDF reader could not open `presentation.pdf` (the file itself is not encrypted). I reviewed the three rendered contact sheets, which predate the final build by five minutes, plus `main.tex`, the figure files and the notes. The text-beside-figure overflow visible on slides 8 and 12 in those sheets looks fixed in the source; please confirm by eye.
+
+## Story
+
+The question is clear and the order is right. Three links in the argument are missing:
+
+- **No demand estimates appear anywhere.** The deck goes from instruments (slide 8) to supply (slide 9) without a coefficient, standard error or elasticity.
+- **The negative costs are shown but not explained.** Under linear price, logit elasticity is proportional to price, so a $0.52 roll gets about −1.0 while large packs get about −5.8. Under log price every product gets about −5.2. That one fact is the mechanism, and it is absent.
+- **Slides 11 and 12 are not connected.** The scenarios with the largest merger effects (linear price, high nesting) are the ones where 80–100% of Scott single-roll volume has negative cost. The talk should say this in one sentence.
+
+A likely reason for that last link is that Kimberly-Clark's price rise scales with Scott's implied markup, the same markup that is too large. I have not computed Kimberly-Clark-to-Scott diversion; it is a closed-form number from saved shares and would make the point concrete.
+
+## Slide-by-slide
+
+| Slide | Change |
+|---|---|
+| 2 Counterfactual | Add a one-line preview of the answer: category prices +0.2% to +3.4%, Kimberly-Clark +1% to +24%, and a supply side that fails for the best-selling product. |
+| 3 Industry | Say what the chart implies: Scott has 43% of packages and Kimberly-Clark 5%, with Kleenex entering in July 1991. Small category effects follow from that. |
+| 4 Data | Too dense. Justify store-week explicitly: weekly prices move a lot, which is the assignment's own criterion, but the movement is temporary price cuts. |
+| 5 Typical market | Keep, one minute. Clean the raw product labels (`$SCOTT`, `~NRTHN`). |
+| 6 Promotions | Good figure. Use dates rather than week index. |
+| 7 Demand | Put what the error term contains in the body, not the footnote: unrecorded promotion activity. About 12% of packages sell at a discount with no deal flag. |
+| 8 Instruments | Replace the bar chart with a small first-stage table. Say plainly that the other-zone price is nearly the same variable (partial R² 0.7–0.8) because promotions are chain-wide. |
+| New, after 8 | Demand estimates: the four coefficients with standard errors, median own elasticities (−2.3, −3.1, −5.4, −5.2), elasticity by pack size, and the OLS comparison if it is on the same sample. |
+| 9 Supply | Too dense. The retailer rule matters least; cut it to one line and state that cost equals price minus implied markup. Name the solution algorithm. |
+| 10 Results | Retitle with the finding. Add a Scott column (+0.3% to +0.5%); move percentage margins to a backup slide. |
+| 11 Nesting | Keep. Add that category demand becomes inelastic at high nesting (about −0.5 under linear price). |
+| 12 Negative costs | Lead with one worked example: Scott white single roll, price $0.52, wholesale $0.48, implied markup $0.58 rising to $1.01. The y-axis label is clipped in the figure file. |
+| 13 Why | Replace the "cross-product" and "numerical recovery" bullets with the pack-size elasticity fact and store 124 in week 110 (29,209 packages against 29,213 trips). |
+| 14–15 | Merge into one slide; they repeat each other. |
+
+Across all slides: remove internal labels the class cannot parse ("v5", "REVIEW-005", "common numerical markets", "saved common keys", "rho-zero cells"). The tiny grey footnotes will not be readable; move denominators into captions.
+
+## Assignment coverage gaps
+
+- **First-stage regression and demand results:** asked for explicitly; currently a bar chart and nothing.
+- **Where price variation comes from:** one series is shown; a two-line split (across products, within product over time) would answer it.
+- **Mixed logit:** the references are Nevo and PyBLP, so expect the question. It needs a backup slide: eight attempts, six converged, five of six joint tests reject.
+- **Uncertainty:** say once that the counterfactual ranges are not confidence intervals.
+
+## Priorities before November 23
+
+**Must change**
+1. Add the demand-estimates slide.
+2. Add the worked cost example and the elasticity-by-pack-size explanation.
+3. State the link between large predicted effects and cost failures.
+4. Justify store-week and name what the error term contains.
+5. Strip internal jargon and retitle slides as findings.
+6. Merge slides 14 and 15 and target 25–26 minutes, leaving room for questions; the current plan allocates all 30.
+7. Share the work with Wenhan now. Review by November 18 is impossible while everything is uncommitted and local.
+
+**Nice to have**
+- Kimberly-Clark-to-Scott diversion number.
+- Backup slides: mixed logit, retailer rule, welfare.
+- Dates on the promotion figure and the price-variation split.
+
+## Schedule and split
+
+- **Rehearsal:** one rehearsal on November 21 is late. Do a rough timed run by November 19, so cuts happen before the final revision rather than after it.
+- **Speaking split:** the proposal gives Wenhan slides 9–15, which is the supply and cost work done after the baseline Wenhan wrote. Consider swapping, so each person presents the half they built. This is for the two of you to decide.

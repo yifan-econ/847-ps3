@@ -1,0 +1,9 @@
+{
+  "review_id": "2026-11-15_fable_01",
+  "branch": "codex/review-004-cost-feedback",
+  "base_commit": "d5fcf7c9b0c9cc44cdf382f634904e2082618669",
+  "code_sha256": "fb2420210fb41e9f296f639f056ece96ab09847098391329dd7d12d5df6bf1db",
+  "scope": "Check supplied Fable feedback: joint cost inequalities/both orders, retailer identities, promotion-related fixed-residual moment contributions, package/roll volume and scope of proposed claims. Preserve source runs. No new specification or equilibrium.",
+  "source_run": "Analysis/calibrated_merger_v5/runs/2026-11-15_16cell_01",
+  "source_diagnosis": "Analysis/cost_failure_diagnosis/runs/2026-11-15_costdiag_01"
+}

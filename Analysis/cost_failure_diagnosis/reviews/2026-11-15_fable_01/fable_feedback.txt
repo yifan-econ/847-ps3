@@ -1,0 +1,87 @@
+I've read all five documents and the diagnosis and v5 model code, and the markup algebra checks out by hand. Next I'll run one read-only script to verify the headline numbers and test the split's order-dependence, promotion weeks, and the log-price coefficient.
+
+# Review of the cost-failure diagnosis
+
+The arithmetic is right and all five findings reproduce, but three interpretations need changing and the proposed next step is aimed at too small a target. The diagnosis files were already on the local branch, so nothing needed supplying; I changed nothing and ran one read-only script on the saved v5 arrays.
+
+## Verified
+
+- **Concentration:** Scott 86.28% and five single-roll UPCs 84.69% of negative manufacturer-cost volume.
+- **Split and retailer rule:** 29.11 / 31.05 / 39.84, and 37.22% → 22.37% with effective cost 22.39% → 22.37%.
+- **Tail:** 18 failing log/AAC markets, none in the common sample, seven passing their own numerical checks; store 124 week 110 at 29,209 packages against 29,213 trips.
+- **Algebra:** the markup formulas in `model.py` and `diagnose.py` match my hand derivation.
+
+## 1. The decomposition is correct but order-dependent, and two labels mislead
+
+The partition at [diagnose.py:112-115](Analysis/cost_failure_diagnosis/src/diagnose.py:112) is exhaustive and exclusive. The problem is what the second and third labels claim. Cross-classifying singleton markup and portfolio markup against both AAC and price gives five order-free cells (linear/AAC, rho zero, common sample):
+
+| Cell | Share of negative volume | Codex label |
+|---|---:|---|
+| Singleton markup exceeds price | 29.1% | singleton fails |
+| Singleton exceeds AAC, portfolio exceeds price | 22.3% | "portfolio crosses" |
+| Singleton exceeds AAC, portfolio below price | 10.0% | "wedge only" |
+| Singleton below AAC, portfolio exceeds price | 8.8% | "portfolio crosses" |
+| Singleton below AAC, portfolio between AAC and price | 29.8% | "wedge only" |
+
+- **"Retailer wedge only" is not wedge-only.** Three-quarters of it (29.8 of 39.8 points) also needs portfolio pricing to fail.
+- **"Portfolio first crosses" is mostly not portfolio-driven.** In 22.3 of its 31.1 points the singleton markup already exceeds AAC.
+- **The singleton markup alone exceeds AAC for 61.4% of the volume.** Portfolio pricing is necessary for 38.6%.
+- **The rho trend is partly an ordering artifact.** The table at [REPORT.md:75-84](Analysis/cost_failure_diagnosis/runs/2026-11-15_costdiag_01/REPORT.md:75) shows portfolio rising from 31% to 59% and wedge falling from 40% to 9%. Applying the wedge first gives portfolio 39% → 43% and wedge 32% → 26%. The direct markup evidence for UPC 5400041500 is unaffected.
+
+The report says "ordered accounting", which is adequate as a disclaimer. It should show the order-free table or both orders.
+
+## 2. The retailer comparison is partly an identity
+
+- **Finding 4 restates finding 2.** Under the percentage rule, manufacturer cost is `q × effective cost`, so the two signs are identical by construction. The drop from 37.22% to 22.37% is the removal of the wedge category: 37.22 × (1 − 0.3984) = 22.39.
+- **"Effective cost barely changes" is also algebra.** Within each owner-market, the package-weighted percentage markup equals the dollar markup times mean `q` exactly. Only within-owner dispersion in `q` moves effective cost; the sign flips in 97 of 226,378 rows.
+- **The headline compares two wholesale definitions.** The dollar scenario uses observed AAC; the percentage scenario uses `q·p`. These differ by −$0.047 on promotion rows and +$0.009 off them.
+- **The like-for-like number is the one labelled a hybrid.** `AAC − μ_percentage` is 18.85% ([REPORT.md:101](Analysis/cost_failure_diagnosis/runs/2026-11-15_costdiag_01/REPORT.md:101)), and [WORKPLAN.md:39](docs/WORKPLAN.md:39) itself asks for that diagnostic. On the same wholesale input, the rule halves the incidence (37.2% → 18.9%).
+
+Codex is careful not to call the hybrids structural. The issue is that the diagonal comparison it does headline is the less meaningful one.
+
+## 3. Sample selection is not what makes the log-price result misleading
+
+- **The improvement holds on the full input.** Negative manufacturer-cost volume is 39.06% linear against 1.70% log (lines 113 and 121). Selection only turns 1.70% into 0.00%.
+- **The numerical screen is a high-share screen.** All 36 excluded markets have inside share of at least 0.631; every common market is at or below 0.637.
+- **Log price implies very different demand.** Package-weighted own elasticity for single rolls is −1.0 under linear/AAC and −5.2 under log/AAC.
+- **That elasticity is identified mainly from promotions.** I reproduced the four saved rho-zero coefficients to six decimals and split the instrument covariances:
+
+| Cell | Rows below modal price | Their share of instrument–price covariance | Their share of instrument–outcome covariance | Coefficient, all rows | Ratio excluding them (approx.) |
+|---|---:|---:|---:|---:|---:|
+| Linear / AAC | 23% | 49% | 61% | −2.03 | −1.57 |
+| Log / AAC | 23% | 56% | 66% | −5.39 | −4.16 |
+
+The exclusion column does not re-absorb fixed effects, so treat it as descriptive. Weeks 99 and 110 alone are 1.8% of rows but 15% of the log/AAC instrument–price covariance.
+
+- **Direction matters.** Regular-price variation implies less elastic demand, which makes costs more negative. No demand-side adjustment I can see would rescue cost consistency.
+- **The linear/AAC failures are not a promotion artifact.** Incidence is 37.9% on below-modal rows and 36.6% off them. For linear/other-zone, 90% of the negative volume is on promotion rows.
+
+## 4. The purchase-unit concern is justified and broader than the tail
+
+**What the checks support:**
+- Weeks 99 and 110 are chain-wide promotions, not store-level errors. Scott singles drop from $0.56 to $0.39 in 76–78 stores and sell 46 and 44 per 100 trips against a median of 3.4.
+- The problem is not specific to Scott or to 18 markets. In rolls, median purchases are 0.45 per trip; 325 markets exceed one roll per trip and 2,900 exceed 0.5. Week 105, a multipack promotion, moves 160 rolls per 100 trips chain-wide, more than weeks 99 or 110.
+- The package-per-trip ratio flags Scott only because each single roll counts as a package.
+- The `deal` flag is unreliable. 12.5% of packages sell more than 5% below modal price with `deal = 0`, and stores 102 and 98 show a zero deal fraction in week 99 at $0.40 (`tail_weekly_audit.csv`).
+
+**What they cannot establish:**
+- The number of buyers or units per buyer.
+- Stockpiling versus brand switching: Scott singles fall only to 2.2–3.0 per 100 trips afterwards, recouping roughly a tenth of the spike within two months, while other brands' rolls are lower in the spike weeks.
+- Whether traffic counts are accurate.
+
+## 5. The proposed next step is too narrow
+
+[WORKPLAN.md:74](docs/WORKPLAN.md:74) proposes a descriptive study around weeks 99 and 110. That targets 1.7% of packages, and the weekly series above already answers it as far as scanner data can.
+
+**Recommended instead:**
+1. Add three post-processing tables to the diagnosis: the order-free classification, the coefficient-contribution split, and rolls per trip. Reword finding 4.
+2. Start no further estimation. The evidence says demand tweaks move costs the wrong way.
+3. Fix the presentation claim now: a conditional range of merger effects, plus a documented result that static manufacturer pricing cannot rationalize ScotTissue single-roll prices in any of the 20 scenarios. Linear price fails at regular prices; log price passes only on promotion-driven elasticities.
+
+## Defensible as written
+
+- The concentration finding.
+- The nesting markup table for UPC 5400041500.
+- The algebraic threshold table.
+- The raw-input reconciliation.
+- The statement that zero failures on the common sample is not log-price cost consistency.

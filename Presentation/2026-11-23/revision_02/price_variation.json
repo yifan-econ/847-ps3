@@ -1,0 +1,5 @@
+{
+  "between_store_upc_percent": 98.13094474354318,
+  "within_store_upc_over_time_percent": 1.8690552564568295,
+  "definition": "Observation-weighted decomposition of level-price variance into store-UPC means and within-store-UPC deviations over weeks; not residual IV variation."
+}

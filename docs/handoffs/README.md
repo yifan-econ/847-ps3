@@ -4,6 +4,11 @@ Read newest first. Add one file per meaningful work round; do not rewrite the or
 
 | Date | Collaborator / scope | Handoff |
 |---|---|---|
+| 2026-11-15 | Yifan / Codex: Fable slide revision and authorized local delivery commit | [Presentation revision](2026-11-15-yifan-presentation-revision.md) |
+| 2026-11-15 | Yifan / Codex: first Beamer draft and presentation delivery plan | [Presentation draft](2026-11-15-yifan-presentation-draft.md) |
+| 2026-11-15 | Yifan / Codex: numerical selection and full-input cost claims | [Numerical selection review](2026-11-15-yifan-numerical-selection.md) |
+| 2026-11-15 | Yifan / Codex: verify Fable cost critique and revise reporting | [Cost feedback review](2026-11-15-yifan-cost-feedback.md) |
+| 2026-11-15 | Yifan / Codex: UPC/manufacturer cost diagnosis and source reconciliation | [Cost-failure diagnosis](2026-11-15-yifan-cost-failure-diagnosis.md) |
 | 2026-11-15 | Yifan / Codex: authorized isolated 16-cell demand and merger run | [Conditional merger matrix](2026-11-15-yifan-calibrated-merger.md) |
 | 2026-11-15 | Yifan / Codex: calibrated nesting proposal and retailer-rule checks | [Second Fable response](2026-11-15-yifan-fable-response.md) |
 | 2026-11-15 | Yifan / Codex: verify Fable feedback and revise sequencing | [Feedback check](2026-11-15-yifan-fable-review.md) |

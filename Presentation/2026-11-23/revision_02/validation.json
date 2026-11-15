@@ -1,0 +1,17 @@
+{
+  "pdf_pages": 18,
+  "main_slides": 15,
+  "backup_slides": 3,
+  "target_minutes": 25.5,
+  "presenter_rehearsal": false,
+  "protected_research_files": 369,
+  "all_unchanged": true,
+  "first_draft_pdf_unchanged": true,
+  "pdf_encrypted": false,
+  "estimation_or_solves": 0,
+  "demand_and_pack_tables_checked": true,
+  "compiler_layout_and_reference_checks": "passed",
+  "missing_local_links": [],
+  "git_diff_check": "passed",
+  "pdf_sha256": "03281908967cb28b66a9e09be6c3bb6053aa319329241e9ba26041d7206d20c9"
+}

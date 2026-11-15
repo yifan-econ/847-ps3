@@ -1,4 +1,6 @@
 Data/Dominick/CCOUNT.SD2 filter=lfs diff=lfs merge=lfs -text
+# Preserve exact diagnosis bytes so archived SHA-256 evidence survives checkout.
+Analysis/cost_failure_diagnosis/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 Analysis/calibrated_merger_v5/runs/*/cells/*/*_simulation.npz filter=lfs diff=lfs merge=lfs -text
 Analysis/calibrated_merger_v5/runs/**/*.csv.gz filter=lfs diff=lfs merge=lfs -text
 Data/Dominick/WTTI.SD2 filter=lfs diff=lfs merge=lfs -text

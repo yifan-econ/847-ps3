@@ -1,0 +1,11 @@
+{
+  "python": "3.13.9 (main, Nov 19 2025, 22:41:40) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "scenarios": 20,
+  "protected_files": 358,
+  "unchanged": true,
+  "saved_flags_match_arrays": true,
+  "all_scenarios_share_separated": true,
+  "log_rho0_numerical_equals_effective_nonnegative": true,
+  "estimation_or_equilibrium_calls": 0
+}

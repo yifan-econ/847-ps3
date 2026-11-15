@@ -1,0 +1,18 @@
+{
+  "run_id": "2026-11-15_costdiag_01",
+  "source_run": "Analysis/calibrated_merger_v5/runs/2026-11-15_16cell_01",
+  "branch": "codex/diag-001-cost-failures",
+  "base_commit": "d5fcf7c9b0c9cc44cdf382f634904e2082618669",
+  "collaborator": "Yifan / Codex",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.9",
+  "code_sha256": "105242ff5a8773f3bc61e841a3ead673346563a2419e2e57d34bc4e46ff14e1c",
+  "uv_lock_sha256": "109bd104a40de51727091b381c029c90d40b92d506e71023a121be3e7b4ca9b2",
+  "scope": "All saved 20 scenarios. No re-estimation, new equilibrium, clipped costs, changed ownership, or data deletion.",
+  "grouping": "Active manufacturers only; UPC, manufacturer and pack; all input markets and common numerical intersection.",
+  "decomposition": "Ordered accounting: singleton retail feasibility, portfolio retail crossing, retailer-wedge-only manufacturer crossing. Not causal attribution.",
+  "retailer": "Four saved rho-zero pairs; exact wholesale-level/markup bridge plus explicitly labeled nonstructural 2x2 accounting hybrids.",
+  "thresholds": "Algebraic price-sensitivity multiplier at fixed shares/rho/form/q; not estimated parameters, uncertainty bounds or recommended adjustments.",
+  "examples": "20 lowest costs and 20 largest negative-cost package exposures per cell/rule/cost kind in common numerical sample.",
+  "sharing": "New diagnosis local, uncommitted/unpushed; source run committed and verified on origin/main at base_commit."
+}

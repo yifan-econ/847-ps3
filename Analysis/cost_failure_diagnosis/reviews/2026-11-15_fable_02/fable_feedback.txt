@@ -1,0 +1,64 @@
+Checking one thing in the saved per-market files: whether the "own numerically accepted sample" exception for the log/percentage scenarios is itself driven by the cost failures.
+
+Running one last read-only pass: the same cross-tab over all 20 scenarios, plus which store-weeks the v5 sample drops.
+
+# Review of the revised workplan and REVIEW-004
+
+The revised labels and retailer comparison address my concerns, and your four qualifications are correct. The reporting claim still has one problem: its exception for the two log-price percentage-margin scenarios is circular. This round was read-only again; I ran two scripts on the saved v5 files and changed nothing.
+
+## Resolved
+
+- **Cost labels:** the five joint cells, the 61.41% / 38.59% statement and both accounting orders match my numbers, including rho .75 (59.14 / 9.46 against 42.66 / 25.95).
+- **Retailer comparison:** 37.22% / 18.85% / 22.37% with the sign identity stated is what I asked for.
+- **Selection:** 39.06% → 1.70% on full input is now in proportion.
+- **Your tables:** I found no numerical errors in the figures I rechecked.
+
+## Your qualifications
+
+1. **Mean-q identity:** correct. I derived it for linear price; log price needs inverse-slope weights.
+2. **Complement ratios:** accepted. "No demand-side adjustment would rescue cost consistency" was stronger than the evidence.
+3. **Recoupment:** accepted. I withdraw the "roughly a tenth" figure; week 117 contaminates the window after week 110.
+4. **Scope of the Scott claim:** I agree my "cannot rationalize in any of the 20 scenarios" was too broad. I disagree with the exception you used to narrow it.
+
+## Remaining problem: the "own numerically accepted sample" exception
+
+In all four log-price rho-zero scenarios, the markets that fail the numerical checks are exactly the markets with a negative effective cost. I cross-tabulated `numerical_ok` against cost signs in every saved `*_markets.csv.gz`:
+
+| Scenarios | Markets failing numerical checks | Of those, with nonnegative effective cost | Accepted markets with negative effective cost | Largest firm share: accepted maximum / rejected minimum |
+|---|---:|---:|---:|---:|
+| Log, rho 0 (4) | 11 | 0 | 0 | 0.772 / 0.812 |
+| Log, rho .25–.75 (6) | 11–18 | 0 | 1–42 | 0.710 / 0.726 at rho .75 |
+| Linear, rho 0 (4) | 14 | 0 | 173–2,672 | 0.744 / 0.762 |
+| Linear, rho .25–.75 (6) | 16–36 | 0 | 598–7,422 | 0.580 / 0.584 at rho .75 |
+
+- **The zero is guaranteed twice over.** Under the percentage rule the manufacturer-cost sign equals the effective-cost sign, and at log rho zero the accepted sample is exactly the nonnegative-effective-cost sample. "No failures on the accepted sample" could not have come out otherwise.
+- **The numerical screen is a firm-share cutoff.** In every one of the 20 scenarios, the largest firm share separates accepted from rejected markets with no overlap. This is sharper than the inside-share association at [REPORT.md:57](Analysis/cost_failure_diagnosis/reviews/2026-11-15_fable_01/REPORT.md:57).
+- **The cutoff looks like a solver property, not evidence about equilibrium.** All rejected markets fail baseline reproduction, and none fails the curvature check. For a single-product firm, my algebra puts the instability of the 0.5-damped iteration above a share of 0.75 under linear price, which matches the observed 0.744 / 0.762. Under log price it gives about 0.80, next to the cost-sign threshold of about 0.81. This is my derivation for the single-product case, not something I tested by re-solving.
+- **Cost signs do not need the solver.** They come from a closed-form inversion at observed prices, so the full input sample is the natural scope for cost claims. This is the same point you made about the common sample in DIAG-001.
+
+## The proposed claim also hides the magnitudes
+
+"None yields nonnegative costs for every observation" puts a 3% failure and a 99.9% failure in the same sentence. Your own [scott_cost_claim_check.csv](Analysis/cost_failure_diagnosis/reviews/2026-11-15_fable_01/scott_cost_claim_check.csv) has the numbers (share of Scott single-roll volume with negative manufacturer cost, full input):
+
+| Demand cells | Range across scenarios |
+|---|---|
+| Linear / AAC | 61.6% (percentage, rho 0), 92.7% (dollar, rho 0), 99.9% (rho .25 and above) |
+| Linear / other-zone | 21.3% to 80.1% |
+| Log, both instruments | 3.1% to 15.6%; at rho 0, 3.1% (percentage) and 4.6% (dollar) |
+
+Suggested replacement for the quoted claim at [REPORT.md:104](Analysis/cost_failure_diagnosis/reviews/2026-11-15_fable_01/REPORT.md:104):
+
+> On the full input sample, the share of Scott single-roll volume with negative implied manufacturer cost is 62–100% under linear price with the AAC instrument, 21–80% under linear price with the other-zone instrument, and 3–16% under log price. At log price and rho zero the failures are confined to 11–18 store-weeks with very high Scott shares. The numerical screen excludes those same markets, so accepted-sample cost results are not an independent check. These are conditional model-consistency results, not proof that static pricing fails in general.
+
+The same exception appears at [WORKPLAN.md:15](docs/WORKPLAN.md:15), [STATUS.md:21](docs/STATUS.md:21) and [2026-11-15-cost-feedback.md:28](docs/validation/2026-11-15-cost-feedback.md:28).
+
+## Smaller points
+
+- **Stale retailer wording:** [WORKPLAN.md:26](docs/WORKPLAN.md:26) still says effective cost "barely changes" and that retailer assumptions "do not repair" the failures, without the "revised above" flag that line 24 carries.
+- **Checked, no issue:** the v5 sample drops 15 of 79 stores in week 105. Its 512 dropped store-weeks have slightly lower volume per trip than kept ones, so the drop is not concentrated in promotion spikes.
+
+## Next step
+
+I agree with stopping estimation and consolidating the claim. Before that, fix the wording in the four places above; no new run is needed. If you want the numerical screen documented, a one-line note that it coincides with a largest-firm-share cutoff is enough.
+
+My scripts are at `C:\Users\dev\AppData\Local\Temp\claude\ff462a1ca11863a4\381c0123-4f9b-4f0f-98d7-95c9f2f613e4\scratchpad\round4.py` and `C:\Users\dev\AppData\Local\Temp\claude\ff462a1ca11863a4\381c0123-4f9b-4f0f-98d7-95c9f2f613e4\scratchpad\round4b.py`.

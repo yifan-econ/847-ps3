@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-15",
+  "branch": "codex/diag-001-cost-failures",
+  "base_commit": "d5fcf7c9b0c9cc44cdf382f634904e2082618669",
+  "protected_files_rechecked": 303,
+  "changed_protected_files": [],
+  "markdown_files_checked": 37,
+  "missing_local_links": [],
+  "git_diff_whitespace_check_passed": true,
+  "all_saved_failure_partitions_match": true,
+  "all_saved_retailer_bridges_match": true,
+  "scott_negative_package_contribution_percent_common_linear_aac_rho0": 86.27508487941633,
+  "top_five_upc_contribution_percent_same_scope": 84.6872424123154,
+  "estimation_runs": 0,
+  "equilibrium_solves": 0,
+  "sharing": "Source commit verified on origin/main; new diagnosis uncommitted and unpushed."
+}

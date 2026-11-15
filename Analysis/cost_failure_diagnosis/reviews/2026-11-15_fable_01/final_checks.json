@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "protected_files": 333,
+  "changed": [],
+  "markdown_files_checked": 40,
+  "missing_links": [],
+  "joint_partitions_match_prior_diagnosis": true,
+  "both_order_totals_match": true,
+  "max_saved_coefficient_error": 8.171241461241152e-14,
+  "full_vs_accepted_Scott_claim_verified": true,
+  "new_specifications_estimated": 0,
+  "equilibrium_solves": 0
+}
