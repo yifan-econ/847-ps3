@@ -1,45 +1,42 @@
 # Current project status
 
-Updated 2026-11-15. [Wenhan's Chinese baseline](handoffs/2026-11-14-wenhan-baseline_zh.md) records the detailed research history. See [WORKPLAN.md](WORKPLAN.md) for ownership and next tasks, and [the latest handoff](handoffs/2026-11-15-yifan-portability.md) for this engineering round.
+Updated 2026-11-15 after the authorized conditional merger run. Read the [latest handoff](handoffs/2026-11-15-yifan-calibrated-merger.md), [workplan](WORKPLAN.md), [results report](../Analysis/calibrated_merger_v5/runs/2026-11-15_16cell_01/REPORT.md), and [original Chinese baseline](handoffs/2026-11-14-wenhan-baseline_zh.md).
 
-## Engineering state
+## Current research result
 
-- Python 3.13.9 and Wenhan's recorded NumPy/pandas/SciPy/PyBLP versions are installed through uv; the shared lockfile is present.
-- The mixed-logit runner uses cross-platform FileLock. Windows imports, lock contention/release, and cached execution passed six tests.
-- Preparation validation defaults to read-only. All four preparation combinations match the existing sample audit.
-- One saved PyBLP result loaded and reproduced a 32-product market's shares at saved parameters. No estimation ran; all 194 files in the preservation check remained unchanged.
-- Native macOS runtime confirmation is pending. Check GitHub Actions for the Windows/macOS CI results; they are separate from the recorded local validation.
-- Delivery branch is main. The [round handoff](handoffs/2026-11-15-yifan-portability.md) includes a receiving-agent checklist and instructions to identify the implementation commit.
+The corrected 16-cell demand design and 20 supply scenarios are complete in run 2026-11-15_16cell_01. All use the same v4 all-pack sample: 259,986 observations, 7,996 store-weeks, 83 stores, 50 UPCs. The run retains 94.31% of full-panel 1991–1992 packages and corrects 10 Scott labels in its separate catalog. Original data, code and results are preserved.
 
-Evidence: [Windows validation](validation/2026-11-15-windows-portability.md).
+This is a hypothetical Scott/Kimberly-Clark merger at 1991–1992 conditions. Price form (linear/log), IV family (AAC/other-zone) and calibrated rho (0/.25/.5/.75) define the 16 demand cells. Fixed dollar margins apply throughout; four rho-zero cells add percentage-margin sensitivity. Six manufacturer portfolios optimize and private-label/generic prices remain fixed. See [methods and ownership](../Analysis/calibrated_merger_v5/README.md) and [decision 003](decisions/003-calibrated-merger-design.md).
 
-## Completed work
+- All price coefficients are negative; rho is calibrated, not identified or estimated. Four distinct first stages are reported, with conditional store/month clustered uncertainty and zero overidentification degrees of freedom.
+- Each scenario passes the numerical criteria in 7,960–7,985 markets. The common numerical sample is 7,960 markets, representing 97.08% of baseline packages. Failed candidates are retained. Checks establish local stationary profit maxima, not global equilibrium uniqueness.
+- On the common numerical sample, category-wide price increases range from 0.157% to 3.374%, and Kimberly-Clark increases from 1.028% to 24.345%. These ranges include negative-cost cases and are not confidence intervals.
+- Only 538 common markets, 5.61% of baseline packages, have nonnegative effective costs in every scenario. No common market passes every manufacturer-cost screen. Three linear/AAC nested cells have zero manufacturer-cost-admissible markets. Log-price models pass far more cost screens; this does not validate their IV assumptions.
+- Own elasticities change little with rho within a price form/IV, while category elasticity and diversion change substantially. The exercise is promising as an explicit sensitivity analysis, but there is no defensible single headline merger prediction yet.
+- Consumer surplus is reported only for linear-price cells. No additional cells, aggregation, market-size grid, mixed-logit refinement or result-driven solver restarts were added.
+
+## Completed stages
 
 | Stage | Scope | Read first |
 |---|---|---|
-| v1 | Cleaning, simple logit OLS/IV, packaging and zero-sales diagnostics | [Original README](../Archive/ps3_v1/README.md) |
+| v1 | Cleaning, simple logit, package and zero-sales diagnostics | [Original README](../Archive/ps3_v1/README.md) |
 | v2 | 14 cost-instrument specifications | [Report](../Analysis/cost_iv_v2/REPORT_zh.md) |
-| v3 | 12 AAC/other-pricing-zone IV comparisons | [Literature and results](../Analysis/paper_iv_v3/LITERATURE_AND_RESULTS_zh.md) |
-| v4 | Eight demographic mixed-logit specifications attempted; six converged, two rejected | [Report](../Analysis/mixed_logit_v4/REPORT_zh.md) |
+| v3 | 12 AAC/other-zone comparisons | [Report](../Analysis/paper_iv_v3/LITERATURE_AND_RESULTS_zh.md) |
+| v4 | Eight demographic mixed-logit attempts: six converged, two rejected | [Report](../Analysis/mixed_logit_v4/REPORT_zh.md) |
+| v5 | 16 conditional demand fits, 20 merger scenarios, cost/coverage diagnostics and linear welfare | [Run report](../Analysis/calibrated_merger_v5/runs/2026-11-15_16cell_01/REPORT.md) |
 
-Markets are store-weeks and products are UPCs. Prices and sales are per package; market size is store customer traffic. All-pack and multipack samples are separate definitions. v4 uses 1991–1992 and estimates household-size and income heterogeneity separately.
+Markets remain store-weeks, products UPCs, prices/sales per package, and market size store customer traffic. v1 inputs remain active dependencies; v5 reads v1, v3 instruments, v4 keys and the IO-free v2 estimator helper without changing them.
 
-## Unresolved work
+## Engineering and sharing
 
-- Zero sales are excluded from positive-share estimation; actual availability and selection bias remain unresolved.
-- External PPI instruments performed poorly. AAC and other-zone prices remain candidates with unresolved exclusion restrictions.
-- Five of six converged v4 specifications reject the reported joint model/instrument restrictions at 5%; non-rejection for the remaining specification does not validate it. See [validation results](../Analysis/mixed_logit_v4/results/independent_validation.csv).
-- Both multipack household-size fits were rejected. Income integration needs further checking; the 31-point exercise did not re-estimate the models.
-- Historical manufacturer ownership, supply-side pricing, marginal costs, merger simulation, and welfare calculations remain unfinished.
+The shared uv lock pins Python 3.13.9 and the recorded dependency versions. Windows numerical tests and independent saved-output checks passed; see [validation](validation/2026-11-15-calibrated-merger.md). All 194 pre-existing research files remained byte-identical during the 21-minute research run. The final safe check passed 12 tests, four preparation audits and a saved-market prediction; all 298 inventoried research files were unchanged. It used a unique evidence directory to preserve prior logs. Native Mac runtime verification is still pending.
 
-Prioritize reproducibility and sample/identification review before model expansion. No final specification has been selected for merger simulation.
+The inherited estimator had an unused log-price upward-slope reporting field that was wrong. The corrected derived table and audit preserve the raw output; actual demand derivatives, markups, simulated prices and welfare were unaffected. The current runner fixes this field for future runs. An initial independent-validation attempt was interrupted to eliminate repeated array decompression; unchanged numerical checks then passed, with both source versions recorded. No demand/supply rerun occurred.
 
-## Dependencies and workflow
+Changes are local, uncommitted and unpushed on codex/run-001-calibrated-merger, base 14254a5f4177177fd2d9f0b14c598c299b219096. Prior research/Fable review documents are retained. Git LFS attributes cover new compressed inputs, market tables and simulation arrays. Other collaborators do not receive these files until they are explicitly shared.
 
-The archived v1 cleaned panel supplies v2, v3, and v4. v3 imports v2 estimation functions; v4 uses v2 functions and v3 cross-zone instruments. These directories must remain together.
+## Open research and next step
 
-See [SETUP.md](SETUP.md) for uv instructions and safe checks. Read CSV/JSON outputs first; saved PyBLP objects depend on the software environment.
+IV exclusion, transformed-IV validity, deal exogeneity, actual availability/zero-sales selection, stockpiling, traffic-based market size, non-anchor ownership mapping and wholesale-cost interpretation remain limitations. First-stage strength, convergence and negative price signs do not resolve them. Five of six saved v4 joint tests reject; the cause is not uniquely identified and no mixed-logit rerun was performed.
 
-## Organization changes
-
-The 2026-11-14 organization preserved the old guide, status note, and greeting README in [history/](history/README.md). On 2026-11-15, current status moved here and dated handoffs moved into handoffs/. Old documentation paths remain as redirects. See [CHANGELOG.md](CHANGELOG.md). Analysis/data paths and baseline results are preserved; the lock and preparation-validator code changed in this round.
+Next: review the common-sample sensitivity and cost failures with Wenhan/Fable, then build the 30-minute presentation around conditional conclusions and explicit assumptions. The bounded prototype is finished. Any new model, sample, market-size or instrument exercise needs a separately specified scope; no additional estimation is scheduled here.

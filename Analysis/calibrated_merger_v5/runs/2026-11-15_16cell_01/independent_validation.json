@@ -1,0 +1,137 @@
+{
+  "passed": true,
+  "protected_files": 194,
+  "scenarios": [
+    {
+      "cell": "linear__aac__rho00",
+      "retailer": "dollar",
+      "accepted_markets": 7982,
+      "dense_markets": 12
+    },
+    {
+      "cell": "linear__aac__rho00",
+      "retailer": "percentage",
+      "accepted_markets": 7982,
+      "dense_markets": 12
+    },
+    {
+      "cell": "linear__aac__rho25",
+      "retailer": "dollar",
+      "accepted_markets": 7980,
+      "dense_markets": 12
+    },
+    {
+      "cell": "linear__aac__rho50",
+      "retailer": "dollar",
+      "accepted_markets": 7978,
+      "dense_markets": 12
+    },
+    {
+      "cell": "linear__aac__rho75",
+      "retailer": "dollar",
+      "accepted_markets": 7960,
+      "dense_markets": 12
+    },
+    {
+      "cell": "linear__other_zone__rho00",
+      "retailer": "dollar",
+      "accepted_markets": 7982,
+      "dense_markets": 12
+    },
+    {
+      "cell": "linear__other_zone__rho00",
+      "retailer": "percentage",
+      "accepted_markets": 7982,
+      "dense_markets": 12
+    },
+    {
+      "cell": "linear__other_zone__rho25",
+      "retailer": "dollar",
+      "accepted_markets": 7980,
+      "dense_markets": 12
+    },
+    {
+      "cell": "linear__other_zone__rho50",
+      "retailer": "dollar",
+      "accepted_markets": 7978,
+      "dense_markets": 12
+    },
+    {
+      "cell": "linear__other_zone__rho75",
+      "retailer": "dollar",
+      "accepted_markets": 7960,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__aac__rho00",
+      "retailer": "dollar",
+      "accepted_markets": 7985,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__aac__rho00",
+      "retailer": "percentage",
+      "accepted_markets": 7985,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__aac__rho25",
+      "retailer": "dollar",
+      "accepted_markets": 7985,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__aac__rho50",
+      "retailer": "dollar",
+      "accepted_markets": 7985,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__aac__rho75",
+      "retailer": "dollar",
+      "accepted_markets": 7978,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__other_zone__rho00",
+      "retailer": "dollar",
+      "accepted_markets": 7985,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__other_zone__rho00",
+      "retailer": "percentage",
+      "accepted_markets": 7985,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__other_zone__rho25",
+      "retailer": "dollar",
+      "accepted_markets": 7985,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__other_zone__rho50",
+      "retailer": "dollar",
+      "accepted_markets": 7985,
+      "dense_markets": 12
+    },
+    {
+      "cell": "log__other_zone__rho75",
+      "retailer": "dollar",
+      "accepted_markets": 7978,
+      "dense_markets": 12
+    }
+  ],
+  "maxima": {
+    "markup_error": 1.709743457922741e-14,
+    "baseline_dense_foc": 1.3877787807814457e-16,
+    "post_dense_foc": 1.5314693957435566e-12,
+    "jacobian_error": 6.000708818731937e-10,
+    "largest_hessian_eigenvalue": -1.6743729943619623e-05,
+    "share_error": 1.1102230246251565e-16,
+    "price_summary_error": 5.551115123125783e-17
+  },
+  "validator_sha256": "9cb68de849a5d823998eea871c769caf1d79dbdef6fd098281f78b858ff5ff11",
+  "method": "Independent dense Jacobian/inversion, numerical differentiation and profit Hessians on 12 deterministic accepted markets per scenario; full saved-flag and summary checks. No new estimation or equilibrium search."
+}

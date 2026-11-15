@@ -1,0 +1,26 @@
+[
+  {
+    "model": "log__other_zone__rho00",
+    "variable": "_price",
+    "coefficient": -5.184013273311825,
+    "se_two_way_cluster": 0.20850886436531224
+  },
+  {
+    "model": "log__other_zone__rho00",
+    "variable": "deal",
+    "coefficient": 0.33660300811873395,
+    "se_two_way_cluster": 0.050286611989564876
+  },
+  {
+    "model": "log__other_zone__rho00 FIRST_STAGE",
+    "variable": "_iv",
+    "coefficient": 1.022308265764903,
+    "se_two_way_cluster": 0.01794436668281178
+  },
+  {
+    "model": "log__other_zone__rho00 FIRST_STAGE",
+    "variable": "deal",
+    "coefficient": -0.004587305454777994,
+    "se_two_way_cluster": 0.0012926151132897044
+  }
+]

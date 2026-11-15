@@ -1,0 +1,17 @@
+test_block_markup_inverse_and_baseline (test_calibrated_merger.CalibratedMergerTests.test_block_markup_inverse_and_baseline) ... ok
+test_derivatives_against_finite_differences (test_calibrated_merger.CalibratedMergerTests.test_derivatives_against_finite_differences) ... ok
+test_linear_welfare_derivative_is_minus_share (test_calibrated_merger.CalibratedMergerTests.test_linear_welfare_derivative_is_minus_share) ... ok
+test_market_batch_independence (test_calibrated_merger.CalibratedMergerTests.test_market_batch_independence) ... ok
+test_merger_matches_independent_dense_root_and_hessian (test_calibrated_merger.CalibratedMergerTests.test_merger_matches_independent_dense_root_and_hessian) ... ok
+test_retailer_rules_can_diverge_after_merger (test_calibrated_merger.CalibratedMergerTests.test_retailer_rules_can_diverge_after_merger) ... ok
+test_abrupt_exit_releases_os_lock (test_portability.PortabilityTests.test_abrupt_exit_releases_os_lock) ... ok
+test_cached_runner_does_not_estimate_or_change_saved_files (test_portability.PortabilityTests.test_cached_runner_does_not_estimate_or_change_saved_files) ... ok
+test_other_process_is_excluded_then_can_acquire (test_portability.PortabilityTests.test_other_process_is_excluded_then_can_acquire) ... ok
+test_preparation_cli_defaults_to_no_writes (test_portability.PortabilityTests.test_preparation_cli_defaults_to_no_writes) ... ok
+test_runner_exception_releases_lock (test_portability.PortabilityTests.test_runner_exception_releases_lock) ... ok
+test_stale_marker_does_not_block (test_portability.PortabilityTests.test_stale_marker_does_not_block) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.251s
+
+OK

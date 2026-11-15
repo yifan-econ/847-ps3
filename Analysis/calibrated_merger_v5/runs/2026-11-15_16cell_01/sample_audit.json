@@ -1,0 +1,15 @@
+{
+  "before_rows": 277363,
+  "before_markets": 8508,
+  "rows": 259986,
+  "markets": 7996,
+  "stores": 83,
+  "upcs": 50,
+  "months": 24,
+  "retained_packages_fraction": 0.9431277256579668,
+  "corrected_label_rows": 54244,
+  "corrected_upcs": 10,
+  "median_outside": 0.8674092311009536,
+  "unknown_ownership_upcs": 0,
+  "fringe_package_fraction": 0.09253345192569494
+}

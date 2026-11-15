@@ -1,5 +1,6 @@
-"""Read-only research checks; write evidence only under ignored .local/validation/."""
+"""Read-only research checks; evidence defaults to ignored .local/validation/."""
 import gzip
+import argparse
 import hashlib
 from importlib.metadata import version
 import json
@@ -35,8 +36,14 @@ def fingerprint():
 def main():
     if not __debug__:
         raise RuntimeError('Run without -O: preparation validation uses assertions.')
-    evidence = PROJECT / '.local/validation'
-    evidence.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-dir', help='New isolated evidence directory outside protected research folders; refuses an existing directory.')
+    args = parser.parse_args()
+    evidence = (PROJECT / args.output_dir).resolve() if args.output_dir else PROJECT / '.local/validation'
+    if any((PROJECT / name).resolve() == evidence or (PROJECT / name).resolve() in evidence.parents
+           for name in ['Analysis', 'Archive', 'Data', 'Paper']):
+        raise ValueError('Evidence must be outside protected research folders to avoid changing the preservation inventory.')
+    evidence.mkdir(parents=True, exist_ok=args.output_dir is None)
     report = {'platform': platform.platform(), 'python': platform.python_version(),
               'packages': {name: version(name) for name in ['numpy', 'pandas', 'scipy', 'pyblp', 'statsmodels', 'filelock']},
               'estimation_run': False}

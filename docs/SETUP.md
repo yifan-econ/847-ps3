@@ -48,6 +48,8 @@ The full environment check:
 
 No estimation runs. The current Windows check passed; see [the validation record](validation/2026-11-15-windows-portability.md). Run the same commands on Wenhan's Mac and add a new record for CHECK-001.
 
+To preserve prior local validation logs, use `uv run --locked python scripts/check_environment.py --output-dir .local/validation/<unique-run-id>`. The optional directory must be new and outside `Analysis/`, `Archive/`, `Data/`, and `Paper/`, which the check inventories for preservation. Copy completed evidence into an isolated research run only after the check has finished.
+
 For preparation alone:
 
 ```sh

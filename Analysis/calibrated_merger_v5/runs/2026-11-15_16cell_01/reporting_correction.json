@@ -1,0 +1,39 @@
+{
+  "field": "share_upward_sloping",
+  "raw_values": [
+    {
+      "model": "log__aac__rho00",
+      "share_upward_sloping": 0.3783549883455263
+    },
+    {
+      "model": "log__aac__rho25",
+      "share_upward_sloping": 0.3783549883455263
+    },
+    {
+      "model": "log__aac__rho50",
+      "share_upward_sloping": 0.3783549883455263
+    },
+    {
+      "model": "log__aac__rho75",
+      "share_upward_sloping": 0.3783549883455263
+    },
+    {
+      "model": "log__other_zone__rho00",
+      "share_upward_sloping": 0.3783549883455263
+    },
+    {
+      "model": "log__other_zone__rho25",
+      "share_upward_sloping": 0.3783549883455263
+    },
+    {
+      "model": "log__other_zone__rho50",
+      "share_upward_sloping": 0.3783549883455263
+    },
+    {
+      "model": "log__other_zone__rho75",
+      "share_upward_sloping": 0.3783549883455263
+    }
+  ],
+  "corrected_value": 0,
+  "reason": "Legacy estimator diagnostic uses signed log(price). Actual demand derivatives are negative in all 16 cells. No coefficients, elasticities used in simulation, costs, equilibrium solutions, or welfare are changed; raw output preserved."
+}

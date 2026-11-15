@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "interrupted",
+      "source": "postprocessing_code/validate_run.py",
+      "reason": "Repeated NPZ decompression inside the market loop caused unnecessary runtime; interrupted before producing validation output. No estimation or simulation changed."
+    },
+    {
+      "attempt": 2,
+      "status": "passed",
+      "source": "independent_validation_code.py",
+      "change": "Cache each NPZ array once. Numerical checks and tolerances unchanged."
+    }
+  ]
+}

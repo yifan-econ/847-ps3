@@ -1,0 +1,8 @@
+{
+  "code_sha256": {
+    "report_run.py": "8f92a56b4d912fdf0431f3595be881c49f6b42f00139c13037463062ff0bfdcd",
+    "run_design.py": "50b8bf14596eedb23763979517559191c5ea656733e89a0f0b9dc9f688f47c50",
+    "validate_run.py": "d7900b8627824130e7f713e725dec97ece05f04e1c3448110e9c8ee708622e17"
+  },
+  "note": "Frozen execution is under code/. Current runner fixes only share_upward_sloping reporting; no demand or simulation rerun. These snapshots generated/validated derived reporting artifacts."
+}

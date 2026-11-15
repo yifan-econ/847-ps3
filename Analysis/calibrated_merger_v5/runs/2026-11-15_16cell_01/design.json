@@ -1,0 +1,60 @@
+{
+  "run_id": "2026-11-15_16cell_01",
+  "date": "2026-11-15",
+  "collaborator": "Yifan / Codex",
+  "branch": "codex/run-001-calibrated-merger",
+  "base_commit": "14254a5f4177177fd2d9f0b14c598c299b219096",
+  "starting_git_status": " M .gitattributes\n M docs/CHANGELOG.md\n M docs/STATUS.md\n M docs/WORKPLAN.md\n M docs/decisions/README.md\n M docs/handoffs/README.md\n M docs/validation/README.md\n?? Analysis/calibrated_merger_v5/\n?? docs/decisions/003-calibrated-merger-design.md\n?? docs/handoffs/2026-11-15-yifan-fable-response.md\n?? docs/handoffs/2026-11-15-yifan-fable-review.md\n?? docs/handoffs/2026-11-15-yifan-research-review.md\n?? docs/validation/2026-11-15-fable-response.md\n?? docs/validation/2026-11-15-fable-review.md\n?? docs/validation/2026-11-15-research-review.md\n?? tests/test_calibrated_merger.py\n",
+  "python": "3.13.9",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "pyblp": "1.2.0",
+    "filelock": "3.32.7"
+  },
+  "rho_grid": [
+    0.0,
+    0.25,
+    0.5,
+    0.75
+  ],
+  "forms": [
+    "linear",
+    "log"
+  ],
+  "ivs": [
+    "aac",
+    "other_zone"
+  ],
+  "retailer_rules": "dollar all 16; percentage only rho=0 (4 sensitivity scenarios)",
+  "scope": "hypothetical Scott/Kimberly-Clark merger at 1991-1992 conditions",
+  "fringe": "fixed observed prices; private label/generics remain in the demand system",
+  "outputs": "Analysis/calibrated_merger_v5/runs/2026-11-15_16cell_01",
+  "smoke_markets": 0,
+  "sharing": "local, uncommitted, unpushed",
+  "inference": "store/month two-way sandwich; only 24 months; conditional on calibrated rho; no overidentification df",
+  "iv_assumptions": "E[z*xi|FE,deal]=0 for level cells and E[log(z)*xi|FE,deal]=0 for log cells; neither established by first stage",
+  "solver": {
+    "damping": 0.5,
+    "max_iterations": 600,
+    "starts": [
+      "observed prices",
+      "1.10 times observed prices"
+    ],
+    "baseline_start": "1.02 times observed prices",
+    "scaled_foc_tol": 1e-08,
+    "internal_foc_tol": 1e-10,
+    "absolute_foc_tol": 1e-08,
+    "baseline_price_tol": 1e-08,
+    "start_agreement_tol": 1e-07
+  },
+  "uncertainty": "scenario ranges are not confidence intervals; counterfactual parameter uncertainty not propagated",
+  "code_sha256": {
+    "estimator.py": "5da68e022457e5994ee77a1acb78c8d1a8862ece9e21b65cce3d37eb6dd93dae",
+    "model.py": "fca293288380c6039ef1f14d6f5fdf784bf7fe2e4ff3ea21d7a5b1999a12b724",
+    "run_design.py": "6eec97a434f2ae176029eb260c02b1870b3208bf58903987e2b4ce34d82aac26"
+  },
+  "uv_lock_sha256": "109bd104a40de51727091b381c029c90d40b92d506e71023a121be3e7b4ca9b2"
+}

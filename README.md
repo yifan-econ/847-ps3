@@ -9,7 +9,7 @@ Wenhan and Yifan's collaborative demand-estimation project using Dominick's toil
 3. Follow the [environment and execution guide](docs/SETUP.md) before running code.
 4. Consult the [assignment](ps3.pdf) for course requirements.
 
-The latest work is exploratory demographic mixed logit: six specifications converged and two were rejected. Identification and numerical questions remain; merger simulation and welfare analysis are unfinished.
+The latest work completes an isolated [16-cell conditional merger exercise](Analysis/calibrated_merger_v5/runs/2026-11-15_16cell_01/REPORT.md), with 20 supply scenarios and linear-price welfare. Strong substitution, functional-form and cost-screen sensitivity prevents selecting a single credible merger estimate. Earlier mixed-logit results and all original research files are preserved.
 
 ## Project map
 
@@ -19,6 +19,7 @@ The latest work is exploratory demographic mixed logit: six specifications conve
 | [Paper/](Paper/README.md) | Reference papers |
 | [Archive/](Archive/README.md) | Original v1 analysis and diagnostics; includes inputs still used by current code |
 | [Analysis/](Analysis/README.md) | v2 cost IV, v3 pricing-zone IV, and v4 demographic mixed logit |
+| [Conditional merger v5](Analysis/calibrated_merger_v5/README.md) | Calibrated nesting, retailer-margin scenarios, isolated runs and diagnostics |
 | [docs/](docs/README.md) | Status, workplan, dated handoffs, decisions, validation, and templates |
 | [AGENTS.md](AGENTS.md) | Instructions for agents working on this repository |
 
