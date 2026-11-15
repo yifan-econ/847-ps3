@@ -1,0 +1,101 @@
+Initializing the problem ...
+Absorbing demand-side fixed effects ...
+Initialized the problem after 00:00:02.
+
+Dimensions:
+=================================================
+ T      N       I      K1    K2    D    MD    ED 
+----  ------  ------  ----  ----  ---  ----  ----
+7996  259986  119940   1     1     2    4     2  
+=================================================
+
+Formulations:
+============================================
+       Column Indices:            0      1  
+-----------------------------  -------  ----
+ X1: Linear Characteristics     deal        
+X2: Nonlinear Characteristics  -prices      
+       d: Demographics            1     demo
+============================================
+There is only one process, so there is no parallel processing to do.
+Solving the problem ...
+
+Nonlinear Coefficient Initial Values:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices  +1.3444E+00  -1.8186E-01
+=====================================================================
+
+Nonlinear Coefficient Lower Bounds:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices     -INF         -INF    
+=====================================================================
+
+Nonlinear Coefficient Upper Bounds:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices     +INF         +INF    
+=====================================================================
+
+Starting optimization ...
+
+GMM   Computation  Optimization   Objective   Fixed Point  Contraction  Clipped   Objective    Objective    Gradient                            
+Step     Time       Iterations   Evaluations  Iterations   Evaluations  Shares      Value     Improvement     Norm               Theta          
+----  -----------  ------------  -----------  -----------  -----------  -------  -----------  -----------  -----------  ------------------------
+ 1     00:00:07         0             1          51251        51251        0     +6.0997E+02               +1.0055E+01  +1.3444E+00, -1.8186E-01
+ 1     00:00:08         0             2          48666        48666        0     +3.3267E+03               +5.4104E+04  +1.3772E+00, -8.1310E-02
+ 1     00:00:07         0             3          51250        51250        0     +6.0997E+02  +1.5510E-04  +1.6760E+00  +1.3444E+00, -1.8184E-01
+ 1     00:00:07         1             4          51270        51270        0     +6.0997E+02               +1.5553E+00  +1.3453E+00, -1.8211E-01
+ 1     00:00:07         1             5          51256        51256        0     +6.0997E+02  +3.7624E-05  +1.6448E+00  +1.3446E+00, -1.8190E-01
+ 1     00:00:07         2             6          51256        51256        0     +6.0997E+02  +4.1955E-06  +1.5097E-02  +1.3446E+00, -1.8190E-01
+ 1     00:00:07         3             7          51256        51256        0     +6.0997E+02  +4.2121E-10  +3.8210E-07  +1.3446E+00, -1.8190E-01
+
+Optimization completed after 00:00:52.
+Computing the Hessian and estimating standard errors ...
+Computed results after 00:00:38.
+
+Problem Results Summary:
+============================================================================================================
+GMM    Objective    Gradient        Hessian         Hessian     Clipped  Weighting Matrix  Covariance Matrix
+Step     Value        Norm      Min Eigenvalue  Max Eigenvalue  Shares   Condition Number  Condition Number 
+----  -----------  -----------  --------------  --------------  -------  ----------------  -----------------
+ 1    +6.0997E+02  +3.8210E-07   +1.3651E+03     +3.4992E+05       0       +7.0521E+02        +1.3498E+03   
+============================================================================================================
+
+Cumulative Statistics:
+===========================================================================
+Computation  Optimizer  Optimization   Objective   Fixed Point  Contraction
+   Time      Converged   Iterations   Evaluations  Iterations   Evaluations
+-----------  ---------  ------------  -----------  -----------  -----------
+ 00:01:29       Yes          4             8         407461       407461   
+===========================================================================
+
+Nonlinear Coefficient Estimates (Robust SEs Adjusted for 83 Clusters in Parentheses):
+=========================================================================
+Types:  |  Sigma:     -prices    |    Pi:          1            demo     
+------  |  -------  -----------  |  -------  -------------  -------------
+ Log    |  -prices  +0.0000E+00  |  -prices   +1.3446E+00    -1.8190E-01 
+        |                        |           (+2.2324E-01)  (+6.5604E-02)
+=========================================================================
+
+Beta Estimates (Robust SEs Adjusted for 83 Clusters in Parentheses):
+=============
+    deal     
+-------------
+ +4.7997E-01 
+(+1.5430E-02)
+=============
+Computing elasticities with respect to prices ...
+Finished after 00:00:01.
+
+Extracting diagonals ...
+Finished after 00:00:01.
+
+Computing shares ...
+Finished after 00:00:01.
+
+FINAL_SUMMARY {"model": "all_packs__income__other_zone", "demographic": "income", "iv_family": "other_zone", "n": 259986, "stores": 83, "markets": 7996, "months": 24, "beta_price": -3.8367767086072684, "theta_intercept": 1.3446326153070038, "pi_demo": -0.18189662634556106, "sigma": 0.0, "se_pi_two_way": 0.06480280928769432, "se_beta_two_way": 0.8331910141963869, "covariance_min_eigenvalue": 0.00028417803687594094, "objective": 609.9716723049524, "converged": true, "projected_gradient_norm": 3.820976503532414e-07, "min_reduced_hessian_eigenvalue": 1365.0533901106783, "median_own_elasticity": -3.514981570386742, "share_inelastic": 9.23126629895456e-05, "share_upward_sloping_products": 0.0, "positive_individual_price_slopes": 0.0, "max_share_error": 2.7755575615628914e-16, "elapsed_seconds": 94.20530295372009, "price_unit": "USD per package", "income_reference_logmedian": 10.617674827575684, "income_quadrature_order": 15, "parameter_order": ["theta_intercept", "theta_demo", "beta_deal"], "price_distribution": "negative exponential link; finite household mixture or income-induced lognormal mixing", "near_numerical_bound": false, "uncertainty": "store and month two-way clustered sandwich; 24 months; count correction only", "logit_same_iv_beta": -2.592060393625408, "logit_same_iv_elasticity": -2.972563819519986}

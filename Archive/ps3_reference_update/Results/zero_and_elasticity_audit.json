@@ -1,0 +1,16 @@
+{
+  "zero_records": 412611,
+  "valid_roll_records": 1504071,
+  "zero_and_zero_price": 412611,
+  "within_positive_sales_lifetime": 71524,
+  "zero_with_observed_positive_prices_within_four_weeks_both_sides": 16766,
+  "zero_with_same_positive_prices_within_four_weeks_both_sides": 10117,
+  "zero_fraction_weekly_recorded": 0.2743294698189115,
+  "zero_fraction_monthly_recorded_groups": 0.25780731792811495,
+  "active_window_proxy_records": 1162984,
+  "zero_fraction_weekly_inside_first_last_positive_sales": 0.061500416170815767,
+  "zero_fraction_monthly_inside_first_last_positive_sales": 0.04171439115161938,
+  "unweighted_inelastic_fraction": 0.21100104941996561,
+  "package_volume_weighted_inelastic_fraction": 0.4619230290609732,
+  "single_roll_fraction_of_inelastic_records": 0.9079120691986757
+}

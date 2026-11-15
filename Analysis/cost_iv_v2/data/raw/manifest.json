@@ -1,0 +1,22 @@
+[
+  {
+    "series": "WPU0911",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0911&cosd=1988-01-01&coed=1998-12-31",
+    "source": "BLS via FRED",
+    "retrieved_date": "2026-11-14",
+    "sha256": "150cb824e21b79de2e06cb716b344e53ce40109d7b173b3f637c8115e900ed28",
+    "first": "1988-01-01",
+    "last": "1998-12-01",
+    "nonmissing": 132
+  },
+  {
+    "series": "WPU072205",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU072205&cosd=1988-01-01&coed=1998-12-31",
+    "source": "BLS via FRED",
+    "retrieved_date": "2026-11-14",
+    "sha256": "20a6fefb1572f28e11f3ddb6c10503a19c42549ff07417305a676d8123b3e908",
+    "first": "1991-07-01",
+    "last": "1998-12-01",
+    "nonmissing": 90
+  }
+]

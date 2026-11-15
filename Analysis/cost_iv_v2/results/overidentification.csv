@@ -1,0 +1,3 @@
+sample,test,df,statistic,p_value,covariance_psd,n
+all_packs,orthogonal overidentifying moment Wald,1,0.08902690369470927,0.765417910072962,True,748035
+multi_packs,orthogonal overidentifying moment Wald,1,0.9895033910948583,0.3198637803379554,True,614278

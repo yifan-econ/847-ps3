@@ -1,0 +1,22 @@
+[
+  {
+    "filename": "wtti.csv",
+    "size_bytes": 113313581,
+    "sha256": "7f94316ba57af24b97a17225d6e966a792f66f22cc59587be24b036547fa137f"
+  },
+  {
+    "filename": "ccount.dta",
+    "size_bytes": 101393948,
+    "sha256": "b55d28f83a27447f551a9d60776b4f6b4fe5ed817bc2a58f446ff838963a7086"
+  },
+  {
+    "filename": "demo.dta",
+    "size_bytes": 315476,
+    "sha256": "a526b3105bf8c9074b5a898525865d459f4bd0b6082ac49d845dcdaf4f0daabc"
+  },
+  {
+    "filename": "upctti.csv",
+    "size_bytes": 6715,
+    "sha256": "944a03a81ee106f89f11f272bf05e78393a1cc294ea28918db53c0f7f1d31e43"
+  }
+]

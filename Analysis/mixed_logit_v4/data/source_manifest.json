@@ -1,0 +1,14 @@
+[
+  {
+    "path": "Data/Dominick/demo.dta",
+    "sha256": "a526b3105bf8c9074b5a898525865d459f4bd0b6082ac49d845dcdaf4f0daabc"
+  },
+  {
+    "path": "Paper/s11129-005-0259-9.pdf",
+    "sha256": "042947eeb2bfad142acb857ac1efcd65b9fd76bcd84c765dbd8e19b6a48989b3"
+  },
+  {
+    "path": "Paper/ssrn-569866.pdf",
+    "sha256": "cd410d198e14386ff40439128d438de0b7e5e4d6ea760f944764cdfa2e8a3223"
+  }
+]

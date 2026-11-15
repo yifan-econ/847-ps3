@@ -1,0 +1,16 @@
+stage,rows,detail
+raw_movement,1627284,
+nonroll_rows_removed,97346,
+roll_rows_before_validity,1529938,
+after_ok_qty_quantity_week,1504071,
+zero_price_zero_sales,412611,
+positive_sales_nonpositive_price,0,
+positive_price_records,1091460,
+price_sanity_band_removed,1,"USD/pack outside [0.10,60]"
+raw_customer_count,327045,
+valid_customer_days,225596,
+traffic_markets_7_days,29062,
+matched_full_week_traffic,949231,
+markets_invalid_outside,87,
+clean_positive_price_panel,946237,
+observed_zero_sales_positive_price,0,

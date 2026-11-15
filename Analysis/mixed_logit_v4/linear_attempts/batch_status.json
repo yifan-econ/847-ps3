@@ -1,0 +1,22 @@
+[
+  {
+    "model": "all_packs__household__other_zone",
+    "exit_code": 1
+  },
+  {
+    "model": "all_packs__income__aac",
+    "exit_code": 1
+  },
+  {
+    "model": "all_packs__income__other_zone",
+    "exit_code": 1
+  },
+  {
+    "model": "multi_packs__household__aac",
+    "exit_code": 1
+  },
+  {
+    "model": "multi_packs__household__other_zone",
+    "exit_code": 0
+  }
+]

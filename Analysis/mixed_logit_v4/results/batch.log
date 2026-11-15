@@ -1,0 +1,39 @@
+START all_packs__household__other_zone
+START all_packs__income__other_zone
+END all_packs__household__other_zone 0
+START multi_packs__household__aac
+END all_packs__income__other_zone 0
+START multi_packs__household__other_zone
+END multi_packs__household__other_zone -2
+END multi_packs__household__aac -2
+Traceback (most recent call last):
+  File "/Users/wenhanli/Desktop/847/PS 3/Analysis/mixed_logit_v4/src/run_batch.py", line 17, in <module>
+    p=subprocess.Popen([sys.executable,'-u',str(ROOT/'src/run_mixed.py'),'--sample',sample,'--demographic',demo,'--iv',iv,'--income-order','15'],stdout=log,stderr=subprocess.STDOUT,env={**os.environ,'OPENBLAS_NUM_THREADS':'1','OMP_NUM_THREADS':'1'})
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/concurrent/futures/_base.py", line 243, in as_completed
+    waiter.event.wait(wait_timeout)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/threading.py", line 659, in wait
+    signaled = self._cond.wait(timeout)
+  File "/opt/anaconda3/lib/python3.13/threading.py", line 359, in wait
+    waiter.acquire()
+    ~~~~~~~~~~~~~~^^
+KeyboardInterrupt
+Executor(max_workers=2) as pool:
+         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/concurrent/futures/_base.py", line 647, in __exit__
+    self.shutdown(wait=True)
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/concurrent/futures/thread.py", line 239, in shutdown
+    t.join()
+    ~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/threading.py", line 1094, in join
+    self._handle.join(timeout)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyboardInterrupt
+END multi_packs__household__other_zone -2
+START multi_packs__income__aac
+END multi_packs__household__aac -2
+START multi_packs__income__other_zone
+END multi_packs__income__aac 0
+END multi_packs__income__other_zone 0

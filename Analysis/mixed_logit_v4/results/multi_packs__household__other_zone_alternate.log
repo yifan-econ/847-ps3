@@ -1,0 +1,225 @@
+Initializing the problem ...
+Absorbing demand-side fixed effects ...
+Initialized the problem after 00:00:01.
+
+Dimensions:
+================================================
+ T      N       I     K1    K2    D    MD    ED 
+----  ------  -----  ----  ----  ---  ----  ----
+8062  204170  40310   1     1     2    4     2  
+================================================
+
+Formulations:
+============================================
+       Column Indices:            0      1  
+-----------------------------  -------  ----
+ X1: Linear Characteristics     deal        
+X2: Nonlinear Characteristics  -prices      
+       d: Demographics            1     demo
+============================================
+There is only one process, so there is no parallel processing to do.
+Solving the problem ...
+
+Nonlinear Coefficient Initial Values:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices  +6.9315E-01  -1.0000E-01
+=====================================================================
+
+Nonlinear Coefficient Lower Bounds:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices     -INF         -INF    
+=====================================================================
+
+Nonlinear Coefficient Upper Bounds:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices     +INF         +INF    
+=====================================================================
+
+Starting optimization ...
+
+GMM   Computation  Optimization   Objective   Fixed Point  Contraction  Clipped   Objective    Objective    Gradient                            
+Step     Time       Iterations   Evaluations  Iterations   Evaluations  Shares      Value     Improvement     Norm               Theta          
+----  -----------  ------------  -----------  -----------  -----------  -------  -----------  -----------  -----------  ------------------------
+ 1     00:00:04         0             1          48386        48386        0     +3.7928E+03               +1.8199E+04  +6.9315E-01, -1.0000E-01
+ 1     00:00:04         0             2          49253        49253        0     +1.0004E+04               +1.5088E+04  +1.1667E+00, +7.9210E-01
+ 1     00:00:04         0             3          48428        48428        0     +2.4977E+03  +1.2950E+03  +1.1873E+04  +8.1065E-01, +1.2135E-01
+ 1     00:00:04         1             4          48558        48558        0     +5.2767E+02  +1.9701E+03  +5.0515E+03  +1.0863E+00, +1.1860E-01
+ 1     00:00:04         2             5          48614        48614        0     +4.9043E+02  +3.7243E+01  +7.0173E+03  +1.2759E+00, +1.1454E-01
+ 1     00:00:04         2             6          48590        48590        0     +3.1530E+02  +1.7513E+02  +5.7955E+02  +1.1766E+00, +1.1666E-01
+ 1     00:00:05         3             7          48599        48599        0     +3.0924E+02  +6.0615E+00  +6.6091E+02  +1.1980E+00, +1.2027E-01
+ 1     00:00:05         4             8          48608        48608        0     +3.0663E+02  +2.6018E+00  +6.7056E+02  +1.2065E+00, +1.2536E-01
+ 1     00:00:04         4             9          48653        48653        0     +2.9801E+02  +8.6274E+00  +6.7744E+02  +1.2405E+00, +1.4573E-01
+ 1     00:00:04         5            10          48843        48843        0     +2.8290E+02  +1.5103E+01  +1.7847E+02  +1.3274E+00, +2.0329E-01
+ 1     00:00:04         6            11          49064        49064        0     +2.7610E+02  +6.8015E+00  +3.1729E+02  +1.4069E+00, +2.5015E-01
+ 1     00:00:04         7            12          49977        49977        0     +2.6323E+02  +1.2877E+01  +3.4103E+02  +1.5810E+00, +3.4833E-01
+ 1     00:00:04         7            13          54247        54247        0     +2.2188E+02  +4.1351E+01  +9.6543E+02  +2.2775E+00, +7.4102E-01
+ 1     00:00:04         8            14          54715        54715        0     +2.1763E+02  +4.2475E+00  +2.4860E+02  +2.3840E+00, +7.9451E-01
+ 1     00:00:05         9            15          54889        54889        0     +2.1729E+02  +3.3636E-01  +1.9307E+01  +2.4267E+00, +8.1627E-01
+ 1     00:00:05         10           16          54995        54995        0     +2.1723E+02  +5.7449E-02  +3.4397E+01  +2.4556E+00, +8.3235E-01
+ 1     00:00:05         10           17          55399        55399        0     +2.1656E+02  +6.7032E-01  +1.3360E+02  +2.5712E+00, +8.9666E-01
+ 1     00:00:05         10           18          56410        56410        0     +1.9513E+02  +2.1438E+01  +1.1599E+03  +3.0335E+00, +1.1539E+00
+ 1     00:00:06         10           19          62347        62347        0     +3.3143E+02               +1.0012E+04  +4.8827E+00, +2.1829E+00
+ 1     00:00:05         10           20          57765        57765        0     +1.5969E+02  +3.5433E+01  +3.5918E+03  +3.6430E+00, +1.4931E+00
+ 1     00:00:05         10           21          57966        57966        0     +1.5878E+02  +9.1001E-01  +3.9804E+03  +3.7272E+00, +1.5399E+00
+ 1     00:00:05         10           22          57993        57993        0     +1.5876E+02  +1.9670E-02  +4.0465E+03  +3.7414E+00, +1.5478E+00
+ 1     00:00:06         11           23          58253        58253        0     +1.8002E+07               +6.2541E+07  +6.5821E+01, +3.6120E+01
+ 1     00:00:06         11           24          59924        59924        0     +6.3273E+04               +3.1808E+05  +2.0086E+01, +1.0650E+01
+ 1     00:00:05         11           25          58002        58002        0     +1.5876E+02  +8.0863E-03  +4.0772E+03  +3.7480E+00, +1.5515E+00
+Traceback (most recent call last):
+  File "/Users/wenhanli/Desktop/847/PS 3/Analysis/mixed_logit_v4/src/run_mixed.py", line 143, in <module>
+    if __name__=='__main__': main()
+                             ~~~~^^
+  File "/Users/wenhanli/Desktop/847/PS 3/Analysis/mixed_logit_v4/src/run_mixed.py", line 121, in main
+    res=problem.solve(sigma=np.zeros((1,1)),pi=initial_pi,method='1s',
+     optimization=(pyblp.Optimization('return') if args.evaluate_only else pyblp.Optimization('bfgs',{'maxiter':70,'gtol':1e-3,'hess_inv0':np.eye(2)*0.01})),
+     iteration=pyblp.Iteration('lm',{'ftol':1e-11,'xtol':1e-11,'gtol':1e-11,'maxiter':500},compute_jacobian=True),
+     W_type='clustered',se_type='clustered',error_behavior='revert',error_punishment=10000,check_optimality='both')
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 911, in solve
+    theta, optimization_stats = optimization._optimize(theta, theta_bounds, wrapper)
+                                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 302, in _optimize
+    raw_final, converged = self._optimizer(
+                           ~~~~~~~~~~~~~~~^
+        raw_initial, raw_bounds, objective_wrapper, iteration_callback, **self._method_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 561, in scipy_optimizer
+    results = scipy.optimize.minimize(
+        objective_wrapper, initial_values, method=method, jac=gradient_wrapper if compute_gradient else False,
+        hess=hess, bounds=bounds, callback=callback, options=scipy_options
+    )
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_minimize.py", line 779, in minimize
+    res = _minimize_bfgs(fun, x0, args, jac, callback, **options)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_optimize.py", line 1443, in _minimize_bfgs
+    _line_search_wolfe12(f, myfprime, xk, pk, gfk,
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         old_fval, old_old_fval, amin=1e-100,
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         amax=1e100, c1=c1, c2=c2)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_optimize.py", line 1172, in _line_search_wolfe12
+    ret = line_search_wolfe1(f, fprime, xk, pk, gfk,
+                             old_fval, old_old_fval,
+                             **kwargs)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_linesearch.py", line 101, in line_search_wolfe1
+    stp, fval, old_fval = scalar_search_wolfe1(
+                          ~~~~~~~~~~~~~~~~~~~~^
+            phi, derphi, old_fval, old_old_fval, derphi0,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            c1=c1, c2=c2, amax=amax, amin=amin, xtol=xtol)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_linesearch.py", line 176, in scalar_search_wolfe1
+    stp, phi1, phi0, task = dcsrch(
+                            ~~~~~~^
+        alpha1, phi0=phi0, derphi0=derphi0, maxiter=maxiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_dcsrch.py", line 255, in __call__
+    phi1 = self.phi(stp)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_linesearch.py", line 92, in phi
+    return f(xk + s*pk, *args)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_differentiable_functions.py", line 394, in fun
+    self._update_fun()
+    ~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_differentiable_functions.py", line 362, in _update_fun
+    fx = self._wrapped_fun(self.x)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/_lib/_util.py", line 544, in __call__
+    fx = self.f(np.copy(x), *self.args)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 538, in objective_wrapper
+    cache = (values.copy(), objective_function(values)[:2])
+                            ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 290, in objective_wrapper
+    objective, gradient, progress = verbose_objective_function(values, iterations, evaluations)
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 874, in wrapper
+    progress = compute_step_progress(
+        new_theta,
+    ...<5 lines>...
+        compute_simulation_covariances=False,
+    )
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 1117, in _compute_progress
+    for t, generated_t in generator:
+                          ^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/utilities/basics.py", line 178, in <genexpr>
+    return (generate_items_worker((k, factory(k), method)) for k in keys)
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/utilities/basics.py", line 187, in generate_items_worker
+    return key, method(instance, *method_args)
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/utilities/basics.py", line 684, in wrapper
+    returned = decorated(*args, **kwargs)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/markets/problem_market.py", line 59, in solve
+    delta, clipped_shares, stats, delta_errors = self.safely_compute_delta(delta, iteration, fp_type, shares_bounds)
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/utilities/basics.py", line 684, in wrapper
+    returned = decorated(*args, **kwargs)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/markets/problem_market.py", line 214, in safely_compute_delta
+    delta, clipped_shares, stats, errors = self.compute_delta(initial_delta, iteration, fp_type, shares_bounds)
+                                           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/markets/market.py", line 609, in compute_delta
+    delta, stats = iteration._iterate(initial_delta, contraction)
+                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/iteration.py", line 289, in _iterate
+    raw_final, converged = self._iterator(
+                           ~~~~~~~~~~~~~~^
+        raw_initial, contraction_wrapper, iteration_callback, **self._method_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/iteration.py", line 362, in scipy_iterator
+    results = scipy.optimize.root(
+        contraction_wrapper, initial, method=method, jac=compute_jacobian or None, callback=callback,
+        options=scipy_options
+    )
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_root.py", line 256, in root
+    sol = _root_leastsq(_wrapped_fun, x0, args=args, jac=jac, **options)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_root.py", line 324, in _root_leastsq
+    x, cov_x, info, msg, ier = leastsq(_wrapped_fun, x0, args=args,
+                               ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                       Dfun=jac, full_output=True,
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+                                       maxfev=maxiter, epsfcn=eps,
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                       factor=factor, diag=diag)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_minpack_py.py", line 448, in leastsq
+    retval = _minpack._lmder(func, Dfun, x0, args, full_output,
+                             col_deriv, ftol, xtol, gtol, maxfev,
+                             factor, diag)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_root.py", line 321, in _wrapped_fun
+    return fun(*fargs)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_root.py", line 216, in _wrapped_fun
+    return fun(*fargs)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_optimize.py", line 80, in __call__
+    self._compute_if_needed(x, *args)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_optimize.py", line 74, in _compute_if_needed
+    fg = self.fun(x, *args)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/iteration.py", line 340, in contraction_wrapper
+    x0, (x, weights, jacobian) = x, contraction(x)
+                                    ~~~~~~~~~~~^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/iteration.py", line 278, in contraction_wrapper
+    values, weights, jacobian = contraction(values, iterations, evaluations)
+                                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/markets/market.py", line 579, in contraction
+    probabilities = compute_probabilities(x)[0]
+                    ~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/markets/market.py", line 406, in compute_probabilities
+    utility_reduction = np.clip(utilities.max(axis=0, keepdims=True), 0, None)
+  File "/opt/anaconda3/lib/python3.13/site-packages/numpy/_core/fromnumeric.py", line 2296, in clip
+    return _wrapfunc(a, 'clip', a_min, a_max, out=out, **kwargs)
+  File "/opt/anaconda3/lib/python3.13/site-packages/numpy/_core/fromnumeric.py", line 54, in _wrapfunc
+    return bound(*args, **kwds)
+  File "/opt/anaconda3/lib/python3.13/site-packages/numpy/_core/_methods.py", line 111, in _clip
+    return um.maximum(a, min, out=out, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

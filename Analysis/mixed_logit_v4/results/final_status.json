@@ -1,0 +1,10 @@
+{
+  "specifications_attempted": 8,
+  "numerically_converged": 6,
+  "rejected": 2,
+  "independent_validation_count": 6,
+  "consumer_joint_distribution_not_assumed": true,
+  "income_quadrature_needs_refinement": true,
+  "model_iv_restrictions_not_validated": true,
+  "stopped_further_refinement_at_user_request": true
+}

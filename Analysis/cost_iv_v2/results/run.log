@@ -1,0 +1,29 @@
+Estimating all_packs__OLS 946237
+all_packs__OLS beta -1.2932474472430628 se 0.07892746831959706 F-like None
+Estimating all_packs__AAC_IV 946237
+all_packs__AAC_IV beta -1.1635631185686792 se 0.1918142336144941 F-like 23.974817089827788
+Estimating all_packs__PULP_IV 946237
+all_packs__PULP_IV beta -0.5227849461713772 se 0.45820027457485935 F-like 4.473702085484559
+Estimating all_packs__OLS_joint_sample 748035
+all_packs__OLS_joint_sample beta -1.1910203774289967 se 0.08729382740761937 F-like None
+Estimating all_packs__PULP_IV_joint_sample 748035
+all_packs__PULP_IV_joint_sample beta -1.1241253935665332 se 1.509230772280528 F-like 0.9394866038407408
+Estimating all_packs__PULP_PLASTIC_IV 748035
+all_packs__PULP_PLASTIC_IV beta -0.7342713944857497 se 0.41155027720867804 F-like 3.034359402926586
+Estimating all_packs__PULP_IV_pack_trends 946237
+all_packs__PULP_IV_pack_trends beta -0.8907933050611964 se 0.6050688932911593 F-like 3.394619243705524
+Estimating multi_packs__OLS 764960
+multi_packs__OLS beta -1.2295492473818421 se 0.08595656705114871 F-like None
+Estimating multi_packs__AAC_IV 764960
+multi_packs__AAC_IV beta -1.4085923868733976 se 0.2631567203254035 F-like 18.562278559168703
+Estimating multi_packs__PULP_IV 764960
+multi_packs__PULP_IV beta 6.02981925143007 se 19.477965728845298 F-like 0.10611315500813384
+Estimating multi_packs__OLS_joint_sample 614278
+multi_packs__OLS_joint_sample beta -1.0989932142360406 se 0.08716401807619437 F-like None
+Estimating multi_packs__PULP_IV_joint_sample 614278
+multi_packs__PULP_IV_joint_sample beta -9.542118391245372 se 67.36978859032604 F-like 0.018793057339669288
+Estimating multi_packs__PULP_PLASTIC_IV 614278
+multi_packs__PULP_PLASTIC_IV beta -0.5585363699370349 se 0.27384452980573437 F-like 13.041094530622672
+Estimating multi_packs__PULP_IV_pack_trends 764960
+multi_packs__PULP_IV_pack_trends beta -4.498823134678885 se 13.97205317419063 F-like 0.09527125509000654
+COMPLETE

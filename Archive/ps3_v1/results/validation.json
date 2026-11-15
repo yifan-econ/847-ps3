@@ -1,0 +1,6 @@
+{
+  "estimation_from_saved_clean_data_max_abs_difference": 1.1102230246251565e-15,
+  "same_sample_sizes": true,
+  "explicit_dummy_and_statsmodels_checks": "passed",
+  "price_sign_constrained": false
+}

@@ -1,0 +1,17 @@
+Data/Dominick/CCOUNT.SD2 filter=lfs diff=lfs merge=lfs -text
+Data/Dominick/WTTI.SD2 filter=lfs diff=lfs merge=lfs -text
+Data/Dominick/wtti.csv filter=lfs diff=lfs merge=lfs -text
+Data/Dominick/ccount.sas7bdat filter=lfs diff=lfs merge=lfs -text
+Data/Dominick/ccount.dta filter=lfs diff=lfs merge=lfs -text
+Archive/ps3_v1/results/clean_upc_store_week.csv.gz filter=lfs diff=lfs merge=lfs -text
+Archive/ps3_v1/results/clean_brand_pack_variant_store_week.csv.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/cost_iv_v2/data/processed/multi_packs_estimation_panel.csv.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/cost_iv_v2/data/processed/all_packs_estimation_panel.csv.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/mixed_logit_v4/results/multi_packs__income__aac/pyblp_results.pkl.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/mixed_logit_v4/results/all_packs__household__other_zone/pyblp_results.pkl.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/mixed_logit_v4/results/all_packs__income__aac/pyblp_results.pkl.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/mixed_logit_v4/results/all_packs__income__other_zone/pyblp_results.pkl.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/mixed_logit_v4/results/all_packs__household__aac/pyblp_results.pkl.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/mixed_logit_v4/results/multi_packs__income__other_zone/pyblp_results.pkl.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/mixed_logit_v4/linear_attempts/all_packs__household__aac/pyblp_results.pkl.gz filter=lfs diff=lfs merge=lfs -text
+Analysis/mixed_logit_v4/linear_attempts/multi_packs__household__other_zone/pyblp_results.pkl.gz filter=lfs diff=lfs merge=lfs -text

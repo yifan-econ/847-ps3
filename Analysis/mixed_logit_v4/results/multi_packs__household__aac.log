@@ -1,0 +1,215 @@
+Initializing the problem ...
+Absorbing demand-side fixed effects ...
+Initialized the problem after 00:00:01.
+
+Dimensions:
+================================================
+ T      N       I     K1    K2    D    MD    ED 
+----  ------  -----  ----  ----  ---  ----  ----
+8062  204170  40310   1     1     2    4     2  
+================================================
+
+Formulations:
+============================================
+       Column Indices:            0      1  
+-----------------------------  -------  ----
+ X1: Linear Characteristics     deal        
+X2: Nonlinear Characteristics  -prices      
+       d: Demographics            1     demo
+============================================
+There is only one process, so there is no parallel processing to do.
+Solving the problem ...
+
+Nonlinear Coefficient Initial Values:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices  +6.9315E-01  +1.0000E-01
+=====================================================================
+
+Nonlinear Coefficient Lower Bounds:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices     -INF         -INF    
+=====================================================================
+
+Nonlinear Coefficient Upper Bounds:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices     +INF         +INF    
+=====================================================================
+
+Starting optimization ...
+
+GMM   Computation  Optimization   Objective   Fixed Point  Contraction  Clipped   Objective    Objective    Gradient                            
+Step     Time       Iterations   Evaluations  Iterations   Evaluations  Shares      Value     Improvement     Norm               Theta          
+----  -----------  ------------  -----------  -----------  -----------  -------  -----------  -----------  -----------  ------------------------
+ 1     00:00:07         0             1          48327        48327        0     +1.2189E+02               +4.7292E+02  +6.9315E-01, +1.0000E-01
+ 1     00:00:07         0             2          53710        53710        0     +8.5396E+02               +1.5703E+03  +1.3513E+00, -6.6611E-01
+ 1     00:00:07         0             3          48255        48255        0     +1.1885E+02  +3.0420E+00  +4.7297E+02  +7.8169E-01, -3.0589E-03
+ 1     00:00:07         1             4          48293        48293        0     +1.1306E+02  +5.7893E+00  +5.9465E+02  +8.2038E-01, +2.2853E-02
+ 1     00:00:07         1             5          48521        48521        0     +8.9462E+01  +2.3595E+01  +5.6054E+02  +9.7515E-01, +1.2650E-01
+ 1     00:00:07         2             6          49159        49159        0     +6.8147E+01  +2.1315E+01  +2.2137E+02  +1.2685E+00, +3.5847E-01
+ 1     00:00:07         3             7          49365        49365        0     +6.4163E+01  +3.9840E+00  +1.1988E+02  +1.3324E+00, +3.8222E-01
+ 1     00:00:07         4             8          50415        50415        0     +5.6754E+01  +7.4088E+00  +3.8243E+01  +1.5239E+00, +4.7284E-01
+ 1     00:00:07         5             9          52926        52926        0     +4.8002E+01  +8.7520E+00  +3.6060E+02  +1.9509E+00, +6.8714E-01
+ 1     00:00:08         6            10          53223        53223        0     +4.4450E+01  +3.5523E+00  +2.8872E+02  +2.0129E+00, +7.2966E-01
+ 1     00:00:08         7            11          53842        53842        0     +3.9002E+01  +5.4478E+00  +1.5453E+02  +2.1713E+00, +8.3511E-01
+ 1     00:00:08         8            12          54562        54562        0     +3.6224E+01  +2.7784E+00  +1.6084E+01  +2.3581E+00, +9.5898E-01
+ 1     00:00:06         9            13          55182        55182        0     +3.5374E+01  +8.4980E-01  +3.7133E+00  +2.5315E+00, +1.0621E+00
+ 1     00:00:05         10           14          55903        55903        0     +3.2540E+01  +2.8336E+00  +2.2781E+01  +2.9036E+00, +1.2808E+00
+ 1     00:00:05         10           15          59230        59230        0     +1.8132E+01  +1.4408E+01  +7.3091E+01  +4.3918E+00, +2.1555E+00
+ 1     00:00:05         11           16          57621        57621        0     +2.0913E+01               +2.1654E+01  +3.7152E+00, +1.7534E+00
+ 1     00:00:05         11           17          58932        58932        0     +1.7937E+01  +1.9512E-01  +6.4131E+01  +4.2470E+00, +2.0695E+00
+ 1     00:00:05         12           18          59019        59019        0     +1.7716E+01  +2.2092E-01  +7.6483E+00  +4.2653E+00, +2.0742E+00
+ 1     00:00:05         13           19          59009        59009        0     +1.7726E+01               +1.9484E+00  +4.2758E+00, +2.0795E+00
+ 1     00:00:05         13           20          58999        58999        0     +1.7714E+01  +2.2590E-03  +6.6756E+00  +4.2663E+00, +2.0747E+00
+ 1     00:00:05         14           21          59002        59002        0     +1.7700E+01  +1.3640E-02  +8.7787E-01  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           22          59008        59008        0     +1.7712E+01               +2.0381E+00  +4.2759E+00, +2.0798E+00
+ 1     00:00:05         15           23          59002        59002        0     +1.7730E+01               +5.2640E+00  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           24          59002        59002        0     +1.7700E+01  +8.5336E-12  +8.7787E-01  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           25          59001        59001        0     +1.7700E+01  +1.2434E-13  +8.7787E-01  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           26          59002        59002        0     +1.7700E+01  +2.7946E-06  +8.7686E-01  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           27          59002        59002        0     +1.7700E+01  +2.2873E-08  +8.7685E-01  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           28          59002        59002        0     +1.7715E+01               +3.0709E+00  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           29          59002        59002        0     +1.7700E+01               +8.7685E-01  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           30          59002        59002        0     +1.7700E+01  +9.3362E-11  +8.7685E-01  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           31          59002        59002        0     +1.7730E+01               +5.2649E+00  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           32          59002        59002        0     +1.7700E+01               +8.7685E-01  +4.2740E+00, +2.0787E+00
+ 1     00:00:05         15           33          59008        59008        0     +1.7712E+01               +2.0381E+00  +4.2759E+00, +2.0798E+00
+ 1     00:00:05         15           34          59007        59007        0     +1.7699E+01  +1.4438E-03  +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           35          59011        59011        0     +1.7712E+01               +2.1609E+00  +4.2758E+00, +2.0798E+00
+ 1     00:00:05         16           36          59007        59007        0     +1.7729E+01               +4.7630E+00  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           37          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           38          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           39          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           40          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           41          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           42          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           43          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           44          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           45          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           46          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           47          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           48          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           49          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           50          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+
+GMM   Computation  Optimization   Objective   Fixed Point  Contraction  Clipped   Objective    Objective    Gradient                            
+Step     Time       Iterations   Evaluations  Iterations   Evaluations  Shares      Value     Improvement     Norm               Theta          
+----  -----------  ------------  -----------  -----------  -----------  -------  -----------  -----------  -----------  ------------------------
+ 1     00:00:06         16           51          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           52          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           53          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+ 1     00:00:05         16           54          59007        59007        0     +1.7699E+01               +3.5227E-01  +4.2749E+00, +2.0793E+00
+Traceback (most recent call last):
+  File "/Users/wenhanli/Desktop/847/PS 3/Analysis/mixed_logit_v4/src/run_mixed.py", line 136, in <module>
+    if __name__=='__main__': main()
+                             ~~~~^^
+  File "/Users/wenhanli/Desktop/847/PS 3/Analysis/mixed_logit_v4/src/run_mixed.py", line 117, in main
+    res=problem.solve(sigma=np.zeros((1,1)),pi=initial_pi,method='1s',
+     optimization=pyblp.Optimization('bfgs',{'maxiter':70,'gtol':1e-3,'hess_inv0':np.eye(2)*0.01}),
+     iteration=pyblp.Iteration('lm',{'ftol':1e-11,'xtol':1e-11,'gtol':1e-11,'maxiter':500},compute_jacobian=True),
+     W_type='clustered',se_type='clustered',error_behavior='revert',error_punishment=10000,check_optimality='both')
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 911, in solve
+    theta, optimization_stats = optimization._optimize(theta, theta_bounds, wrapper)
+                                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 302, in _optimize
+    raw_final, converged = self._optimizer(
+                           ~~~~~~~~~~~~~~~^
+        raw_initial, raw_bounds, objective_wrapper, iteration_callback, **self._method_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 561, in scipy_optimizer
+    results = scipy.optimize.minimize(
+        objective_wrapper, initial_values, method=method, jac=gradient_wrapper if compute_gradient else False,
+        hess=hess, bounds=bounds, callback=callback, options=scipy_options
+    )
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_minimize.py", line 779, in minimize
+    res = _minimize_bfgs(fun, x0, args, jac, callback, **options)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_optimize.py", line 1443, in _minimize_bfgs
+    _line_search_wolfe12(f, myfprime, xk, pk, gfk,
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         old_fval, old_old_fval, amin=1e-100,
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         amax=1e100, c1=c1, c2=c2)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_optimize.py", line 1172, in _line_search_wolfe12
+    ret = line_search_wolfe1(f, fprime, xk, pk, gfk,
+                             old_fval, old_old_fval,
+                             **kwargs)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_linesearch.py", line 101, in line_search_wolfe1
+    stp, fval, old_fval = scalar_search_wolfe1(
+                          ~~~~~~~~~~~~~~~~~~~~^
+            phi, derphi, old_fval, old_old_fval, derphi0,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            c1=c1, c2=c2, amax=amax, amin=amin, xtol=xtol)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_linesearch.py", line 176, in scalar_search_wolfe1
+    stp, phi1, phi0, task = dcsrch(
+                            ~~~~~~^
+        alpha1, phi0=phi0, derphi0=derphi0, maxiter=maxiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_dcsrch.py", line 255, in __call__
+    phi1 = self.phi(stp)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_linesearch.py", line 92, in phi
+    return f(xk + s*pk, *args)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_differentiable_functions.py", line 394, in fun
+    self._update_fun()
+    ~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_differentiable_functions.py", line 362, in _update_fun
+    fx = self._wrapped_fun(self.x)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/_lib/_util.py", line 544, in __call__
+    fx = self.f(np.copy(x), *self.args)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 538, in objective_wrapper
+    cache = (values.copy(), objective_function(values)[:2])
+                            ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 290, in objective_wrapper
+    objective, gradient, progress = verbose_objective_function(values, iterations, evaluations)
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 874, in wrapper
+    progress = compute_step_progress(
+        new_theta,
+    ...<5 lines>...
+        compute_simulation_covariances=False,
+    )
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 1117, in _compute_progress
+    for t, generated_t in generator:
+                          ^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/utilities/basics.py", line 178, in <genexpr>
+    return (generate_items_worker((k, factory(k), method)) for k in keys)
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/utilities/basics.py", line 187, in generate_items_worker
+    return key, method(instance, *method_args)
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/utilities/basics.py", line 684, in wrapper
+    returned = decorated(*args, **kwargs)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/markets/problem_market.py", line 59, in solve
+    delta, clipped_shares, stats, delta_errors = self.safely_compute_delta(delta, iteration, fp_type, shares_bounds)
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/utilities/basics.py", line 684, in wrapper
+    returned = decorated(*args, **kwargs)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/markets/problem_market.py", line 214, in safely_compute_delta
+    delta, clipped_shares, stats, errors = self.compute_delta(initial_delta, iteration, fp_type, shares_bounds)
+                                           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/markets/market.py", line 609, in compute_delta
+    delta, stats = iteration._iterate(initial_delta, contraction)
+                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/iteration.py", line 289, in _iterate
+    raw_final, converged = self._iterator(
+                           ~~~~~~~~~~~~~~^
+        raw_initial, contraction_wrapper, iteration_callback, **self._method_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/iteration.py", line 319, in scipy_iterator
+    weights_cache = np.ones_like(initial)
+  File "/opt/anaconda3/lib/python3.13/site-packages/numpy/_core/numeric.py", line 240, in _ones_like_dispatcher
+    def _ones_like_dispatcher(
+    
+KeyboardInterrupt

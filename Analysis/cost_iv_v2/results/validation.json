@@ -1,0 +1,9 @@
+{
+  "original_ols_beta": -1.2932474472430622,
+  "replicated_ols_beta": -1.2932474472430628,
+  "unique_product_market": true,
+  "shares_sum_to_one": true,
+  "raw_data_unchanged": true,
+  "base_panel_source": "archived v1 cleaned panel; not freshly regenerated from movement data",
+  "zero_sales_policy": "Preserve source zero records; exclude from log-share estimation, availability unresolved"
+}

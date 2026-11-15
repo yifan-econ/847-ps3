@@ -1,0 +1,72 @@
+from pathlib import Path
+import json,shutil,platform
+import numpy as np,pandas as pd,scipy,pyblp
+from scipy.stats import t
+ROOT=Path(__file__).resolve().parents[1]
+rows=[]
+for f in sorted((ROOT/'results').glob('*/summary.json')):
+ r=json.loads(f.read_text());r['pi_p_t23']=float(2*t.sf(abs(r['pi_demo']/r['se_pi_two_way']),23)) if r['se_pi_two_way']>0 else np.nan
+ rows.append(r)
+a=pd.DataFrame(rows)
+a.to_csv(ROOT/'results/estimates.csv',index=False)
+lines=['# PS3 mixed logit 第一版：消费者特征与需求异质性','',
+'日期：2026-11-14。使用 Python / PyBLP，需求侧估计；不是合并反事实的最终模型。','',
+'## 数据能做什么','',
+'现有 `Data/Dominick/demo.dta` 足够估计分别以家庭人数、收入为异质性来源的 mixed logit。本轮不需要下载外部消费者数据，也没有把 Nevo 等教学数据中的消费者冒充 Dominick’s 顾客。',
+'官方 manual 第7页说明，门店人口特征来自处理过的1990年芝加哥地区 Census 数据，是门店周边人口画像，不是逐个购物者的微观购买记录。将此分布当作到店购买机会对应的人口分布，是需要承认的近似。',
+'家庭人数版本与收入版本分别估计，避免无依据地假设收入与家庭人数独立。若将多个特征同时放入消费者效用，需要其联合分布；Romeo 的做法是用1996年3月 CPS Chicago PMSA 提供联合结构，再匹配门店边际。本轮没有声称已经构建这个联合分布。','',
+'## Romeo–Sullivan 对 IV 的新信息','',
+'已读新加入的 `Paper/ssrn-569866.pdf` 全文，重点原刊 pp.23–24（PDF pp.25–26）。作者在自己的模型中弃用当期和一期滞后批发价格；认为制造商加成可能随未观测需求变化。BLP特征类工具偏弱，全国 bath-tissue PPI 缺乏跨店变化。他们最后采用促销之间的间隔、一期滞后间隔、一期滞后促销持续时间，以及门店虚拟变量等。',
+'这是对 AAC 排除限制的重要反面证据，不能把“同数据文献使用过 AAC”说成公认验证。作者用系数、目标函数与解释力等判断工具表现，也不构成外生性已被统计证明。',
+'本轮按用户认可的框架，保留 AAC 和跨定价区价格两个候选 IV 家族，分别估计。促销时长类 IV 不直接塞入当前静态模型：过去的促销可能通过消费者库存影响本周购买，从而违反当前静态误差的排除限制。现有模型继续把 deal 当作外生控制，这也是与 Romeo–Sullivan 不同的重要维持假设。',
+'文献页：https://papers.ssrn.com/sol3/papers.cfm?abstract_id=569866','',
+'## 消费者类型构造','',
+'家庭人数：已知1人、2人、3–4人、5人以上比例，另有4人以上比例与平均家庭人数。先用 `P(4)=P(4+)-P(5+)`、`P(3)=P(3–4)-P(4)` 恢复1、2、3、4人比例；再用已知均值计算5+组的条件均值，形成5个加权消费者类型。匹配原始组比例和平均人数。5+组内部离散程度仍未知，折叠为一个类型是近似，不是观测到了所有家庭规模。消费者指标 `d = household_size − 2.7`。',
+'收入：`income` 是 log(median income)，不是美元收入，也不是 log(mean income)；`incsigma` 是收入水平的近似标准差。按 Romeo QME 的思路假定收入服从对数正态分布，解析恢复 log-income 标准差，并用15点 Gauss–Hermite 积分表示该分布。消费者指标 `d=(log(income)−10.6176748)/0.3`；参考均值取本样本门店 log median 的均值。',
+'这些是1990年门店人口画像，作为静态社会经济特征使用；没有假装是每年实测或通胀调整后的实时消费者收入。','',
+'## 模型','',
+'效用：`u_ijst = store×UPC FE + week FE + gamma*deal + xi_jst − exp(kappa0 + kappaD*d_is)*price_pack + epsilon_ijst`。',
+'条件于消费者类型仍为 logit，聚合份额对其人口分布积分，因此是 mixed logit。所有人口特征自身的市场内共同效用会抵消，关键是价格与人口特征的交互，而不是简单把门店收入均值加到份额回归。',
+'价格系数采用负指数连接，保证所有类型需求向下倾斜。这是经济形状假设，不能把“没有正价格系数”当作数据验证了 IV。收入版本对应负对数正态价格敏感度；家庭人数版本是有限类型混合，严格说不是连续对数正态分布。',
+'本轮不另估计与人口特征无关的正态随机系数，PyBLP 中 sigma 固定为0；异质性来自实际边际分布与估计的 kappaD。它是控制复杂度的第一版 mixed logit，不是包含所有随机系数和多个人口特征的完整 BLP。',
+'当 kappaD=0 时退化为向下倾斜的简单 logit。表中“参考价格系数”是 d=0 消费者的 `−exp(kappa0)`，不能直接当成整个消费者群体的平均价格系数与旧版比较；弹性才是更直接的比较对象。',
+'kappaD>0 表示 d 更高的消费者价格敏感度绝对值更大；kappaD<0 则更小。','',
+'## 样本、IV 与推断','',
+'使用1991–1992，沿用 GLS 的时期稳定性理由，并与1990年人口画像较接近；并非为获得理想弹性筛选时期。分别保留所有包装、仅多卷装。原始购物客流分母不变，单卷装购买在仅多卷装版本计入 outside。',
+'混合选择模型必须有完整的建模商品集合，不能删除缺 IV 的一行后还使用原 outside share。因此，某市场若任一正销量建模 UPC 缺 AAC 或跨区价格 IV，就剔除整个该市场；两个 IV 家族使用完全相同的市场与产品。所有包装259,986条、7,996个市场；仅多卷装204,170条、8,062个市场；均为83店。',
+'零销量/零价格记录仍保留在原始资料中，不进入这一正份额反演。mixed logit 本身不解决零销量选择偏误，也不自动识别真实可售集合。',
+'为识别新增人口异质性，每个 IV 家族从原 z 扩展为 `z`、`z × 门店人口指标均值（中心化）`、`z × 门店人口指标方差（中心化）`。这要求原 IV 在给定人口分布后的条件外生性，比仅有无条件 E[z*xi]=0 更强。不能仅凭原 IV 外生就自动推出所有交互工具有效。',
+'另估计相同商品市场、同一扩展 IV 集合的简单 logit 比较，避免把换样本或换工具的差异全部归因于 mixed logit。',
+'采用一步 GMM（初始2SLS权重），后续计算门店与月份双向聚类 sandwich 标准误；对照独立复算与 PyBLP 单向聚类协方差验证了尺度。仅有24个月，推断仍属近似。kappaD 的 t23 p值仅为采用较小聚类维度自由度的常规近似，不保证有限样本保守性，不是弱工具稳健检验；本轮没有微观购买矩、也没有完整的非线性弱识别稳健置信集。',
+'当前主程序没有对 kappa 参数加数值边界；优化器梯度容差为1e-3（目标函数按样本量缩放），以局部收敛、梯度、Hessian、份额匹配和独立验证判断数值表现。','',
+'## 已运行结果','',
+'| 包装 | 消费者特征 | IV | 参考价格系数 | kappaD | 双向聚类SE(kappaD) | 近似p(t23) | 中位自价格弹性 | 同IV简单logit中位弹性 | 非弹性% | 收敛 |',
+'|---|---|---|---:|---:|---:|---:|---:|---:|---:|---|']
+for _,r in a.iterrows():
+ lines.append(f'| {r.model.split("__")[0]} | {r.demographic} | {r.iv_family} | {r.beta_price:.3f} | {r.pi_demo:.3f} | {r.se_pi_two_way:.3f} | {r.pi_p_t23:.4f} | {r.median_own_elasticity:.3f} | {r.logit_same_iv_elasticity:.3f} | {100*r.share_inelastic:.3f} | {r.converged} |')
+lines += ['',f'已尝试8个规格，其中 {len(a)} 个收敛且通过最终份额匹配阈值；仅多卷装×家庭人数的两个 IV 版本出现极端系数、非平稳优化及份额反演失败，改变初始方向后仍未取得可用解，未作为有效估计汇报。失败记录保留在各目录 rejected_fit.json 和日志中。','',
+'## 验证结果与当前限制', '', '六个收敛规格的弹性已独立复算，简单logit嵌套和单向聚类协方差尺度检查均通过。数值匹配不等于模型或IV有效。', '新增的双向聚类、参数估计正交化过度识别矩检验表明：所有包装×家庭人数的 AAC 规格 p≈0.090，跨区价格规格 p≈0.018；四个收入规格 p 均低于0.001。这检验的是模型与全部工具矩的联合限制，不能单独定位哪个 IV 无效，也不能把未拒绝当成验证。只有24个月，p值采用常规渐近近似。', '收入版本15点积分与31点积分的固定参数份额比较显示，AAC 两版99分位相对差约0.0015%–0.0016%；跨区价格两版约0.064%与0.324%，最大绝对份额差最高约0.00079。收入结果因此仍为初步估计；按用户最新要求，本轮不再加密积分和重新优化。', '现阶段不能据此挑选一个已经验证的混合需求模型用于正式合并预测。原始人口数据足以跑通这套模型，但联合分布、工具交互的外生性、促销内生性及库存仍需后续处理。', '', '## 如何使用结果','',
+'不要只按负系数、较低非弹性比例或更小 GMM 目标值选择模型。人口异质性是否值得保留，应结合参数不确定性、跨 IV 的稳定性、积分敏感性和经济含义。不同消费者特征版本的工具交互不同，目标函数不能直接跨版本排名；同样一步GMM目标也不能简单当成似然比统计量。',
+'模型保证向下倾斜，但仍可能有非弹性产品。两组 IV 的排除限制都尚未证明；批发成本响应需求、统一连锁促销、未观测品牌广告仍是主要风险。需求模型尚未明确制造商与零售商如何共同定价，因此本轮未进行合并模拟。','',
+'## 文件与复现','',
+'主目录：`PS 3/Analysis/mixed_logit_v4/`。本轮按用户要求优先完成第一版，未继续追求积分与优化的最终精度。',
+'- `src/run_mixed.py`：单个规格。',
+'- `src/run_batch.py`：8个规格，最多两个本地估计进程并行；已有结果会跳过。',
+'- `src/validate_preparation.py`：消费者分布和份额准备核验。',
+'- `src/validate_results.py`：独立复算弹性、简单logit嵌套与聚类协方差。',
+'- `data/`：消费者类型、样本审计、原始数据来源摘要。',
+'- `results/estimates.csv`：主结果汇总。各子目录含 summary.json、product_results.csv.gz、diagnostics.npz 和压缩 PyBLP 结果对象。',
+'- `linear_attempts/`：探索性的线性价格系数版本及失败记录，不是主结果；`optimizer_attempts/` 保留早期数值尝试。',
+'依赖：numpy、pandas、scipy、pyblp。此处消费者类型构造使用 pandas 的 include_groups=False，需要支持该参数的版本。原始数据和现有结果未被覆盖。',
+'复现顺序：','',
+'```sh','python Analysis/mixed_logit_v4/src/validate_preparation.py','python Analysis/mixed_logit_v4/src/run_batch.py','python Analysis/mixed_logit_v4/src/validate_results.py','python Analysis/mixed_logit_v4/src/write_report.py','```','',
+'## 参考','',
+'- Romeo (2005), QME, §3.2–3.3, 原刊 pp.82、89–91；本地 Paper/s11129-005-0259-9.pdf。https://doi.org/10.1007/s11129-005-0259-9',
+'- Romeo–Sullivan (2004), 原刊 pp.23–24；本地 Paper/ssrn-569866.pdf。https://papers.ssrn.com/sol3/papers.cfm?abstract_id=569866',
+'- Dominick’s manual，第7页，人口特征来源与变量定义。',
+'- PyBLP 采用实际安装版本接口；文档：https://pyblp.readthedocs.io/en/stable/_api/pyblp.Problem.html']
+text='\n'.join(lines)+'\n';(ROOT/'REPORT_zh.md').write_text(text)
+(ROOT/'results/environment.json').write_text(json.dumps(dict(python=platform.python_version(),numpy=np.__version__,pandas=pd.__version__,scipy=scipy.__version__,pyblp=pyblp.__version__),indent=2))
+out=Path.cwd()/'outputs';out.mkdir(exist_ok=True)
+shutil.copy2(ROOT/'REPORT_zh.md',out/'PS3_mixed_logit_v4_report.md');shutil.copy2(ROOT/'results/estimates.csv',out/'PS3_mixed_logit_v4_estimates.csv')
+print('Report saved with',len(a),'specifications.')

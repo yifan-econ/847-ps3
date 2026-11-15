@@ -1,0 +1,115 @@
+Initializing the problem ...
+Absorbing demand-side fixed effects ...
+Initialized the problem after 00:00:01.
+
+Dimensions:
+================================================
+ T      N       I     K1    K2    D    MD    ED 
+----  ------  -----  ----  ----  ---  ----  ----
+7996  259986  39980   1     1     2    4     2  
+================================================
+
+Formulations:
+============================================
+       Column Indices:            0      1  
+-----------------------------  -------  ----
+ X1: Linear Characteristics     deal        
+X2: Nonlinear Characteristics  -prices      
+       d: Demographics            1     demo
+============================================
+There is only one process, so there is no parallel processing to do.
+Solving the problem ...
+
+Nonlinear Coefficient Initial Values:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices  +6.9315E-01  +1.0000E-01
+=====================================================================
+
+Nonlinear Coefficient Lower Bounds:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices  -5.0000E+00  -3.0000E+00
+=====================================================================
+
+Nonlinear Coefficient Upper Bounds:
+=====================================================================
+Types:  |  Sigma:     -prices    |    Pi:         1          demo    
+------  |  -------  -----------  |  -------  -----------  -----------
+ Log    |  -prices  +0.0000E+00  |  -prices  +5.0000E+00  +3.0000E+00
+=====================================================================
+
+Starting optimization ...
+
+GMM   Computation  Optimization   Objective   Fixed Point  Contraction  Clipped   Objective    Objective     Projected                            
+Step     Time       Iterations   Evaluations  Iterations   Evaluations  Shares      Value     Improvement  Gradient Norm           Theta          
+----  -----------  ------------  -----------  -----------  -----------  -------  -----------  -----------  -------------  ------------------------
+ 1     00:00:03         0             1          24550        76861        0     +5.7722E+01                +2.6660E+02   +6.9315E-01, +1.0000E-01
+Traceback (most recent call last):
+  File "/Users/wenhanli/Desktop/847/PS 3/Analysis/mixed_logit_v4/src/run_mixed.py", line 122, in <module>
+    if __name__=='__main__': main()
+                             ~~~~^^
+  File "/Users/wenhanli/Desktop/847/PS 3/Analysis/mixed_logit_v4/src/run_mixed.py", line 106, in main
+    res=problem.solve(sigma=np.zeros((1,1)),pi=np.array([[np.log(2),args.start]]),pi_bounds=(np.array([[-5.,-3.]]),np.array([[5.,3.]])),method='1s',
+     optimization=pyblp.Optimization('l-bfgs-b',{'maxiter':70,'gtol':1e-6,'ftol':1e-12}),
+     iteration=pyblp.Iteration('squarem',{'atol':1e-12,'max_evaluations':2000}),
+     W_type='clustered',se_type='clustered',error_behavior='raise',check_optimality='both')
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 911, in solve
+    theta, optimization_stats = optimization._optimize(theta, theta_bounds, wrapper)
+                                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 302, in _optimize
+    raw_final, converged = self._optimizer(
+                           ~~~~~~~~~~~~~~~^
+        raw_initial, raw_bounds, objective_wrapper, iteration_callback, **self._method_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 561, in scipy_optimizer
+    results = scipy.optimize.minimize(
+        objective_wrapper, initial_values, method=method, jac=gradient_wrapper if compute_gradient else False,
+        hess=hess, bounds=bounds, callback=callback, options=scipy_options
+    )
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_minimize.py", line 784, in minimize
+    res = _minimize_lbfgsb(fun, x0, args, jac, bounds,
+                           callback=callback, **options)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_lbfgsb_py.py", line 420, in _minimize_lbfgsb
+    f, g = func_and_grad(x)
+           ~~~~~~~~~~~~~^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_differentiable_functions.py", line 412, in fun_and_grad
+    self._update_fun()
+    ~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_differentiable_functions.py", line 362, in _update_fun
+    fx = self._wrapped_fun(self.x)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/_lib/_util.py", line 544, in __call__
+    fx = self.f(np.copy(x), *self.args)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 538, in objective_wrapper
+    cache = (values.copy(), objective_function(values)[:2])
+                            ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 290, in objective_wrapper
+    objective, gradient, progress = verbose_objective_function(values, iterations, evaluations)
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 874, in wrapper
+    progress = compute_step_progress(
+        new_theta,
+    ...<5 lines>...
+        compute_simulation_covariances=False,
+    )
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 1382, in _compute_progress
+    iv_delta, demand_absorption_errors = self._absorb_demand_ids(iv_delta)
+                                         ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/formulation.py", line 292, in __call__
+    matrix = self.algorithm.residualize(matrix)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyhdfe/algorithms.py", line 193, in residualize
+    return self._residualize_matrix(matrix, weights)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyhdfe/algorithms.py", line 361, in _residualize_matrix
+    return accelerations[self._acceleration](matrix, weights)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyhdfe/algorithms.py", line 368, in _iterate
+    matrix = self._transform_matrix(matrix, weights)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyhdfe/algorithms.py", line 464, in _transform_matrix
+    matrix = matrix - groups.expand(groups.mean(matrix, weights))
+    ^^^^^^
+KeyboardInterrupt

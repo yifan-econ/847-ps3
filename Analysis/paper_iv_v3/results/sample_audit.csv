@@ -1,0 +1,5 @@
+sample,period,before_iv_screen,common_rows,stores,zones,months,min_donor_zones,median_donor_zones,missing_zone_rows
+all_packs,full,946237,910215,83,15,91,3,14.0,33078
+all_packs,1991_1992,277363,272644,83,15,24,3,14.0,4320
+multi_packs,full,764960,734431,83,15,91,3,14.0,28163
+multi_packs,1991_1992,216066,212312,83,15,24,3,14.0,3422

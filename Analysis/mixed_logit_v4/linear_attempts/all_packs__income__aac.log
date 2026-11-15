@@ -1,0 +1,101 @@
+Initializing the problem ...
+Absorbing demand-side fixed effects ...
+Initialized the problem after 00:00:01.
+
+Dimensions:
+=================================================
+ T      N       I      K1    K2    D    MD    ED 
+----  ------  ------  ----  ----  ---  ----  ----
+7996  259986  119940   2     1     1    4     2  
+=================================================
+
+Formulations:
+===========================================
+       Column Indices:           0      1  
+-----------------------------  ------  ----
+ X1: Linear Characteristics    prices  deal
+X2: Nonlinear Characteristics  prices      
+       d: Demographics          demo       
+===========================================
+There is only one process, so there is no parallel processing to do.
+Solving the problem ...
+
+Nonlinear Coefficient Initial Values:
+===========================================
+Sigma:    prices     |   Pi:       demo    
+------  -----------  |  ------  -----------
+prices  +0.0000E+00  |  prices  +1.0000E-01
+===========================================
+
+Nonlinear Coefficient Lower Bounds:
+===========================================
+Sigma:    prices     |   Pi:       demo    
+------  -----------  |  ------  -----------
+prices  +0.0000E+00  |  prices     -INF    
+===========================================
+
+Nonlinear Coefficient Upper Bounds:
+===========================================
+Sigma:    prices     |   Pi:       demo    
+------  -----------  |  ------  -----------
+prices  +0.0000E+00  |  prices     +INF    
+===========================================
+
+Starting optimization ...
+
+GMM   Computation  Optimization   Objective   Fixed Point  Contraction  Clipped   Objective    Objective    Gradient               
+Step     Time       Iterations   Evaluations  Iterations   Evaluations  Shares      Value     Improvement     Norm         Theta   
+----  -----------  ------------  -----------  -----------  -----------  -------  -----------  -----------  -----------  -----------
+ 1     00:00:03         0             1          21456        69442        0     +1.5977E+02               +7.1961E+01  +1.0000E-01
+Traceback (most recent call last):
+  File "/Users/wenhanli/Desktop/847/PS 3/Analysis/mixed_logit_v4/src/run_mixed.py", line 122, in <module>
+    if __name__=='__main__': main()
+                             ~~~~^^
+  File "/Users/wenhanli/Desktop/847/PS 3/Analysis/mixed_logit_v4/src/run_mixed.py", line 106, in main
+    res=problem.solve(sigma=np.zeros((1,1)),pi=np.array([[args.start]]),method='1s',
+     optimization=pyblp.Optimization('l-bfgs-b',{'maxiter':70,'gtol':1e-6,'ftol':1e-12}),
+     iteration=pyblp.Iteration('squarem',{'atol':1e-12,'max_evaluations':2000}),
+     W_type='clustered',se_type='clustered',error_behavior='raise',check_optimality='both')
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 911, in solve
+    theta, optimization_stats = optimization._optimize(theta, theta_bounds, wrapper)
+                                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 302, in _optimize
+    raw_final, converged = self._optimizer(
+                           ~~~~~~~~~~~~~~~^
+        raw_initial, raw_bounds, objective_wrapper, iteration_callback, **self._method_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 561, in scipy_optimizer
+    results = scipy.optimize.minimize(
+        objective_wrapper, initial_values, method=method, jac=gradient_wrapper if compute_gradient else False,
+        hess=hess, bounds=bounds, callback=callback, options=scipy_options
+    )
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_minimize.py", line 784, in minimize
+    res = _minimize_lbfgsb(fun, x0, args, jac, bounds,
+                           callback=callback, **options)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_lbfgsb_py.py", line 420, in _minimize_lbfgsb
+    f, g = func_and_grad(x)
+           ~~~~~~~~~~~~~^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_differentiable_functions.py", line 412, in fun_and_grad
+    self._update_fun()
+    ~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/optimize/_differentiable_functions.py", line 362, in _update_fun
+    fx = self._wrapped_fun(self.x)
+  File "/opt/anaconda3/lib/python3.13/site-packages/scipy/_lib/_util.py", line 544, in __call__
+    fx = self.f(np.copy(x), *self.args)
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 538, in objective_wrapper
+    cache = (values.copy(), objective_function(values)[:2])
+                            ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/configurations/optimization.py", line 290, in objective_wrapper
+    objective, gradient, progress = verbose_objective_function(values, iterations, evaluations)
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 874, in wrapper
+    progress = compute_step_progress(
+        new_theta,
+    ...<5 lines>...
+        compute_simulation_covariances=False,
+    )
+  File "/opt/anaconda3/lib/python3.13/site-packages/pyblp/economies/problem.py", line 1550, in _compute_progress
+    raise exceptions.MultipleErrors(errors)
+pyblp.exceptions.DeltaConvergenceError: The fixed point computation of delta failed to converge. This problem can sometimes be mitigated by increasing the maximum number of fixed point iterations, increasing the fixed point tolerance, choosing more reasonable initial parameter values, setting more conservative parameter or share bounds, or using different iteration or optimization configurations.

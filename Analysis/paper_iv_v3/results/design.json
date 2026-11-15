@@ -1,0 +1,13 @@
+{
+  "donor_rule": "Equal weight across other pricing-zone mean prices, same UPC and week; at least three other zones",
+  "zone_source": "demo.dta: static zone mapping, historical changes unobserved",
+  "common_sample": "Within packaging and period, OLS/AAC/other-zone share identical observations",
+  "outside_share": "Recomputed for packaging universe BEFORE IV missingness screening; original traffic denominator",
+  "period_design": "Full period and 1991-1992 motivated by GLS 2012; pooled stores, not their single-store replication",
+  "cautions": [
+    "Same chain and Chicago region; not independent cities",
+    "Chain-wide brand-week promotions/demand shocks may invalidate price IV",
+    "Missing prices/donor assortment can depend on demand",
+    "No claim that significance or negative coefficient validates IV"
+  ]
+}

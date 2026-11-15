@@ -1,0 +1,9 @@
+{
+  "weights_sum_to_one": true,
+  "household_mean_and_group_margins_match": true,
+  "log_income_median_and_income_sd_analytically_match": true,
+  "unique_products_per_market": true,
+  "outside_shares_consistent": true,
+  "whole_markets_removed_when_any_modeled_product_lacks_either_iv": true,
+  "no_external_consumer_dataset_required_for_separate_marginal_models": true
+}

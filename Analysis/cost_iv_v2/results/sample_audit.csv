@@ -1,0 +1,3 @@
+sample,n,products,months,first,last,plastic_missing_rows,single_roll_purchases_inside
+all_packs,946237,116,91,1989-09-14,1997-04-24,198202,True
+multi_packs,764960,106,91,1989-09-14,1997-04-24,150682,False

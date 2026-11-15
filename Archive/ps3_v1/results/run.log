@@ -1,0 +1,30 @@
+raw_movement 1627284 
+nonroll_rows_removed 97346 
+roll_rows_before_validity 1529938 
+after_ok_qty_quantity_week 1504071 
+zero_price_zero_sales 412611 
+positive_sales_nonpositive_price 0 
+positive_price_records 1091460 
+price_sanity_band_removed 1 USD/pack outside [0.10,60]
+raw_customer_count 327045 
+valid_customer_days 225596 
+traffic_markets_7_days 29062 
+matched_full_week_traffic 949231 
+markets_invalid_outside 87 
+clean_positive_price_panel 946237 
+observed_zero_sales_positive_price 0 
+UPC_pooled_OLS beta= -0.39761 SE= 0.0112 median elasticity= -0.537 seconds= 0.5
+UPC_FE_OLS beta= -1.29325 SE= 0.05679 median elasticity= -1.747 seconds= 1.3
+UPC_FE_OLS_no_deal beta= -1.80569 SE= 0.05935 median elasticity= -2.44 seconds= 0.9
+UPC_store_product_market_FE_OLS beta= -1.30989 SE= 0.06047 median elasticity= -1.77 seconds= 1.3
+UPC_FE_IV_AAC beta= -1.16356 SE= 0.16157 median elasticity= -1.572 seconds= 1.6
+UPC_FE_IV_other_store_price beta= -1.42313 SE= 0.07192 median elasticity= -1.921 seconds= 1.6
+UPC_FE_OLS_common_IV_sample beta= -1.29516 SE= 0.05696 median elasticity= -1.748 seconds= 1.7
+UPC_FE_IV_AAC_common_sample beta= -1.17965 SE= 0.16163 median elasticity= -1.592 seconds= 1.9
+UPC_FE_IV_other_price_common_sample beta= -1.42313 SE= 0.07192 median elasticity= -1.921 seconds= 1.7
+UPC_FE_OLS_1991_1992 beta= -2.11124 SE= 0.12265 median elasticity= -2.421 seconds= 0.3
+UPC_FE_IV_AAC_1991_1992 beta= -2.10692 SE= 0.32361 median elasticity= -2.416 seconds= 0.3
+UPC_FE_OLS_tighter_price_band beta= -1.29318 SE= 0.05679 median elasticity= -1.747 seconds= 1.5
+brand_pack_variant_FE_OLS beta= -0.41854 SE= 0.03468 median elasticity= -0.83 seconds= 0.6
+brand_pack_variant_FE_IV_AAC beta= -0.22604 SE= 0.02637 median elasticity= -0.448 seconds= 0.7
+Finished. Results: /Users/wenhanli/Documents/Codex/2026-11-14/new-chat/work/ps3_v1/results

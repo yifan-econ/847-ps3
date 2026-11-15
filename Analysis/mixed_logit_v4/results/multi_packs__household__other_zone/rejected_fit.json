@@ -1,0 +1,9 @@
+{
+  "model": "multi_packs__household__other_zone",
+  "status": "rejected",
+  "reason": "Unrestricted optimization reached extreme coefficients without stationarity; endpoint evaluation failed final share inversion accuracy assertion",
+  "share_accuracy_threshold": 1e-08,
+  "evidence_log": "multi_packs__household__other_zone_endpoint.log",
+  "additional_start": "alternate_negative_start",
+  "alternative_start_status": "Negative demographic starting coefficient also led to extreme coefficients and unstable optimization; stopped and not interpreted"
+}

@@ -1,0 +1,5 @@
+zero_location,rows,fraction_of_zeros
+after_last_positive_sale,300334,0.7278865565871971
+before_first_positive_sale,39234,0.0950871401877313
+between_positive_sales,71524,0.17334486962296206
+never_positive_in_valid_records,1519,0.003681433602109493

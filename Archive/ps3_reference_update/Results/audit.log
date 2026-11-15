@@ -1,0 +1,34 @@
+{
+  "zero_records": 412611,
+  "valid_roll_records": 1504071,
+  "zero_and_zero_price": 412611,
+  "within_positive_sales_lifetime": 71524,
+  "zero_with_observed_positive_prices_within_four_weeks_both_sides": 16766,
+  "zero_with_same_positive_prices_within_four_weeks_both_sides": 10117,
+  "zero_fraction_weekly_recorded": 0.2743294698189115,
+  "zero_fraction_monthly_recorded_groups": 0.25780731792811495,
+  "active_window_proxy_records": 1162984,
+  "zero_fraction_weekly_inside_first_last_positive_sales": 0.061500416170815767,
+  "zero_fraction_monthly_inside_first_last_positive_sales": 0.04171439115161938,
+  "unweighted_inelastic_fraction": 0.21100104941996561,
+  "package_volume_weighted_inelastic_fraction": 0.4619230290609732,
+  "single_roll_fraction_of_inelastic_records": 0.9079120691986757
+}
+                                   rows  fraction_of_zeros
+zero_location                                             
+after_last_positive_sale         300334           0.727887
+before_first_positive_sale        39234           0.095087
+between_positive_sales            71524           0.173345
+never_positive_in_valid_records    1519           0.003681
+              rows  inelastic_fraction  median_price_pack     packs
+pack_count                                                         
+1           181277            0.999967               0.55  29108497
+3             3713            0.000000               1.99     56847
+4           418494            0.043934               1.20  36304827
+6           123157            0.000000               2.09   3947045
+8            15567            0.000000               2.09    316056
+9            66339            0.000000               4.59   1324806
+12          106584            0.000000               3.71   2101672
+18            7192            0.000000               6.39     50420
+24           21651            0.000000               6.99    168858
+36            2263            0.000000              11.49     12905

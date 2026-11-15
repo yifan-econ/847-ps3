@@ -1,0 +1,7 @@
+{
+  "donor_manual_recomputation_checks": 12,
+  "random_seed": 847,
+  "exclude_own_zone_verified": true,
+  "models": 12,
+  "common_sample_within_packaging_period": true
+}

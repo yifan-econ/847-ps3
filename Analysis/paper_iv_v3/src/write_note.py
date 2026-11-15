@@ -1,0 +1,57 @@
+from pathlib import Path
+import pandas as pd,json,shutil
+ROOT=Path(__file__).resolve().parents[1]
+a=pd.read_csv(ROOT/'results/estimates.csv')
+lines=['# Bathroom tissue 文献的 IV 核对与可实施比较（v3）','',
+'日期：2026-11-14。本轮新增 12 个回归，保留所有包装和仅多卷装两版。','',
+'## 论文实际使用什么 IV','',
+'### Gandhi–Lu–Shi（2012 工作论文）','',
+'已核对本地及 Princeton 原文 PDF pp.22–26，尤其 §5.1–5.3。Bathroom tissue，Dominick’s，门店 134，1991–1992。由零售价格和毛利率计算 wholesale cost，作为零售价格工具：`cost = retail price × (1 − gross margin)`。这正是 v2 已有 AAC 代理，文献并未使用我们下载的全国纸浆 PPI。',
+'文献控制包装、品牌、促销、节假日、年份及其灵活交互；不是我们的 store×UPC + week FE 原样设定。其 Table 2 简单 logit 报告 OLS 价格系数 −2.17、IV −1.50，但作者强调该正份额反演存在零份额选择和抽样误差问题，不应把这张表当作最终无偏估计或调参目标。',
+'1991–1992 的选择依据是作者认为 1993 年 Charmin Ultra 引入前需求环境较稳定；这是论文的时期选择理由，不是本轮证明了 1993 年后所有结构变化的证据。',
+'来源：https://www.princeton.edu/~erp/erp%20seminar%20pdfs/Spring%20PDF%202012/shi.pdf','',
+'### Hausman–Leonard（2002 发表；本地为 1999 公开早期版）','',
+'已核对公开早期版 PDF pp.18–21，Instruments 小节。使用其他城市同品牌价格作为本城市价格的工具，并控制品牌×城市固定效应、季节和趋势等。共同生产成本带来相关性，跨城市需求误差独立提供排除限制。',
+'论文明确讨论：全国、月度的纸浆价格，对多个品牌、多个城市、周度价格的需求估计可能帮助有限；生产厂或制造商特定成本更合适但难获取。该问题与本轮弱纸浆工具的现象一致，但不能据此断言任何全国成本交互 IV 都无效。',
+'其需求模型是品牌层面的需求系统，并非我们的 UPC simple logit；可借鉴跨市场工具的逻辑，不照搬其全部模型。',
+'来源：https://users.nber.org/~confer/2000/si2000/hausman.pdf','',
+'### Shi–Shum–Song（2018 Econometrica）','',
+'已核对本地正式版 §6.1–6.2（原刊 pp.750–753）。厕纸实证基于 cyclic monotonicity 的时间循环矩不等式和 store×brand 固定效应，解释变量为 PRICE、DEAL 和 PRICE×DEAL；没有采用我们现在这种用外部排除工具进行的价格 2SLS。',
+'因此，这篇文章没有提供可直接拿来替换纸浆 PPI 的采购成本或跨城市 IV 配方。固定效应消除不变异质性，并不自动消除价格与时变需求冲击的相关性。“instrumental functions”一词也不能直接理解为解决价格内生性的 excluded IV。',
+'来源：https://onlinelibrary.wiley.com/doi/10.3982/ECTA14115','',
+'### Romeo（2005 QME）','',
+'核实了出版社页面、题名和摘要，但目前本地没有全文。重新尝试 CiteSeer 全文下载仍返回 404，不能可靠声称其用了哪一种价格 IV。该文主要贡献是构建门店人口特征联合分布，为 mixed logit 提供异质性输入；不将它作为已经核对的 IV 依据。',
+'来源：https://link.springer.com/article/10.1007/s11129-005-0259-9','',
+'### GLS（2023 QE 正式版，补充而非另一篇厕纸实证）','',
+'正式实证已改用 tuna。已核对 §9 和注30：同样由毛利率反推 wholesale cost。作者以零售促销主要压缩零售毛利为论据，同时承认若制造商根据需求冲击调整批发价，工具可能失效。其零销量修正方法与工具外生性是两个不同问题。',
+'来源：https://onlinelibrary.wiley.com/doi/full/10.3982/QE1593','',
+'## 本轮具体实现','',
+'代码：`src/run_paper_iv.py`；结果：`results/estimates.csv`。复现：在项目根目录运行 `python Analysis/paper_iv_v3/src/run_paper_iv.py`，再运行同目录 `src/write_note.py`。依赖沿用 v2 的 numpy/pandas/scipy；估计函数引用 v2，因此应保留 v2 文件夹。',
+'1. 保留 AAC-IV，在完整时期和 1991–1992 各估计一次。1991–1992 仍合并多家门店，并保留当前固定效应，不冒充 GLS 单店原样复现。',
+'2. 用 demo.dta 的静态 zone 映射构造其他定价区同 UPC、同周平均价格：先在每个 donor zone 内平均，再对其他 zones 等权平均，排除本店整个 zone。要求至少三个其他 donor zones；未依据系数选择门槛。',
+'3. 每个包装×时期组合中，OLS、AAC-IV、跨区价格 IV 使用完全相同的有效样本，避免把样本变化误认为 IV 效果。',
+'4. 多卷装 outside share 先在完整的多卷装商品集合上重新计算，再筛选 IV 缺失行；不会因 IV 缺失又把本来纳入的产品购买错误移到 outside。原始购物客流分母保留。',
+'5. 门店和月份双向聚类。1991–1992 只有 24 个月，常规渐近推断尤其应谨慎；本轮未实施 wild-cluster bootstrap。',
+'', '## 结果（同一包装×时期内为共同样本）','',
+'| 样本 | 时期 | 规格 | N | β价格 | 聚类SE | 非弹性% | 第一阶段Wald/q | partial R² |',
+'|---|---|---|---:|---:|---:|---:|---:|---:|']
+for _,r in a.iterrows():
+ iv='—' if pd.isna(r.first_stage_wald_per_iv) else f'{r.first_stage_wald_per_iv:.2f}'
+ pr='—' if pd.isna(r.first_stage_partial_r2) else f'{r.first_stage_partial_r2:.4f}'
+ lines.append(f'| {r["sample"]} | {r.period} | {r.model.split("__")[-1]} | {r.n:,} | {r.beta_price:.4f} | {r.se_price:.4f} | {100*r.share_inelastic:.2f} | {iv} | {pr} |')
+lines += ['', '第一阶段 Wald/q 不是 KP、有效F 或 Stock–Yogo 统计量。所有 IV 都是单一排除工具，不能执行有正自由度的过度识别检验；AR beta=0 的检验见 CSV，但该检验不检验 IV 有效性。','',
+'## 如何解读','',
+'跨区价格 IV 的相关性明显强于木浆 PPI：其强第一阶段也可能来自连锁统一价格/促销，不能仅以强度认定排除限制成立。它更像 Hausman–Leonard 的可计算近似，而非同等可信的跨城市工具。',
+'当前数据只有芝加哥地区的同一连锁门店，不存在论文中不同城市和不同零售商的独立价格样本。跨定价区排除能减少同区机械一致性，却不能消除共同品牌广告、统一促销或区域需求冲击。demo zone 为静态映射，历史换区未观测到；donor 商品记录也来自正销量清洗样本，供给/选择状态变化会影响 donor composition。',
+'AAC-IV 是最直接有同数据、同品类文献依据的候选，现有结果并不都“不理想”：仅多卷装完整时期 β≈−1.357，1991–1992 β≈−2.322。价格系数为负和弹性合理仍不是其有效性的证明；真正需要论证的是供应商促销、需求响应和库存加权采购成本误差。',
+'建议当前以“OLS 基准 + AAC-IV 文献候选 + 跨区价格 IV 敏感性”组织结果，外部木浆 PPI 记录为弱工具的尝试。保留完整时期与 1991–1992 的比较，并解释样本选择来自文献理由。不要因为后者几乎没有非弹性记录就只报告后者。',
+'零销量选择、共同价格系数限制和供给侧的零售商角色仍待解决，换工具并不能同时解决这些问题。','',
+'## 核验','',
+'12 个规格完成且无回归协方差负对角线；每个包装×时期三个规格 N 相同；定价区映射的门店键唯一；每个 donor 排除目标 zone 且至少含三个其他区（构造式实现）；缺失 zone 门店另存；原始文件未修改。完整样本共同样本有 83 店、15 个静态定价区。所有新结果与 v2 分开保存。']
+text='\n'.join(lines)+'\n';(ROOT/'LITERATURE_AND_RESULTS_zh.md').write_text(text)
+out=Path.cwd()/'outputs';out.mkdir(exist_ok=True)
+shutil.copy2(ROOT/'LITERATURE_AND_RESULTS_zh.md',out/'PS3_paper_IV_v3_note.md')
+shutil.copy2(ROOT/'results/estimates.csv',out/'PS3_paper_IV_v3_estimates.csv')
+assert len(a)==12
+for _,g in a.groupby(['sample','period']): assert g.n.nunique()==1
+print('Literature note saved; 12-model common-sample checks passed.')
