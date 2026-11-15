@@ -6,7 +6,8 @@ import os
 os.environ.setdefault('OPENBLAS_NUM_THREADS','1')
 os.environ.setdefault('OMP_NUM_THREADS','1')
 from pathlib import Path
-import sys,argparse,json,pickle,time,gzip,fcntl
+import sys,argparse,json,pickle,time,gzip
+from filelock import FileLock
 import numpy as np
 import pandas as pd
 import pyblp
@@ -96,7 +97,13 @@ def main():
  out=ROOT/'results'/label
  if args.tag:out=out/args.tag
  out.mkdir(parents=True,exist_ok=True)
- lock=open(out/'run.lock','w');fcntl.flock(lock,fcntl.LOCK_EX)
+ # Native OS locks on Windows and macOS; release on return or exception.
+ # Keep the original path so all writers to one specification coordinate.
+ with FileLock(out/'run.lock'):
+  run_locked(args,out,label)
+
+def run_locked(args,out,label):
+ """Run one specification while main() holds its inter-process lock."""
  if not args.force and (out/'summary.json').exists() and (out/'pyblp_results.pkl.gz').exists():
   print('CACHED',label,flush=True);return
  (out/'process.json').write_text(json.dumps(dict(pid=os.getpid(),parent_pid=os.getppid())))

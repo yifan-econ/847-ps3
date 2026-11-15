@@ -1,0 +1,62 @@
+{
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.9",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "pyblp": "1.2.0",
+    "statsmodels": "0.14.6",
+    "filelock": "3.32.7"
+  },
+  "estimation_run": false,
+  "portability_tests_passed": true,
+  "preparation": [
+    {
+      "sample": "all_packs",
+      "demographic": "household",
+      "n": 259986,
+      "stores": 83,
+      "markets": 7996,
+      "agents": 39980,
+      "income_order": 15
+    },
+    {
+      "sample": "all_packs",
+      "demographic": "income",
+      "n": 259986,
+      "stores": 83,
+      "markets": 7996,
+      "agents": 119940,
+      "income_order": 15
+    },
+    {
+      "sample": "multi_packs",
+      "demographic": "household",
+      "n": 204170,
+      "stores": 83,
+      "markets": 8062,
+      "agents": 40310,
+      "income_order": 15
+    },
+    {
+      "sample": "multi_packs",
+      "demographic": "income",
+      "n": 204170,
+      "stores": 83,
+      "markets": 8062,
+      "agents": 120930,
+      "income_order": 15
+    }
+  ],
+  "saved_result": {
+    "model": "all_packs__household__aac",
+    "market": "100_100",
+    "products": 32,
+    "max_share_error": 6.938893903907228e-18
+  },
+  "passed": true,
+  "protected_file_count": 194,
+  "changed_research_files": [],
+  "elapsed_seconds": 29.09
+}

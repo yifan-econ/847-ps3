@@ -2,3 +2,4 @@ numpy
 pandas>=2.2
 scipy
 pyblp==1.2.0
+filelock>=3.20,<4

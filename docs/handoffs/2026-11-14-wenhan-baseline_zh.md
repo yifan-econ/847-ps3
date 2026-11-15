@@ -1,3 +1,5 @@
+> Organization note (2026-11-14): Moved from the repository root; local links updated. This handoff was committed in a5f6632, so its uncommitted/unpushed labels below are historical. Inline paths and commands remain relative to the repository root.
+
 # 847 PS3 合作者交接：两次会话的任务、选择依据、结果与待办
 
 > **审阅草稿｜2026-11-14｜尚未提交或 push**  
@@ -51,7 +53,7 @@ Python 可以直接读 `.dta`；旧 SAS 文件原样保留，并不是所有 SAS
 
 关键筛选日志：原始 movement 1,627,284行；非卷纸移除97,346行；有效卷纸记录1,504,071行；零价格零销量412,611行；正价格记录1,091,460行；最终 v1 正份额估计面板946,237行、93店、116 UPC。日志还记录87个 outside share 不合格市场。
 
-依据：[v1 清洗日志](Archive/ps3_v1/results/cleaning_audit.csv)、[清洗与估计代码](Archive/ps3_v1/src/run_logit.py)。**本会话恢复并使用 v1 清洗面板，重新估计后续模型；没有把这一过程称为本会话重新从原始 movement 完整清洗了一遍。**
+依据：[v1 清洗日志](../../Archive/ps3_v1/results/cleaning_audit.csv)、[清洗与估计代码](../../Archive/ps3_v1/src/run_logit.py)。**本会话恢复并使用 v1 清洗面板，重新估计后续模型；没有把这一过程称为本会话重新从原始 movement 完整清洗了一遍。**
 
 ### 3.2 市场、产品、价格、份额
 
@@ -84,7 +86,7 @@ Python 可以直接读 `.dta`；旧 SAS 文件原样保留，并不是所有 SAS
 | FE-IV：其他店同 UPC 价格 | −1.423 | 0.072 | −1.92 |
 | 1991–1992 FE OLS | −2.111 | 0.123 | −2.42 |
 
-来源：[v1 estimates.csv](Archive/ps3_v1/results/estimates.csv)。这些 SE 按**门店和周**双向聚类。后续改用门店和月份，因此即使点估计相同，SE 也会变化。
+来源：[v1 estimates.csv](../../Archive/ps3_v1/results/estimates.csv)。这些 SE 按**门店和周**双向聚类。后续改用门店和月份，因此即使点估计相同，SE 也会变化。
 
 初版没有遇到正价格系数，但负号并不能证明内生性已解决。粗聚合到 brand×包装规格×variant 后，中位弹性约−0.83，更不理想，因此没有以该聚合替换 UPC 基准。它只是做过的替代规格，不是证明任何品牌聚合都不合理。
 
@@ -105,7 +107,7 @@ Python 可以直接读 `.dta`；旧 SAS 文件原样保留，并不是所有 SAS
 
 在首次至末次正销量的代理区间内，零销量比例约6.15%；按月汇总后仍约4.17%。**月度只做了零记录诊断，没有完成以月为市场的替代需求估计；聚合也不是囤货或零销量偏误的一般修正。**
 
-当前没有填补零记录价格，没有加 epsilon，没有用“上周价格”恢复全部零记录，也没有构建经过确认的全样本真实 choice set。保留文件为 [reported_zero_sales_records.csv.gz](Archive/ps3_v1/results/reported_zero_sales_records.csv.gz)，诊断见 [zero_and_elasticity_audit.json](Archive/ps3_reference_update/Results/zero_and_elasticity_audit.json)。
+当前没有填补零记录价格，没有加 epsilon，没有用“上周价格”恢复全部零记录，也没有构建经过确认的全样本真实 choice set。保留文件为 [reported_zero_sales_records.csv.gz](../../Archive/ps3_v1/results/reported_zero_sales_records.csv.gz)，诊断见 [zero_and_elasticity_audit.json](../../Archive/ps3_reference_update/Results/zero_and_elasticity_audit.json)。
 
 文献依据是 GLS 的零份额问题：正份额反演需取对数，直接删零或伪计数可能有偏；其正式方法不是我们当前采用的估计器。**回归排零只是现阶段的可操作限制，不是已经解决 selection bias。**
 
@@ -171,7 +173,7 @@ AAC_{jst}=p_{jst}\left(1-\frac{PROFIT_{jst}}{100}\right).
 | 木浆 | [WPU0911](https://fred.stlouisfed.org/series/WPU0911) | 1988-01至1998-12，共132个月 |
 | 塑料薄膜、片材及其他形状 | [WPU072205](https://fred.stlouisfed.org/series/WPU072205) | 1991-07至1998-12，共90个月 |
 
-原始 CSV、来源和 SHA256 在 [v2 data/raw](Analysis/cost_iv_v2/data/raw/manifest.json)。按周起始日所属月份匹配，没有插值或补造早期塑料价格。
+原始 CSV、来源和 SHA256 在 [v2 data/raw](../../Analysis/cost_iv_v2/data/raw/manifest.json)。按周起始日所属月份匹配，没有插值或补造早期塑料价格。
 
 共同全国时间序列会被 week FE 吸收，因此构造：
 
@@ -201,7 +203,7 @@ v2 的代表性结果（门店、月份双向聚类）：
 
 **Wald/q 不是 KP、Stock–Yogo 或有效F统计量，不应用“超过10”作为通用判定。**第一阶段显著不等于强工具，更不等于外生。AR 的弱工具稳健解释也以工具外生等维持假设为前提。本轮没有构建完整弱工具稳健置信区间。
 
-结果见 [v2 estimates.csv](Analysis/cost_iv_v2/results/estimates.csv)。因此外部 PPI 保留为失败／弱工具尝试，没有选为主规格。后来核对 Hausman–Leonard，发现其公开早期版本就讨论全国月度纸浆价格对多品牌、周度数据帮助有限；这与我们的发现相符，但不是证明所有全国成本交互都无效。
+结果见 [v2 estimates.csv](../../Analysis/cost_iv_v2/results/estimates.csv)。因此外部 PPI 保留为失败／弱工具尝试，没有选为主规格。后来核对 Hausman–Leonard，发现其公开早期版本就讨论全国月度纸浆价格对多品牌、周度数据帮助有限；这与我们的发现相符，但不是证明所有全国成本交互都无效。
 
 ### 6.4 从其他店价格到“排除本定价区”的价格
 
@@ -220,7 +222,7 @@ v3 在每个包装×时期内，OLS、AAC、跨区价格使用相同有效行，
 | 1991–1992／所有包装 | −2.105 | −2.071 | −2.704 |
 | 1991–1992／仅多卷装 | −2.211 | −2.322 | −3.004 |
 
-跨区 IV 第一阶段 partial R² 约0.65–0.76，明显强于 PPI，但强度可能同时反映统一定价／促销。v3 各 IV 规格只有一个排除工具，不能做正自由度的过度识别检验。详见 [v3结果](Analysis/paper_iv_v3/results/estimates.csv)。
+跨区 IV 第一阶段 partial R² 约0.65–0.76，明显强于 PPI，但强度可能同时反映统一定价／促销。v3 各 IV 规格只有一个排除工具，不能做正自由度的过度识别检验。详见 [v3结果](../../Analysis/paper_iv_v3/results/estimates.csv)。
 
 ### 6.5 为什么增加1991–1992，而不是只用完整时期
 
@@ -290,7 +292,7 @@ u_{ijst}=\mu_{js}+\tau_t+\gamma Deal_{jst}+\xi_{jst}
 
 **两个未取得可用解的规格：**仅多卷装×家庭人数，分别用 AAC 和跨区 IV。参数趋于极端、梯度不稳定；末端份额反演没有通过精度检查，替代初始方向也未取得可用解，后续停止。失败记录在各目录的 `rejected_fit.json`、`*_endpoint.log` 和 `*_alternate.log`。这不是“家庭人数效应为0”，也不是证明该模型在任何实现中都不可识别；只是当前实现没有可解释的合格估计。
 
-结果源：[v4 estimates.csv](Analysis/mixed_logit_v4/results/estimates.csv)、[独立核验](Analysis/mixed_logit_v4/results/independent_validation.csv)。
+结果源：[v4 estimates.csv](../../Analysis/mixed_logit_v4/results/estimates.csv)、[独立核验](../../Analysis/mixed_logit_v4/results/independent_validation.csv)。
 
 ### 7.5 数值核验通过了什么，还有什么没做
 
