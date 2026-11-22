@@ -1,0 +1,17 @@
+cell,retailer,scope,scott_single_rows,negative_scott_single_rows,negative_package_fraction,negative_scott_single_markets,form,iv,rho_tag,rho
+linear__aac__rho00,dollar,full_input,41677,34536,0.92701238224062,6947,linear,aac,rho00,0.0
+linear__aac__rho25,dollar,full_input,41677,41535,0.998802900936559,7985,linear,aac,rho25,0.25
+linear__aac__rho50,dollar,full_input,41677,41626,0.9996076270630684,7993,linear,aac,rho50,0.5
+linear__aac__rho75,dollar,full_input,41677,41583,0.9991727194778658,7991,linear,aac,rho75,0.75
+linear__other_zone__rho00,dollar,full_input,41677,1080,0.2302622377515228,220,linear,other_zone,rho00,0.0
+linear__other_zone__rho25,dollar,full_input,41677,4190,0.4024672547561888,837,linear,other_zone,rho25,0.25
+linear__other_zone__rho50,dollar,full_input,41677,13698,0.6096200626252213,2693,linear,other_zone,rho50,0.5
+linear__other_zone__rho75,dollar,full_input,41677,25446,0.8014921448801215,4938,linear,other_zone,rho75,0.75
+log__aac__rho00,dollar,full_input,41677,87,0.046376372799644,18,log,aac,rho00,0.0
+log__aac__rho25,dollar,full_input,41677,105,0.0546747968725388,22,log,aac,rho25,0.25
+log__aac__rho50,dollar,full_input,41677,167,0.0766202238156031,37,log,aac,rho50,0.5
+log__aac__rho75,dollar,full_input,41677,425,0.1354400037754097,97,log,aac,rho75,0.75
+log__other_zone__rho00,dollar,full_input,41677,87,0.046376372799644,18,log,other_zone,rho00,0.0
+log__other_zone__rho25,dollar,full_input,41677,115,0.0583120609017713,25,log,other_zone,rho25,0.25
+log__other_zone__rho50,dollar,full_input,41677,189,0.0827127299337893,42,log,other_zone,rho50,0.5
+log__other_zone__rho75,dollar,full_input,41677,559,0.1561597709257905,121,log,other_zone,rho75,0.75

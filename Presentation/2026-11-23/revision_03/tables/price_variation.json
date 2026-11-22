@@ -1,0 +1,8 @@
+{
+  "between_store_upc_percent": 98.13094474354318,
+  "within_store_upc_over_time_percent": 1.869055256456818,
+  "between_pack_size_percent": 92.3760766348811,
+  "between_upc_percent": 97.65792167017088,
+  "between_store_percent": 0.2103162229236729,
+  "definition": "Observation-weighted shares of the variance of package price in dollars."
+}

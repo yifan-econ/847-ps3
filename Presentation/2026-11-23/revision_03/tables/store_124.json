@@ -1,0 +1,13 @@
+{
+  "store": 124,
+  "week": 110,
+  "week_beginning": "1991-10-17",
+  "packages": 29209,
+  "shopping_trips": 29213.0,
+  "scott_packages": 28023,
+  "scott_039_upcs": 5,
+  "scott_039_packages": 27916,
+  "scott_039_pack_counts": [
+    1
+  ]
+}

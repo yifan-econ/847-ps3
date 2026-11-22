@@ -1,6 +1,10 @@
 # Current project status
 
-Updated 2026-11-15 after Fable's presentation review: delivery remains the priority, due November 23. Read the [latest handoff](handoffs/2026-11-15-yifan-presentation-revision.md), [workplan](WORKPLAN.md), [current presentation](../Presentation/2026-11-23/revision_02/README.md), and [original Chinese baseline](handoffs/2026-11-14-wenhan-baseline_zh.md).
+Updated 2026-11-22: presentation revision 03 is built; the talk is November 23. Read the [latest handoff](handoffs/2026-11-22-yifan-slide-revision-03.md), [workplan](WORKPLAN.md), [current presentation](../Presentation/2026-11-23/revision_03/README.md), and [original Chinese baseline](handoffs/2026-11-14-wenhan-baseline_zh.md).
+
+## Current deck: revision 03
+
+[Revision 03](../Presentation/2026-11-23/revision_03/presentation.pdf) has thirteen main slides and five backups: Wenhan presents slides 1–7, Yifan 8–13. It was built on November 22 from Yifan's [slide revision notes](../Presentation/2026-11-23/revision_03/SLIDE_REVISION_NOTES.md). No number changed and nothing was re-estimated. The conclusion now uses the cost check: the log-price model gives non-negative implied costs for 93% to 98% of packages, so its merger range (Kimberly-Clark +1% to +11%) is reported first. Wenhan's agreement to the split and to that conclusion, and a timed rehearsal, are still outstanding. The work is committed locally and not pushed. The section below describes revision 02 and is kept as the record of that round.
 
 ## Presentation delivery
 

@@ -1,0 +1,11 @@
+{
+  "observations": 259986,
+  "store_weeks": 7996,
+  "stores": 83,
+  "upcs": 50,
+  "median_products": 32.0,
+  "median_price": 1.15,
+  "single_roll_package_percent": 37.66414519024949,
+  "median_outside_percent": 86.74092311009535,
+  "retained_package_percent": 94.31277256579668
+}

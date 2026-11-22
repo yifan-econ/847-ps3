@@ -4,7 +4,7 @@ Wenhan and Yifan's collaborative demand-estimation project using Dominick's toil
 
 ## Start here
 
-**Current priority:** the November 23 classroom presentation. The [revised Beamer draft](Presentation/2026-11-23/revision_02/README.md) includes the PDF, editable source, estimates, figures, fresh previews and speaker notes. Diagnosis is frozen; collaborator review and an early timed rehearsal are next. See [WORKPLAN](docs/WORKPLAN.md) for owners and dates.
+**Current priority:** the November 23 classroom presentation. The current deck is [revision 03](Presentation/2026-11-23/revision_03/README.md): PDF, editable source, tables, figures, previews and speaker notes. [Revision 02](Presentation/2026-11-23/revision_02/README.md) is preserved. Diagnosis is frozen; presenter agreement and a timed rehearsal are next. See [WORKPLAN](docs/WORKPLAN.md).
 
 1. Start with the [collaboration hub](docs/README.md) and [current project status](docs/STATUS.md).
 2. Read the [latest handoff](docs/handoffs/README.md) and [Wenhan's Chinese research baseline](docs/handoffs/2026-11-14-wenhan-baseline_zh.md).

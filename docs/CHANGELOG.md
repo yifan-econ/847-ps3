@@ -1,5 +1,9 @@
 # Collaboration changelog
 
+## 2026-11-22
+
+- DELIV-001 revision 03 (Yifan / Claude): built a thirteen-slide deck with five backups in `Presentation/2026-11-23/revision_03/` from Yifan's slide revision notes. Nested logit gets two slides; the supply, cost, merger and conclusion slides are rewritten; wording is plain and figures are redrawn at slide size. No number changed; no estimation or price solve ran. Revision 02 and the first draft are untouched. See the [handoff](handoffs/2026-11-22-yifan-slide-revision-03.md) and [validation](validation/2026-11-22-slide-revision-03.md).
+
 ## 2026-11-15
 
 - DELIV-001 revision: incorporated Fable's presentation feedback, adding demand/first-stage estimates, pack-size elasticities, a worked cost example, calendar dates, price-variation summary and backup slides. Fifteen main slides target 25.5 minutes; rough rehearsal moved to November 19 and speaking split proposed around each collaborator's work. All historical research and the first draft preserved. User authorized a local commit of accumulated work; user will push. [Handoff](handoffs/2026-11-15-yifan-presentation-revision.md), [validation](validation/2026-11-15-presentation-revision.md).

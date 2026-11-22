@@ -1,6 +1,6 @@
 # Workplan
 
-Updated 2026-11-15: the presentation is due November 23. Yifan selected Codex to build LaTeX/Beamer slides. Presentation production and rehearsal are the active priority; the cost diagnosis and review thread are closed.
+Updated 2026-11-22: the presentation is November 23. [Revision 03](../Presentation/2026-11-23/revision_03/README.md) is the current deck: thirteen main slides, five backups, Wenhan slides 1–7 and Yifan slides 8–13. It was built by Yifan / Claude from Yifan's slide revision notes with no number changed and no estimation. What is left before the talk: Wenhan agrees to the split and to the new conclusion slide, and both presenters rehearse once with a timer. The conclusion uses non-negative implied cost as a model check and reports the log-price range first; this replaces the earlier "do not select log price because its cost signs are better" wording for the talk. The sections below describe the revision 02 round and the closed diagnosis and are kept as records. [Handoff](handoffs/2026-11-22-yifan-slide-revision-03.md), [validation](validation/2026-11-22-slide-revision-03.md).
 
 ## Active deliverable: the classroom presentation
 
