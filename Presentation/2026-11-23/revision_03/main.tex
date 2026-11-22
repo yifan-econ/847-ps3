@@ -9,7 +9,7 @@
 \setbeamerfont{frametitle}{series=\bfseries,size=\large}
 \setbeamertemplate{navigation symbols}{}
 \newcommand{\slidelabel}{\insertframenumber}
-\setbeamertemplate{footline}{\hbox to \paperwidth{\hfill\scriptsize ECON 847\quad Yifan and Wenhan\quad\slidelabel\hspace{5mm}}\vskip3mm}
+\setbeamertemplate{footline}{\hbox to \paperwidth{\hfill\scriptsize\slidelabel\hspace{5mm}}\vskip3mm}
 \setbeamersize{text margin left=8mm,text margin right=8mm}
 \newcommand{\captiontext}[1]{\par\medskip{\footnotesize\raggedright #1\par}}
 \newcommand{\KC}{Kimberly-Clark}
@@ -20,7 +20,7 @@
 \begin{frame}[plain]
 \vspace{12mm}{\LARGE\bfseries What would a Scott--\KC\ merger\\[2mm]do to bathroom tissue prices?}\par
 \vspace{8mm}{\large Dominick's scanner data, 1991--1992}\par
-\vspace{9mm}Yifan and Wenhan\par ECON 847\quad November 23, 2026
+\vspace{9mm}Yifan and Wenhan
 \end{frame}
 
 % ---------------------------------------------------------------- 2 (Wenhan)
@@ -47,13 +47,13 @@
 \end{frame}
 
 % ---------------------------------------------------------------- 4 (Wenhan)
-\begin{frame}{Within a store and UPC, prices move through temporary price cuts}
+\begin{frame}{Within a store and UPC, prices move through price cuts and regular-price changes}
 \begin{columns}[T,onlytextwidth]
 \column{.59\textwidth}\includegraphics[width=\linewidth]{figures/promotions.pdf}
 \column{.38\textwidth}\small
 \textbf{98.1\%} of price variance is across store--UPC averages. Most of that is pack size: a 12-pack costs more than a single roll. Differences between stores are 0.2\%.\par\medskip
 \textbf{1.9\%} is within a store and UPC over time.\par\medskip
-After fixed effects, the price coefficient is identified from these week-to-week price changes within a store and UPC. They are mostly temporary price cuts.
+After store--UPC effects, week effects and the deal dummy, 1.3\% remains. This is the variation behind the price coefficient. About 40\% of it comes from weeks with a price cut of more than 5\%. The rest is movement in the regular price.
 \end{columns}
 \end{frame}
 
@@ -101,8 +101,8 @@ Log / other zone & 1.022 & .018 & .788 & 3,246\\\bottomrule
 \end{tabular}
 \end{columns}
 \medskip\footnotesize
-\textbf{AAC:} the wholesale cost moves the retail price and is unrelated to this week's demand shock in this store.\par\smallskip
-\textbf{Other-zone price:} the same UPC's price in Dominick's other pricing zones moves with common costs and is unrelated to this store's demand shock.\par\smallskip
+\textbf{AAC.} We assume the wholesale cost moves the retail price and is unrelated to this week's demand shock in this store.\par\smallskip
+\textbf{Other-zone price.} We assume the same UPC's price in Dominick's other pricing zones moves with common costs and is unrelated to this store's demand shock.\par\smallskip
 \textbf{Weakness of both:} promotions are planned by the chain and funded by manufacturers, so they move the instrument and demand together.
 \captiontext{$\hat\pi$: coefficient on the instrument. The instrument is in logs when price is in logs.}
 \end{frame}
@@ -137,7 +137,7 @@ Six or more rolls & \$2.85 & $-5.77$ & $-5.37$\\\bottomrule
 \begin{itemize}\setlength\itemsep{2.2mm}
 \item One nest holds all tissue products. The outside option is alone in its own nest.
 \item $\rho=0$ is the plain logit. As $\rho$ rises, a buyer who leaves one tissue product is more likely to pick another tissue product and less likely to buy nothing.
-\item $\rho$ is not estimated. $\log(s_{jt}/S_t)$ is endogenous, so estimating $\rho$ needs a second instrument that moves a product's share of tissue sales without moving its demand shock. Both our instruments move the product's own price. Neither moves its share of tissue sales separately.
+\item $\rho$ is not estimated. $\log(s_{jt}/S_t)$ is endogenous, so estimating $\rho$ needs a second instrument that moves a product's share of tissue sales without moving its demand shock. Each regression uses one instrument, and both of ours are shifters of the product's own price.
 \item We set $\rho$ to 0, 0.25, 0.5 and 0.75, and estimate $\beta$ at each value.
 \end{itemize}
 \captiontext{$\rho$ here is $1-\lambda$ in the lecture's notation.}
@@ -157,7 +157,7 @@ $\rho$ & $\hat\beta$ (SE) & Own & Category & $\hat\beta$ (SE) & Own & Category &
 \end{tabular}\end{center}
 \small
 \begin{itemize}\setlength\itemsep{2.5mm}
-\item The data fix the own-price elasticity for every $\rho$: about $-2.3$ with price in dollars and $-5.4$ with log price. $\rho$ decides how the lost buyers split between other tissue and the outside option.
+\item The own-price elasticity barely moves with $\rho$: about $-2.3$ with price in dollars and $-5.4$ to $-5.6$ with log price. The price coefficient shrinks to keep it there. $\rho$ decides how the lost buyers split between other tissue and the outside option.
 \item Diversion is the share of buyers leaving a \KC\ product who switch to a Scott product. It is what the merger internalizes. It depends only on shares and $\rho$.
 \end{itemize}
 \captiontext{AAC instrument. Own and Category are median own-price and category elasticities.}
@@ -167,17 +167,17 @@ $\rho$ & $\hat\beta$ (SE) & Own & Category & $\hat\beta$ (SE) & Own & Category &
 \begin{frame}{Manufacturers price all their products; cost is wholesale price minus markup}
 \small
 \[
-p=c-(\Omega\odot D)^{-1}s
+w=c-(\Omega\odot D)^{-1}s
 \qquad\Longrightarrow\qquad
 \text{markup }\mu=-(\Omega\odot D)^{-1}s .
 \]
-$p$ is the wholesale price.\par\smallskip
+$w$: wholesale price. Retail price $p=w+m$, where $m$ is the retailer's fixed dollar margin per package.\par\smallskip
 $\Omega$: 1 when two products have the same owner. $D$: derivatives of shares with respect to prices.\par\smallskip
 Plain logit with price in dollars: $\displaystyle\mu_f=\frac{1}{|\beta|\,(1-S_f)}$, where $S_f$ is the firm's total market share.
 \begin{itemize}\setlength\itemsep{2mm}
-\item Retail price = wholesale price + the retailer's margin. The retailer's margin is a fixed dollar amount per package.
-\item AAC is our measure of the wholesale price. \textbf{Implied manufacturer cost = AAC $-$ $\mu$.}
+\item AAC is our measure of $w$. \textbf{Implied manufacturer cost $c$ = AAC $-$ $\mu$.}
 \item Marginal cost is constant in quantity. We do not estimate a cost function. Cost is the residual, one number per product, store and week.
+\item The simulation holds $c$ and $m$ fixed, which is the same as holding $p-\mu$ fixed.
 \item The merger changes $\Omega$ and nothing else.
 \end{itemize}
 \end{frame}
@@ -185,7 +185,7 @@ Plain logit with price in dollars: $\displaystyle\mu_f=\frac{1}{|\beta|\,(1-S_f)
 % ---------------------------------------------------------------- 11 (Yifan)
 \begin{frame}{For a Scott single roll, the implied markup is larger than the wholesale price}
 \small
-With price in dollars, the logit gives every product nearly the same dollar markup: about $1/|\beta|=\$0.49$. A 52-cent roll with a 48-cent wholesale price cannot carry a 49-cent markup, so its implied cost is below zero. With log price, the markup is the same percentage of price for every product, about 19\%, so the problem goes away.\par
+With price in dollars, the logit gives every product nearly the same dollar markup: about $1/|\beta|=\$0.49$. A 52-cent roll with a 48-cent wholesale price cannot carry a 49-cent markup, so its implied cost is below zero. With log price, the markup is the same percentage of price for every product, about 19\%, so the problem mostly goes away: 5\% to 16\% of Scott single rolls still have a negative implied cost.\par
 \medskip
 \begin{columns}[c,onlytextwidth]
 \column{.46\textwidth}\small
@@ -211,7 +211,7 @@ Implied cost & $-\$0.10$ to $-\$0.54$\\\bottomrule
 \textbf{Re-solved:} prices of the six manufacturers' products, and all shares.\par\medskip
 \textbf{Held fixed:} marginal costs, non-price utility (fixed effects, deal flags, demand shocks), market size, the product set, the retailer's dollar margin, private-label prices.\par\medskip
 \textbf{Algorithm:} start from observed prices and repeat
-$p\leftarrow\tfrac12\,p+\tfrac12\,\bigl(c+\mu(p)\bigr)$
+$p\leftarrow\tfrac12\,p+\tfrac12\,\bigl(c+m+\mu(p)\bigr)$
 until prices stop moving.
 \column{.58\textwidth}\centering
 \includegraphics[width=\linewidth]{figures/price_sensitivity.pdf}
@@ -224,8 +224,8 @@ until prices stop moving.
 % ---------------------------------------------------------------- 13 (Yifan)
 \begin{frame}{What we conclude}
 \begin{itemize}\setlength\itemsep{4mm}
-\item The merger raises prices. \KC's prices rise most. Category prices rise little, because \KC\ sells 5\% of packages.
-\item The log-price model gives sensible costs: implied cost is non-negative for 93\% to 98\% of packages. In it the merger raises \KC\ prices by \textbf{1\% to 11\%} and category prices by \textbf{0.2\% to 1.7\%}, depending on $\rho$.
+\item The merger raises prices. \KC's prices rise most. Category prices rise little, because \KC\ sells 5\% of packages and Scott's own prices rise by less than 5\%.
+\item The log-price model gives sensible costs: implied cost is non-negative for 93\% to 98\% of the manufacturers' packages. In it the merger raises \KC\ prices by \textbf{1\% to 11\%} and category prices by \textbf{0.2\% to 1.7\%}, depending on $\rho$ and the instrument.
 \item The dollar-price model predicts larger effects, and those come from markups that are too large to be real.
 \item The range that remains comes from $\rho$. Estimating it needs a second instrument.
 \end{itemize}

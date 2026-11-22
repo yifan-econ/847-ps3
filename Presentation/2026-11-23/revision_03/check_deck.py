@@ -8,11 +8,14 @@ import hashlib
 import json
 import re
 import subprocess
+import numpy as np
 import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 T = HERE / 'tables'
+RUN = ROOT / 'Analysis/calibrated_merger_v5/runs/2026-11-15_16cell_01'
+inputs = pd.read_csv(RUN / 'product_inputs.csv.gz')
 tex = (HERE / 'main.tex').read_text(encoding='utf-8')
 log = (HERE / 'build/main.log').read_text(errors='replace')
 
@@ -41,6 +44,42 @@ need(f"{v['between_store_upc_percent']:.1f}\\%")
 need(f"{v['within_store_upc_over_time_percent']:.1f}\\%")
 need(f"{v['between_store_percent']:.1f}\\%")
 assert v['between_pack_size_percent'] > 50  # "most of that is pack size"
+
+# Slide 4: the price variance left after store-UPC effects, week effects and the deal dummy, and the
+# part of it in rows priced more than 5% below the store-UPC modal price. Descriptive; nothing is fitted.
+price = inputs.price_pack.to_numpy(float)
+store_upc = pd.factorize(pd.MultiIndex.from_frame(inputs[['store', 'upc']]))[0]
+week = pd.factorize(inputs.week)[0]
+
+
+def absorb(x):
+    """Remove store-UPC and week means by alternating projections."""
+    x = x - x.mean()
+    for _ in range(500):
+        start = x
+        x = x - (np.bincount(store_upc, weights=x) / np.bincount(store_upc))[store_upc]
+        x = x - (np.bincount(week, weights=x) / np.bincount(week))[week]
+        if np.abs(x - start).max() < 1e-12:
+            return x
+    raise RuntimeError('fixed effects did not converge')
+
+
+total_ss = ((price - price.mean()) ** 2).sum()
+within = price - (np.bincount(store_upc, weights=price) / np.bincount(store_upc))[store_upc]
+price_fe, deal_fe = absorb(price), absorb(inputs.deal.to_numpy(float))
+residual = price_fe - deal_fe * (deal_fe @ price_fe) / (deal_fe @ deal_fe)
+modal = inputs.groupby(['store', 'upc']).price_pack.transform(lambda z: z.value_counts().sort_index().idxmax()).to_numpy()
+cut = price < 0.95 * modal - 1e-10
+slide4 = dict(residual_percent_of_price_variance=100 * (residual ** 2).sum() / total_ss,
+              price_cut_percent_of_residual=100 * (residual[cut] ** 2).sum() / (residual ** 2).sum(),
+              price_cut_percent_of_within_store_upc=100 * (within[cut] ** 2).sum() / (within ** 2).sum(),
+              price_cut_rows=int(cut.sum()))
+assert f"{slide4['residual_percent_of_price_variance']:.2f}" == '1.26'
+assert f"{slide4['price_cut_percent_of_residual']:.1f}" in ('42.5', '42.6')  # 42.55
+assert f"{slide4['price_cut_percent_of_within_store_upc']:.1f}" == '40.4'
+assert round(slide4['price_cut_percent_of_residual'], -1) == 40
+need(f"{slide4['residual_percent_of_price_variance']:.1f}\\% remains")
+need('About 40\\% of it comes from weeks with a price cut of more than 5\\%')
 
 # Slide 6: first stage.
 for z in pd.read_csv(T / 'first_stage.csv').itertuples():
@@ -75,6 +114,13 @@ assert [round(x, 1) for x in rng(log_rows['all'])] == [0.2, 1.7]
 assert [round(x, 1) for x in rng(p['Scott'])] == [0.3, 4.8]
 c = pd.read_csv(T / 'cost_check.csv')
 assert [round(x) for x in rng(c[c.model.str.startswith('log')].nonnegative_cost_percent_all_packages)] == [93, 98]
+assert [round(x) for x in rng(c[c.model.str.startswith('log')].negative_cost_percent_scott_single)] == [5, 16]
+need('5\\% to 16\\% of Scott single rolls')
+assert p['Scott'].max() < 5
+need("Scott's own prices rise by less than 5\\%")
+log_own = n[n.form.eq('log')].median_own_elasticity
+assert [f'{x:.1f}' for x in (log_own.max(), log_own.min())] == ['-5.4', '-5.6']
+need('$-5.4$ to $-5.6$ with log price')
 for text in ['0.2--3.4\\%', '1--24\\%', '1--11\\%', '+1\\% to +11\\%', '+2\\% to +24\\%', '+0.3\\% to +4.8\\%', '+0.2\\% to +3.4\\%',
              '93\\% to 98\\%', '1\\% to 11\\%', '0.2\\% to 1.7\\%']:
     need(text)
@@ -88,9 +134,6 @@ need('about 19\\%')
 
 # Slide 11: the Scott white example, recomputed from the saved markups. Package-weighted means over
 # the store-weeks that solved in every scenario, price in dollars with the AAC instrument.
-import numpy as np
-RUN = ROOT / 'Analysis/calibrated_merger_v5/runs/2026-11-15_16cell_01'
-inputs = pd.read_csv(RUN / 'product_inputs.csv.gz')
 market = pd.factorize(inputs.market_id)[0]
 solved = np.logical_and.reduce([pd.read_csv(f).numerical_ok.to_numpy() for f in sorted((RUN / 'cells').glob('*/*_markets.csv.gz'))])
 rows = (inputs.upc.to_numpy() == 5400041500) & solved[market]
@@ -131,6 +174,7 @@ assert not outside, outside
 
 result = dict(pdf_pages=pages, main_slides=main_frames, backup_slides=backup_frames, layout_warnings=0,
               slide_numbers_match_saved_results=True, scott_white_example={k: round(float(x), 4) for k, x in scott_white.items()},
+              slide_4_price_variation={k: round(float(x), 2) for k, x in slide4.items()},
               protected_research_files=len(before), research_files_unchanged=True,
               tracked_files_outside_revision_03_and_docs_changed=0, estimation_or_solves=0, presenter_rehearsal=False,
               pdf_sha256=hashlib.sha256((HERE / 'presentation.pdf').read_bytes()).hexdigest())

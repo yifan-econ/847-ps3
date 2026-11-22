@@ -12,10 +12,16 @@
     "cost_rho0": -0.1038,
     "cost_rho75": -0.5351
   },
+  "slide_4_price_variation": {
+    "residual_percent_of_price_variance": 1.26,
+    "price_cut_percent_of_residual": 42.55,
+    "price_cut_percent_of_within_store_upc": 40.41,
+    "price_cut_rows": 60446.0
+  },
   "protected_research_files": 369,
   "research_files_unchanged": true,
   "tracked_files_outside_revision_03_and_docs_changed": 0,
   "estimation_or_solves": 0,
   "presenter_rehearsal": false,
-  "pdf_sha256": "b13c924c58b40e43e02cc6270094c5b245c19ad5f148b8edd27fd34b04ddbaa4"
+  "pdf_sha256": "441bedc3b1addda76e6079c31d0c44fcb75fa4ec5b0278ebeaf5364977214a6b"
 }

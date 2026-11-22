@@ -34,6 +34,32 @@ Three wording changes after Yifan's check of the deck, made on `main` at `38dec1
 
 The 369 research files are still byte-identical, and no estimation or price solve ran. `revision_02` has no differences from the commit. In the working copy, 21 of its text files now have LF line endings where they had CRLF before: Git rewrote them when the branch was checked out between the two rounds. Their content is the same.
 
+## Wording changes after the alignment review, same day
+
+Yifan accepted the facts in the [alignment review](2026-11-22-revision-03-alignment.md) and specified the wording. Made on `main` at `5c65a76`. No table or figure changed. The conclusion keeps its position that the log-price range is the one to believe, and no caveat footnotes were added.
+
+- Footer: only the slide number remains. The title slide no longer shows the course and date.
+- Slide 4: new title and last paragraph. Two new numbers: 1.3% of price variance remains after store–UPC effects, week effects and the deal dummy, and about 40% of that comes from weeks with a price cut of more than 5%.
+- Slide 6: both exclusion restrictions are stated as assumptions.
+- Slide 8: "Each regression uses one instrument, and both of ours are shifters of the product's own price."
+- Slide 9: the own-price elasticity "barely moves" with ρ, −5.4 to −5.6 with log price, and the coefficient shrinks to keep it there.
+- Slide 10: separate symbols, w for wholesale and p = w + m for retail; implied cost c = AAC − μ; the simulation holds c and m fixed.
+- Slide 11: with log price the problem "mostly goes away", with 5% to 16% of Scott single rolls still negative.
+- Slide 12: the algorithm is written in retail prices with the margin m. The sentence on which markets are kept overflowed the slide by 11pt, so it is in the speaker notes only.
+- Slide 13: Scott's own prices rise by less than 5%; the cost figure refers to the manufacturers' packages; the range depends on ρ and the instrument.
+- Speaker notes for slides 4, 8, 9, 10 and 12 match. Slide 13's "we believe its range" is unchanged.
+
+| Command or check | Outcome | Evidence |
+|---|---|---|
+| New slide 4 numbers, from `product_inputs.csv.gz` | 1.26% of total price variance is left after absorbing store–UPC and week effects and partialling out the deal dummy. 42.55% of that residual sum of squares is in the 60,446 rows priced more than 5% below the store–UPC modal price; 40.41% without the week effects and deal dummy | `check_deck.py`, `revision_03/validation.json` |
+| `latexmk` rebuild, same command | Exit 0; 18 pages; no layout warnings | `revision_03/build/main.log` (not tracked) |
+| `render_previews.py`, same command | 18 slide images and 3 contact sheets re-rendered; all 18 slides inspected | `revision_03/previews/` |
+| `check_deck.py`, same command | Passed, with new assertions for the slide 4 numbers, the 5% to 16% on slide 11, Scott's increase below 5%, and the −5.4 to −5.6 range | `revision_03/validation.json` |
+
+The 369 research files are still byte-identical, and no estimation or price solve ran.
+
+Backup B3 still writes the retailer's percentage share as m_j, while slide 10 now uses m for the dollar margin. It was outside the requested changes and is left as it is.
+
 ## Preservation
 
 No estimation and no price solve ran. `check_deck.py` re-hashed the 369 files under Analysis, Archive, Data and Paper: unchanged. `git status` shows changes only under `Presentation/2026-11-23/revision_03/`, `docs/` and the root README. All 71 files in `revision_02`, including its untracked build and rendered folders, match SHA-256 hashes taken before work began. The first-draft PDF hash is unchanged.

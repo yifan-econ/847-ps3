@@ -4,6 +4,7 @@ Each record states what ran, the machine/environment, exact commands, outcome, a
 
 | Date | Scope | Record |
 |---|---|---|
+| 2026-11-22 | Revision 03 alignment, source-data cross-checks and Windows safe check | [Alignment findings](2026-11-22-revision-03-alignment.md) |
 | 2026-11-22 | Revision 03 build, slide numbers against saved results, previews, preservation | [Presentation revision 03](2026-11-22-slide-revision-03.md) |
 | 2026-11-15 | Saved demand estimates, pack-size mechanism, revised Beamer/preview checks | [Presentation revision](2026-11-15-presentation-revision.md) |
 | 2026-11-15 | Beamer build, saved-data figures, visual review and preservation | [Presentation draft](2026-11-15-presentation-draft.md) |

@@ -1,18 +1,18 @@
 # Workplan
 
-Updated 2026-11-22: the presentation is November 23. [Revision 03](../Presentation/2026-11-23/revision_03/README.md) is the current deck: thirteen main slides, five backups, Wenhan slides 1–7 and Yifan slides 8–13. It was built by Yifan / Claude from Yifan's slide revision notes with no number changed and no estimation. What is left before the talk: Wenhan agrees to the split and to the new conclusion slide, and both presenters rehearse once with a timer. The conclusion uses non-negative implied cost as a model check and reports the log-price range first; this replaces the earlier "do not select log price because its cost signs are better" wording for the talk. The sections below describe the revision 02 round and the closed diagnosis and are kept as records. [Handoff](handoffs/2026-11-22-yifan-slide-revision-03.md), [validation](validation/2026-11-22-slide-revision-03.md).
+Updated 2026-11-22 for the November 23 presentation. [Revision 03](../Presentation/2026-11-23/revision_03/README.md) is the current deck, with thirteen main slides and five backups. The proposed split is Wenhan 1–7 and Yifan 8–13. The [alignment review](validation/2026-11-22-revision-03-alignment.md) verified the displayed results and identified wording corrections. See the [handoff](handoffs/2026-11-22-yifan-revision-03-alignment.md).
 
 ## Active deliverable: the classroom presentation
 
-**Owner: Codex for draft production and revisions.** The [revised Beamer draft](../Presentation/2026-11-23/revision_02/presentation.pdf), [editable source](../Presentation/2026-11-23/revision_02/main.tex), and [storyboard/speaker notes](../Presentation/2026-11-23/revision_02/SPEAKER_NOTES.md) incorporate Fable's presentation review: fifteen main slides targeting 25.5 minutes plus three backups. Demand/first-stage estimates, pack-size elasticities and a worked cost example now connect the argument. Fresh preview sheets accompany the final PDF; the first draft is preserved. Yifan and Wenhan's review, speaking split and actual rehearsal remain pending.
+**Owner: Codex for the alignment review.** The [current PDF](../Presentation/2026-11-23/revision_03/presentation.pdf), [editable source](../Presentation/2026-11-23/revision_03/main.tex) and [speaker notes](../Presentation/2026-11-23/revision_03/SPEAKER_NOTES.md) reflect Yifan's November 22 revision. The notes budget 26 minutes of remarks plus four minutes for questions. Presenter agreement and timed rehearsal remain pending.
 
 The assignment requires the counterfactual, industry setting, assumptions, estimator, identification and interpretation. The existing analysis supports all six. Negative costs are a substantive result about the challenges of static counterfactuals, not a prerequisite to fix before presenting. A single preferred merger estimate is unnecessary for this conditional exercise.
 
-**Presentation choices:** use the four simple-logit demand estimates and the dollar-margin price table, including Scott, in the main talk. Move percentage margins, mixed logit and welfare to backups; show nesting separately as sensitivity. Connect large predicted price effects with the same specifications' cost failures. Explain the linear-price pack-size mechanism and the extreme package/trip episode. Calendar dates, clean labels and readable captions replace internal jargon. Nesting has the largest matched effect over the tested grid; this is presentation of maintained scenarios, not model selection.
+**Presentation choices:** explain the price-form and nesting sensitivities, with percentage margins, mixed logit and welfare in backup. Report the log-price range first as a conditional scenario range and give the full-input cost magnitudes alongside it. Distinguish the retail-price solver and its calibrated costs from the AAC-based manufacturer-cost check. The [review](validation/2026-11-22-revision-03-alignment.md) records specific wording for slides 4–13 and the backups.
 
 **Freeze:** no further cost-review rounds, diagnosis tables, estimator runs or solver retries. Existing qualifications are carried into the talk without reopening the diagnosis. Aggregation is not on the delivery critical path; consider it only after a reviewed full draft and rehearsal, with explicit scope and time. Recommendation for this deadline: omit the extra estimation.
 
-**Sharing:** Yifan authorized a local commit of the accumulated diagnosis/review work and revised presentation, and will push it himself. These changes are included in the delivery commit on `codex/deliv-001-beamer`, whose base is `d5fcf7c9b0c9cc44cdf382f634904e2082618669`. No push by Codex; origin/main was refreshed and remains at that base. Wenhan has made no intervening changes, per Yifan.
+**Sharing:** the reviewed deck is committed on `main` at `5c65a76`. The local `origin/main` reference matches. This review's documentation is uncommitted and local.
 
 ## Fable feedback reconciliation: complete
 
@@ -97,21 +97,17 @@ Ownership records accepted work only. Complete below refers to the bounded deliv
 | RES-004 | Corrected catalog, period ownership and retailer rules | Yifan / Codex | Complete for prototype | Six portfolios and explicit fixed fringe; non-anchor brands grouped by prefix remain a maintained mapping limitation |
 | RES-005 | Decide how to report the bounded matrix | Yifan / Codex | Complete for this round | Report all scenarios and coverage; no final causal model selected and no p-value/cost-screen selection |
 | CF-001 | Conditional merger prototype and diagnostics | Yifan / Codex | Complete | Baseline/two-start/FOC/local-curvature checks, cost screens, price changes and linear welfare; credible final policy interpretation remains unresolved |
-| DELIV-001 | 30-minute presentation due November 23 | Codex: draft/revisions; collaborator review and speaking roles proposed | Fable revision built; human review/rehearsal pending | Fifteen main slides, three backups, 25.5-minute remarks target; [current draft](../Presentation/2026-11-23/revision_02/README.md) |
+| DELIV-001 | 30-minute presentation due November 23 | Yifan / Codex for alignment review; speaking roles proposed | Revision 03 checked and wording revised; presenter agreement and rehearsal pending | [Current deck](../Presentation/2026-11-23/revision_03/README.md) and [alignment review](validation/2026-11-22-revision-03-alignment.md) |
 
 ## Next work, in order
 
 | Task | Owner / proposed owner | Target | Remaining effort | Acceptance condition |
 |---|---|---|---|---|
-| Storyboard, saved-data figures, industry/assumptions slides and first Beamer build | Codex | November 15 | Complete | All six required parts mapped; editable source/PDF and notes available |
-| Review the narrative, industry context and main results display | Yifan and Wenhan, proposed | By November 18 | About an hour each | One consolidated set of edits; confirm rho-zero anchor and rho sensitivity |
-| Revise slides, sources and speaker transitions | Codex | By November 20 after feedback | Two to three hours | Revised PDF compiles; figures match saved data; slides remain readable |
-| Confirm speaking split and do a rough timed run | Yifan and Wenhan, proposed | By November 19 | About an hour together | Record actual times early enough to cut material; proposed split is Wenhan slides 1–9, Yifan 10–15 |
-| Trim overlong sections and check the classroom/display copy | Codex revisions; presenters final check, proposed | November 22 | About an hour | Final PDF and editable source ready for November 23 |
-| Push the authorized local delivery commit | Yifan | Before collaborator review | Short Git operation | Wenhan can fetch the branch; Codex does not push |
+| Resolve the audit's wording findings, prioritizing slides 10–13 | Yifan / Claude | Done November 22 | Complete | Yifan's wording applied to slides 4, 6 and 8–13; see the [validation record](validation/2026-11-22-slide-revision-03.md) |
+| Confirm the split and rehearse | Yifan and Wenhan, proposed | Before November 23 | One timed run | Record actual speaking times and confirm the 30-minute format |
 
 The dates are proposed working targets except the user-confirmed November 23 deadline. Do not use remaining time for another diagnosis round. Optional aggregation is deferred unless the full draft and rehearsal leave time and Yifan chooses a bounded new question. Native Mac runtime verification is separate from producing and reading the portable PDF.
 
 The broader identification concerns from the [original Chinese baseline](handoffs/2026-11-14-wenhan-baseline_zh.md) and review remain. Five of six saved v4 joint tests reject; that does not identify lognormal income as the cause. A single excluded IV cannot jointly estimate price and within-nest share coefficients. The fixed-rho design addresses that rank problem by conditioning on rho, not by identifying it.
 
-RUN-001, DIAG-001, REVIEW-004 and REVIEW-005 are complete and the diagnosis is frozen. DELIV-001 has a revised full draft, with human review and rehearsal outstanding. The user-authorized local delivery commit includes accumulated diagnosis, feedback review and both presentation drafts on codex/deliv-001-beamer; Yifan will push. See the [revision handoff](handoffs/2026-11-15-yifan-presentation-revision.md). Historical records retain their original as-of-run sharing statements.
+RUN-001, DIAG-001, REVIEW-004 and REVIEW-005 are complete and the diagnosis is frozen. The November 15 [revision handoff](handoffs/2026-11-15-yifan-presentation-revision.md) preserves the earlier presentation and sharing plan.

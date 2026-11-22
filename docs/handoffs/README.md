@@ -4,6 +4,7 @@ Read newest first. Add one file per meaningful work round; do not rewrite the or
 
 | Date | Collaborator / scope | Handoff |
 |---|---|---|
+| 2026-11-22 | Yifan / Codex: revision 03 compared with code, saved results and the assignment | [Alignment review](2026-11-22-yifan-revision-03-alignment.md) |
 | 2026-11-22 | Yifan / Claude: thirteen-slide deck from the November 22 revision notes | [Presentation revision 03](2026-11-22-yifan-slide-revision-03.md) |
 | 2026-11-15 | Yifan / Codex: Fable slide revision and authorized local delivery commit | [Presentation revision](2026-11-15-yifan-presentation-revision.md) |
 | 2026-11-15 | Yifan / Codex: first Beamer draft and presentation delivery plan | [Presentation draft](2026-11-15-yifan-presentation-draft.md) |
