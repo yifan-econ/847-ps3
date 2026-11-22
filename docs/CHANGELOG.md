@@ -3,6 +3,7 @@
 ## 2026-11-22
 
 - DELIV-001 revision 03 (Yifan / Claude): built a thirteen-slide deck with five backups in `Presentation/2026-11-23/revision_03/` from Yifan's slide revision notes. Nested logit gets two slides; the supply, cost, merger and conclusion slides are rewritten; wording is plain and figures are redrawn at slide size. No number changed; no estimation or price solve ran. Revision 02 and the first draft are untouched. See the [handoff](handoffs/2026-11-22-yifan-slide-revision-03.md) and [validation](validation/2026-11-22-slide-revision-03.md).
+- DELIV-001 revision 03 wording follow-up (Yifan / Claude): slide 10 now says cost is wholesale price minus markup and that p is the wholesale price; slide 8 says both instruments move the own price and neither moves the share of tissue sales separately; backup B1 says "32 UPCs sold". Speaker notes match. `check_deck.py` now recomputes the Scott white example from the saved markups. PDF rebuilt with no layout warnings, previews re-rendered. No number changed.
 
 ## 2026-11-15
 

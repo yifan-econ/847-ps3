@@ -86,6 +86,28 @@ assert f'{1 / abs(beta_dollar):.2f}' == '0.49' and f'{100 / abs(beta_log):.0f}' 
 need('1/|\\beta|=\\$0.49')
 need('about 19\\%')
 
+# Slide 11: the Scott white example, recomputed from the saved markups. Package-weighted means over
+# the store-weeks that solved in every scenario, price in dollars with the AAC instrument.
+import numpy as np
+RUN = ROOT / 'Analysis/calibrated_merger_v5/runs/2026-11-15_16cell_01'
+inputs = pd.read_csv(RUN / 'product_inputs.csv.gz')
+market = pd.factorize(inputs.market_id)[0]
+solved = np.logical_and.reduce([pd.read_csv(f).numerical_ok.to_numpy() for f in sorted((RUN / 'cells').glob('*/*_markets.csv.gz'))])
+rows = (inputs.upc.to_numpy() == 5400041500) & solved[market]
+weight = inputs.move.to_numpy(float)[rows]
+price = np.average(inputs.price_pack.to_numpy()[rows], weights=weight)
+aac = np.average(inputs.aac_pack.to_numpy()[rows], weights=weight)
+markup = {}
+for tag in ['rho00', 'rho75']:
+    with np.load(RUN / 'cells' / f'linear__aac__{tag}' / 'dollar_simulation.npz') as z:
+        markup[tag] = np.average(z['markup'][rows], weights=weight)
+scott_white = dict(price=price, aac=aac, markup_rho0=markup['rho00'], markup_rho75=markup['rho75'],
+                   cost_rho0=aac - markup['rho00'], cost_rho75=aac - markup['rho75'])
+shown = dict(price=0.52, aac=0.48, markup_rho0=0.58, markup_rho75=1.01, cost_rho0=-0.10, cost_rho75=-0.54)
+assert all(round(scott_white[k], 2) == v for k, v in shown.items()), scott_white
+for text in ['Retail price & \\$0.52', 'Wholesale price (AAC) & \\$0.48', '$\\rho=0$ & \\$0.58', '$\\rho=0.75$ & \\$1.01', '$-\\$0.10$ to $-\\$0.54$']:
+    need(text)
+
 # Backups: retailer rule, store 124, consumer surplus.
 both = pd.read_csv(T / 'merger_price_effects.csv')
 for cell in ['linear__aac__rho00', 'linear__other_zone__rho00', 'log__aac__rho00', 'log__other_zone__rho00']:
@@ -108,7 +130,8 @@ outside = [x for x in status if not x[3:].startswith(('Presentation/2026-11-23/r
 assert not outside, outside
 
 result = dict(pdf_pages=pages, main_slides=main_frames, backup_slides=backup_frames, layout_warnings=0,
-              slide_numbers_match_saved_results=True, protected_research_files=len(before), research_files_unchanged=True,
+              slide_numbers_match_saved_results=True, scott_white_example={k: round(float(x), 4) for k, x in scott_white.items()},
+              protected_research_files=len(before), research_files_unchanged=True,
               tracked_files_outside_revision_03_and_docs_changed=0, estimation_or_solves=0, presenter_rehearsal=False,
               pdf_sha256=hashlib.sha256((HERE / 'presentation.pdf').read_bytes()).hexdigest())
 (HERE / 'validation.json').write_text(json.dumps(result, indent=2))

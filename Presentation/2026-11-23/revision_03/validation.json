@@ -4,10 +4,18 @@
   "backup_slides": 5,
   "layout_warnings": 0,
   "slide_numbers_match_saved_results": true,
+  "scott_white_example": {
+    "price": 0.5248,
+    "aac": 0.4783,
+    "markup_rho0": 0.5821,
+    "markup_rho75": 1.0134,
+    "cost_rho0": -0.1038,
+    "cost_rho75": -0.5351
+  },
   "protected_research_files": 369,
   "research_files_unchanged": true,
   "tracked_files_outside_revision_03_and_docs_changed": 0,
   "estimation_or_solves": 0,
   "presenter_rehearsal": false,
-  "pdf_sha256": "84df65fd7d4aff8974b7a089073d9f2abeda9695a849174ec177807addc57add"
+  "pdf_sha256": "b13c924c58b40e43e02cc6270094c5b245c19ad5f148b8edd27fd34b04ddbaa4"
 }
