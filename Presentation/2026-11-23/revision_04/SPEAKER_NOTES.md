@@ -1,6 +1,6 @@
 # Speaker notes, version 4
 
-Fourteen slides, no backups. Wenhan presents slides 1–8 from his own file; these notes cover Yifan's slides 9–14 (slides 8–13 of revision 03, unchanged). About 13 minutes for Yifan's part. Nobody has rehearsed this version.
+A title page and fourteen slides, no backups. Slide numbers are the ones printed on the slides; the PDF page is one higher. Wenhan presents slides 1–8 from his own file; these notes cover Yifan's slides 9–14 (slides 8–13 of revision 03, unchanged). About 13 minutes for Yifan's part. Nobody has rehearsed this version.
 
 ## Say at the handover, before slide 9
 

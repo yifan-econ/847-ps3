@@ -1,10 +1,12 @@
 # Workplan
 
-Updated 2026-11-22 for the November 23 presentation. [Revision 03](../Presentation/2026-11-23/revision_03/README.md) is the current deck, with thirteen main slides and five backups. The proposed split is Wenhan 1–7 and Yifan 8–13. The [alignment review](validation/2026-11-22-revision-03-alignment.md) verified the displayed results and identified wording corrections. See the [handoff](handoffs/2026-11-22-yifan-revision-03-alignment.md).
+Updated 2026-11-23, the day of the presentation. [Version 4](../Presentation/2026-11-23/revision_04/README.md) is the current deck: the title page, Wenhan's own eight slides, then Yifan's six, no backups ([handoff](handoffs/2026-11-23-yifan-slide-version-04.md)). Yifan's six come from [revision 03](../Presentation/2026-11-23/revision_03/README.md), which had thirteen main slides and five backups and a proposed split of Wenhan 1–7 and Yifan 8–13. The [alignment review](validation/2026-11-22-revision-03-alignment.md) verified the displayed results and identified wording corrections. See the [handoff](handoffs/2026-11-22-yifan-revision-03-alignment.md).
 
 ## Active deliverable: the classroom presentation
 
-**Owner: Codex for the alignment review.** The [current PDF](../Presentation/2026-11-23/revision_03/presentation.pdf), [editable source](../Presentation/2026-11-23/revision_03/main.tex) and [speaker notes](../Presentation/2026-11-23/revision_03/SPEAKER_NOTES.md) reflect Yifan's November 22 revision. The notes budget 26 minutes of remarks plus four minutes for questions. Presenter agreement and timed rehearsal remain pending.
+**Version 4 (November 23):** [PDF](../Presentation/2026-11-23/revision_04/presentation.pdf), [source](../Presentation/2026-11-23/revision_04/main.tex) and [speaker notes for slides 9–14](../Presentation/2026-11-23/revision_04/SPEAKER_NOTES.md). Open: whether to define f(p) on slide 9, since slides 1–8 do not introduce log price; no rehearsal has taken place. The rest of this section describes revision 03.
+
+**Owner: Codex for the alignment review.** The [revision 03 PDF](../Presentation/2026-11-23/revision_03/presentation.pdf), [editable source](../Presentation/2026-11-23/revision_03/main.tex) and [speaker notes](../Presentation/2026-11-23/revision_03/SPEAKER_NOTES.md) reflect Yifan's November 22 revision. The notes budget 26 minutes of remarks plus four minutes for questions. Presenter agreement and timed rehearsal remain pending.
 
 The assignment requires the counterfactual, industry setting, assumptions, estimator, identification and interpretation. The existing analysis supports all six. Negative costs are a substantive result about the challenges of static counterfactuals, not a prerequisite to fix before presenting. A single preferred merger estimate is unnecessary for this conditional exercise.
 
@@ -97,7 +99,7 @@ Ownership records accepted work only. Complete below refers to the bounded deliv
 | RES-004 | Corrected catalog, period ownership and retailer rules | Yifan / Codex | Complete for prototype | Six portfolios and explicit fixed fringe; non-anchor brands grouped by prefix remain a maintained mapping limitation |
 | RES-005 | Decide how to report the bounded matrix | Yifan / Codex | Complete for this round | Report all scenarios and coverage; no final causal model selected and no p-value/cost-screen selection |
 | CF-001 | Conditional merger prototype and diagnostics | Yifan / Codex | Complete | Baseline/two-start/FOC/local-curvature checks, cost screens, price changes and linear welfare; credible final policy interpretation remains unresolved |
-| DELIV-001 | 30-minute presentation due November 23 | Yifan / Codex for alignment review; speaking roles proposed | Revision 03 checked and wording revised; presenter agreement and rehearsal pending | [Current deck](../Presentation/2026-11-23/revision_03/README.md) and [alignment review](validation/2026-11-22-revision-03-alignment.md) |
+| DELIV-001 | 30-minute presentation due November 23 | Yifan / Codex for alignment review; speaking roles proposed | Version 4 assembled from Wenhan's slides and revision 03; rehearsal pending | [Current deck](../Presentation/2026-11-23/revision_04/README.md), [revision 03](../Presentation/2026-11-23/revision_03/README.md) and [alignment review](validation/2026-11-22-revision-03-alignment.md) |
 
 ## Next work, in order
 

@@ -1,5 +1,7 @@
 {
-  "pages": 14,
+  "pages": 15,
+  "title_page_verbatim": true,
+  "percent_pixels_differing_from_revision_03_title_page": 0.008,
   "wenhan_frames_verbatim": true,
   "yifan_frames_verbatim": true,
   "layout_warnings": 0,
@@ -7,7 +9,7 @@
     0.0,
     0.0,
     0.0076,
-    0.0013,
+    0.0018,
     0.0004,
     0.0206,
     0.0058,
@@ -21,7 +23,7 @@
     0.0516,
     0.0355
   ],
-  "pdf_sha256": "b8f0c3405630456d1a62820389f7d5f03ec7d5f47a8ffe28a720db33d3459e64",
+  "pdf_sha256": "803de2c09858cc0bf4ed4ae5b02a2476394d1dd163bb2f80a466403521c0a1d3",
   "wenhan_tex_sha256": "15bf2562331b15f3c98efd151b11ca7e3fc01602829c7490afec9d7ab1a57539",
   "wenhan_pdf_sha256": "147a6d2cc22e59cf24f9692387f183459c1cf3e6b9b1c8e45d7bfec6ca585f49",
   "revision_03_pdf_sha256": "441bedc3b1addda76e6079c31d0c44fcb75fa4ec5b0278ebeaf5364977214a6b"

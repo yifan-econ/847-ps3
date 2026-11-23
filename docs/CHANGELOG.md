@@ -1,5 +1,9 @@
 # Collaboration changelog
 
+## 2026-11-23
+
+- DELIV-001 version 4 (Yifan / Claude): built a fourteen-slide deck in `Presentation/2026-11-23/revision_04/`. The title page is revision 03's, unnumbered. Slides 1–8 are Wenhan's file `Version-Wenhan/PS3_Wenhan_8slides.tex`, unchanged; slides 9–14 are Yifan's slides 8–13 of revision 03, unchanged; the backups are left out. No number changed; no estimation or price solve ran. `Version-Wenhan/` and `revision_03/` are untouched. Yifan committed the first build as `6c4d5ec`; the title page and these records were uncommitted when written. See the [handoff](handoffs/2026-11-23-yifan-slide-version-04.md) and [validation](validation/2026-11-23-slide-version-04.md).
+
 ## 2026-11-22
 
 - DELIV-001 alignment review (Yifan / Codex): compared revision 03 with the assignment, saved analysis and solver. Verified ten tables and five figure datasets, recorded wording corrections and passed the Windows safe check. [Handoff](handoffs/2026-11-22-yifan-revision-03-alignment.md) and [findings](validation/2026-11-22-revision-03-alignment.md).

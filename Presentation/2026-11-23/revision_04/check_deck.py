@@ -1,4 +1,4 @@
-"""Check that version 4 is Wenhan's eight slides followed by Yifan's six, and nothing else.
+"""Check that version 4 is the title page, Wenhan's eight slides and Yifan's six, and nothing else.
 
 Run from the repository root after the LaTeX build, with pdftoppm and pdfinfo (Poppler) on PATH:
     uv run --locked --offline --with matplotlib==3.10.8 python Presentation/2026-11-23/revision_04/check_deck.py
@@ -60,6 +60,13 @@ assert w_frames.count('\\begin{frame}') == 8
 assert w_preamble in main and w_frames in main
 assert main.index(w_preamble) < main.index(w_frames)
 
+# Source: the title page is revision 03's, kept out of the slide count so Wenhan's slides stay 1 to 8.
+t_start = rev03.index('\\begin{frame}[plain]')
+title = rev03[t_start:rev03.index('\\end{frame}', t_start) + len('\\end{frame}')]
+title = title.replace('[plain]', '[plain,noframenumbering]', 1)
+assert main.count(title) == 1
+assert main.index('\\begin{document}') < main.index(title) < main.index(w_frames)
+
 # Source: Yifan's frames 8 to 13 of revision 03 follow, unchanged apart from the numbers in the comment rules.
 rule = r'% -{64} \d+ \(Yifan\)\n'
 start = rev03.index('% ' + '-' * 64 + ' 8 (Yifan)')
@@ -69,9 +76,9 @@ after_wenhan = re.sub(rule, '', main[main.index(w_frames) + len(w_frames):])
 assert y_frames in after_wenhan
 assert after_wenhan.rstrip().endswith(y_frames + '\n\\end{document}')
 
-# No backups, fourteen frames, fourteen pages, clean log, delivered PDF is the build.
-assert main.count('\\begin{frame}') == 14 and '\\appendix' not in main and 'Backup' not in main
-assert pages(HERE / 'build/main.pdf') == 14
+# No backups, a title page and fourteen slides, fifteen pages, clean log, delivered PDF is the build.
+assert main.count('\\begin{frame}') == 15 and '\\appendix' not in main and 'Backup' not in main
+assert pages(HERE / 'build/main.pdf') == 15
 log = (HERE / 'build/main.log').read_text(encoding='latin-1')
 for warning in ('Overfull', 'Underfull', 'Missing character', 'undefined'):
     assert warning not in log, warning
@@ -90,8 +97,10 @@ assert len(his) == 8 and len(old) == 18
 height = new[0].shape[0]
 whole = slice(0, height)
 body = slice(0, int(height * 0.92))  # the footer differs on Yifan's slides: page number and its position
-wenhan_diff = [round(differing(new[i], his[i], whole), 4) for i in range(8)]
-yifan_diff = [round(differing(new[8 + i], old[7 + i], body), 4) for i in range(6)]
+title_diff = round(differing(new[0], old[0], whole), 4)
+wenhan_diff = [round(differing(new[1 + i], his[i], whole), 4) for i in range(8)]
+yifan_diff = [round(differing(new[9 + i], old[7 + i], body), 4) for i in range(6)]
+assert title_diff < 0.1, title_diff
 assert max(wenhan_diff) < 0.05, wenhan_diff
 # Text here is Wenhan's navy, slightly darker than revision 03's, so a few edge pixels cross the threshold.
 assert max(yifan_diff) < 0.1, yifan_diff
@@ -103,7 +112,9 @@ allowed = ('Presentation/2026-11-23/revision_04/', 'docs/', 'README.md')
 assert all(path.startswith(allowed) for path in changed), changed
 
 result = {
-    'pages': 14,
+    'pages': 15,
+    'title_page_verbatim': True,
+    'percent_pixels_differing_from_revision_03_title_page': title_diff,
     'wenhan_frames_verbatim': True,
     'yifan_frames_verbatim': True,
     'layout_warnings': 0,

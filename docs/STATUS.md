@@ -1,8 +1,12 @@
 # Current project status
 
-Updated 2026-11-22 after the [revision 03 alignment review](validation/2026-11-22-revision-03-alignment.md). The talk is November 23. See the [latest handoff](handoffs/2026-11-22-yifan-revision-03-alignment.md), [workplan](WORKPLAN.md), [current presentation](../Presentation/2026-11-23/revision_03/README.md), and [original Chinese baseline](handoffs/2026-11-14-wenhan-baseline_zh.md).
+Updated 2026-11-23, the day of the talk, for [version 4 of the deck](../Presentation/2026-11-23/revision_04/README.md). See the [latest handoff](handoffs/2026-11-23-yifan-slide-version-04.md), [workplan](WORKPLAN.md), and [original Chinese baseline](handoffs/2026-11-14-wenhan-baseline_zh.md).
 
-## Current deck: revision 03
+## Current deck: version 4
+
+[Version 4](../Presentation/2026-11-23/revision_04/presentation.pdf) has revision 03's title page, fourteen slides and no backups. Slides 1–8 are Wenhan's own file, unchanged; slides 9–14 are Yifan's slides 8–13 of revision 03, unchanged. The two halves come from different runs: Wenhan's from his v1–v3 outputs (8,508 store-weeks, price in dollars, other-store price), Yifan's from the v5 run (7,996 store-weeks, price in dollars and log price, other-zone price). The slides do not reconcile them, and slides 1–8 do not introduce log price; the [speaker notes](../Presentation/2026-11-23/revision_04/SPEAKER_NOTES.md) say what to cover at the handover. Nobody has rehearsed this version. The first build is commit `6c4d5ec`; the title page and the records of this round were uncommitted when this was written.
+
+## Revision 03, the source of slides 9–14
 
 [Revision 03](../Presentation/2026-11-23/revision_03/presentation.pdf) has thirteen main slides and five backups. The proposed split is Wenhan 1–7 and Yifan 8–13. The alignment review verified all ten tables and five figure datasets. The deck leads with the log-price range (Kimberly-Clark +1% to +11%) because those scenarios yield fewer negative implied manufacturer costs. The 93% to 98% cost-sign figure concerns active manufacturers' packages on full input with dollar margins and AAC as the wholesale proxy. The price effects use 7,960 common numerical markets and depend on both instrument and calibrated nesting. The simulation uses retail-equivalent costs, distinct from the AAC-based diagnostic. Yifan accepted the review's facts and set the wording; the slides and speaker notes were changed the same day (see the [validation record](validation/2026-11-22-slide-revision-03.md)). The conclusion still says the log-price range is the one we believe. Presenter agreement and timed rehearsal remain unverified. The reviewed deck is committed on `main` at `5c65a76`, which matches the local `origin/main` reference. The review documentation is local.
 
